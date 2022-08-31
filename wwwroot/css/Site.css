@@ -196,27 +196,32 @@ a {
    
 }
 
-.btnAnnonce {
+.btnAnnonce, .btnCard {
     background-color: #41c070;
     color: aliceblue;
     border-color: #41c070;
     filter: drop-shadow(3px 3px 3px #126e63);
 }
 
-    .btnAnnonce:hover {
+    .btnAnnonce:hover, .btnCard:hover {
         background-color: #F5914A;
         border-color: #F5914A;
-        filter: drop-shadow(3px 3px 3px #F5914A);
+        filter: drop-shadow(3px 3px 3px #B0774E);
     }
 
-.titreAnnonce{
-    margin-left:42%;
+.titreAnnonce {
+    margin-left: 42%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 /*************************  partie card debut   ************************************************/
 
 .titreAfficherAnnonce {
-    margin-left: 35%;
+    margin-left: 42%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    
 }
 .card-title, {
     font-weight: bold;
@@ -227,6 +232,13 @@ a {
     -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
     -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
 }
+
+.zoneCard{
+    display: flex;
+    justify-content: center;
+}
+
+
 
 
 
