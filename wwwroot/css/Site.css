@@ -1,0 +1,180 @@
+﻿body {
+    margin:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height:100%
+
+}
+
+header {
+    background-color: #F4F4F4;
+    height:75px;
+    margin : 0;
+    padding:0;
+}
+
+#logo {
+margin-top:4px;
+}
+
+#center {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-link,
+.navbar-brand {
+    color: blue;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+.nav-link:hover {
+        color: #000;
+    }
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.header-pic {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.header-pic svg {
+        width: 15px;
+    }
+
+.profil-image {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-top: 4px;
+    background-image: url("/Image/profil.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+    .fake-pic:hover {
+        cursor: crosshair;
+    }
+#bande {
+    width:100%
+}
+
+footer {
+background-color:#323A7C;
+width:100%;
+}
+
+.icone {
+    /*width: 100%;  or any custom size 
+    height: 100%;
+    object-fit: contain;*/
+    height:29px;
+}
+
+.text {
+    margin-top:10px;
+    color: #99e5f7;
+    font-size: 12px;
+}
+
+.icone .icone-info {
+    width: 50px;
+    height: 50px;
+    background:#4DC7E4;
+    border-radius:50%;
+    margin: 0 auto;
+    margin-bottom : 10px;
+}
+.icone-contact {
+    width: 45px;
+    height: 45px;
+    background-color:#4DC7E4;
+    border-radius: 50%;
+    margin-top: 4px;
+    background-image: url("/Image/icone-tel.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icone-contact span {
+font-size:24px;
+}
+.text {
+text-align : center;
+}
+
+.separation {
+    height: 2px;
+    width: 90%;
+    background-color: #4DC7E4;
+    padding: 5px 5%;
+}
+
+/*************************  CSS VALERY DEBUT    ************************************************/
+
+.date{
+    display:flex;
+    align-items: center;
+    
+}
+
+.du, .au {
+    margin-right: 10px;
+    padding-top: 15px;
+}
+.au {
+    margin-left: 10px;
+}
+
+.formAnnonce {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 4%;
+    width: 700px;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
+.labelAnnonce {
+    font-weight: bold;
+    font-size: 15px;
+   
+}
+
+.btnAnnonce {
+    background-color: #41c070;
+    color: aliceblue;
+    border-color: #41c070;
+    filter: drop-shadow(3px 3px 3px #126e63);
+}
+
+    .btnAnnonce:hover {
+        background-color: #F5914A;
+        border-color: #F5914A;
+        filter: drop-shadow(3px 3px 3px #F5914A);
+    }
+
+.titreAnnonce{
+    margin-left:42%;
+}
+
+
+
+
+
+/*************************  CSS VALERY FIN    ************************************************/
