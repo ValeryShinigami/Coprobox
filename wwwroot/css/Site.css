@@ -119,3 +119,62 @@ text-align : center;
     background-color: #4DC7E4;
     padding: 5px 5%;
 }
+
+/*************************  CSS VALERY DEBUT    ************************************************/
+
+.date{
+    display:flex;
+    align-items: center;
+    
+}
+
+.du, .au {
+    margin-right: 10px;
+    padding-top: 15px;
+}
+.au {
+    margin-left: 10px;
+}
+
+.formAnnonce {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 4%;
+    width: 700px;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -moz-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+    -webkit-box-shadow: 0px 0px 10px 4px rgba(119, 119, 119, 0.75);
+}
+
+.labelAnnonce {
+    font-weight: bold;
+    font-size: 15px;
+   
+}
+
+.btnAnnonce {
+    background-color: #41c070;
+    color: aliceblue;
+    border-color: #41c070;
+    filter: drop-shadow(3px 3px 3px #126e63);
+}
+
+    .btnAnnonce:hover {
+        background-color: #F5914A;
+        border-color: #F5914A;
+        filter: drop-shadow(3px 3px 3px #F5914A);
+    }
+
+.titreAnnonce{
+    margin-left:42%;
+}
+
+
+
+
+
+/*************************  CSS VALERY FIN    ************************************************/

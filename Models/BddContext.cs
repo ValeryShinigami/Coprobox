@@ -20,7 +20,7 @@ namespace coproBox.Models
   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=RRRRR;database=coproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=root;database=coproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
         }
     public void InitializeDb()
 
