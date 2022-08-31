@@ -1,0 +1,47 @@
+﻿@model coproBox.Models.Utilisateur
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ModifierUtilisateur</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+    <fieldset>
+        <legend>Modifier un compte : </legend>
+        @Html.LabelFor(m => Model.Compte.numeroIdentifiant)
+        @Html.TextBoxFor(m => Model.Compte.numeroIdentifiant)
+        @Html.ValidationMessageFor(m => Model.Compte.numeroIdentifiant)
+        <br />
+        <br />
+        @Html.LabelFor(m => Model.Compte.role)
+        @Html.TextBoxFor(m => Model.Compte.role)
+        @Html.ValidationMessageFor(m => Model.Compte.role)
+        <br />
+        <br />
+
+        @Html.LabelFor(m => Model.Compte.email) <!--possible d'utiliser directement les -->
+        @Html.TextBoxFor(m => Model.Compte.email)
+        @Html.ValidationMessageFor(m => Model.Compte.email)
+        <br/>
+        <br/>
+        @Html.LabelFor(m => Model.Compte.codeIban)
+        @Html.TextBoxFor(m => Model.Compte.codeIban)
+        @Html.ValidationMessageFor(m => Model.Compte.codeIban)
+        <br />
+        <br />
+        @Html.LabelFor(m => Model.Compte.motDePasse)
+        @Html.TextBoxFor(m => Model.Compte.motDePasse)
+        @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
+        <br />
+        <br />
+
+        <input type="submit" value="Modifier" />
+    </fieldset>
+    }
+</body>
+</html>
