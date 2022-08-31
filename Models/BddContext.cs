@@ -13,6 +13,7 @@ namespace coproBox.Models
         public DbSet<InfosPersonnelle> InfosPersonnelles { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Profil> Profils { get; set; }
+        public DbSet<Cagnotte> Cagnottes { get; set; }
 
 
         // partie ANNONCE
@@ -90,6 +91,29 @@ namespace coproBox.Models
                     AdresseId = 2
                 }
             );
+
+            this.Cagnottes.AddRange(
+                new Cagnotte
+                {
+                    Titre = "Cagnotte 1",
+                    Description = "Première cagnotte!",
+                    SommeObjectif = 1000
+                },
+
+                new Cagnotte
+                {
+                    Titre = "Cagnotte 2",
+                    Description = "Seconde cagnotte!",
+                    SommeObjectif = 350
+                },
+
+                new Cagnotte
+                {
+                    Titre = "Cagnotte 3",
+                    Description = "Dernière cagnotte!",
+                    SommeObjectif = 100
+                }
+                );
             this.SaveChanges();
         }
     }
