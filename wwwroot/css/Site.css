@@ -5,6 +5,10 @@
 
 }
 
+.corps {
+    height: 60vh;
+}
+
 header {
     background-color: #F4F4F4;
     height:75px;
@@ -24,8 +28,12 @@ margin-top:4px;
 
 .nav-link,
 .navbar-brand {
-    color: blue;
     cursor: pointer;
+    transition: .3s all ease;
+    text-decoration: none;
+    background-color: transparent;
+    color: #323A7C;
+    font-size:13px;
 }
 
 .nav-link {
@@ -33,7 +41,7 @@ margin-top:4px;
 }
 
 .nav-link:hover {
-        color: #000;
+        color: #4DC7E4;
     }
 
 .navbar-collapse {
@@ -77,48 +85,80 @@ width:100%;
     /*width: 100%;  or any custom size 
     height: 100%;
     object-fit: contain;*/
-    height:29px;
+    height:21px;
 }
 
 .text {
-    margin-top:10px;
-    color: #99e5f7;
+    margin-top: 10px;
+    color: #4DC7E4;
     font-size: 12px;
 }
 
-.icone .icone-info {
-    width: 50px;
-    height: 50px;
-    background:#4DC7E4;
-    border-radius:50%;
-    margin: 0 auto;
-    margin-bottom : 10px;
-}
-.icone-contact {
-    width: 45px;
-    height: 45px;
-    background-color:#4DC7E4;
-    border-radius: 50%;
-    margin-top: 4px;
-    background-image: url("/Image/icone-tel.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .icone-contact span {
-font-size:24px;
+font-size:14px;
 }
 .text {
 text-align : center;
 }
 
 .separation {
-    height: 2px;
-    width: 90%;
+    height: 1px;
     background-color: #4DC7E4;
-    padding: 5px 5%;
 }
+
+.bas-Page {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.bas-2, .base {
+    color: #4DC7E4;
+}
+
+li, .base {
+    font-size: 10px;
+}
+
+.list-style {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bas-1 {
+    display: flex;
+    height: 100px;
+}
+
+.bas-2 {
+    display: flex;
+    height: 110px;
+}
+
+.base {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    transition: .3s all ease;
+    text-decoration: none;
+    background-color: transparent;
+    color: #4DC7E4;
+    cursor: pointer;
+    padding: 0px 0px 2px;
+}
+
+.overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
 
 /*************************  CSS VALERY DEBUT    ************************************************/
 
