@@ -21,7 +21,7 @@ namespace coproBox.Models
   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=admin;database=CoproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
+            optionsBuilder.UseMySql("server=localhost;user id=root;password=RRRRR;database=coproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
         }
     public void InitializeDb()
 
@@ -97,21 +97,24 @@ namespace coproBox.Models
                 {
                     Titre = "Cagnotte 1",
                     Description = "Première cagnotte!",
-                    SommeObjectif = 1000
+                    SommeObjectif = 1000, 
+                    SommeActuelle = 500
                 },
 
                 new Cagnotte
                 {
                     Titre = "Cagnotte 2",
                     Description = "Seconde cagnotte!",
-                    SommeObjectif = 350
+                    SommeObjectif = 350,
+                    SommeActuelle = 100
                 },
 
                 new Cagnotte
                 {
                     Titre = "Cagnotte 3",
                     Description = "Dernière cagnotte!",
-                    SommeObjectif = 100
+                    SommeObjectif = 100,
+                    SommeActuelle = 100
                 }
                 );
             this.SaveChanges();

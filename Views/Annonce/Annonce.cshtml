@@ -1,6 +1,119 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Annonce";
 }
 
+@section Annonce{
+   
+
+    @*<form class="formulaireAnnonce" action="" method="get">
+
+        <fieldset>
+            <legend>Annonces: </legend>
+            Catégorie d'annonce
+            <select id="" name="">
+
+                <option selected="selected" value="0">---</option>
+
+                <option value="1">Cagnotte</option>
+
+                <option value="2">Don d'objet</option>
+
+                <option value="3">Evènement</option>
+
+                <option value="4">Prêt matériel</option>
+
+                <option value="5">Service</option>
+            </select>
+
+            <p><input type="submit" value="Submit" /> </p>
+
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Titre de l'annonce </legend>
+            @Html.TextBox("Login")
+        </fieldset>
+
+
+        <p>Type d'annonce</p>
+        Offre:   @Html.RadioButton("Type","Offre")
+    Demande: @Html.RadioButton("Type","Demande")
+
+        <p>Ajouter une photo</p>
+
+        <fieldset>
+            <legend>Prix </legend>
+            @Html.TextBox("Login")
+        </fieldset>
+
+        <button>valider</button>
+
+    </form>*@
+   
+    <div class="titreAnnonce">Déposer une annonce</div>
+
+    <form class="formAnnonce" method="post" enctype="multipart/form-data">
+        
+
+         <fieldset class="row mb-3">
+
+        
+
+            <label for="inputEmail3" class="labelAnnonce col-sm-2 col-form-label">Annonce</label>
+            <div class="col-sm-10">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Choisissez une catégorie</option>
+                    <option value="1">Cagnotte</option>
+                    <option value="2">Don d'objet</option>
+                    <option value="3">Evènement</option>
+                    <option value="4">Prêt matériel</option>
+                    <option value="5">Service</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <div class="row mb-3">
+            <label for="titre" class="labelAnnonce col-sm-2 col-form-label">Titre</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="titre">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="floatingTextarea" class="labelAnnonce col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" placeholder="Description" id="floatingTextarea"></textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="party" class="labelAnnonce col-sm-2 col-form-label">Date et heure:</label>
+            <div class="date col-sm-10">
+                <p class="du">Du</p>
+                <input id="party" type="datetime-local" name="partydate" value="2022-09-01T08:30">
+                <p class="au">Au</p>
+                <input id="party" type="datetime-local" name="partydate" value="2022-09-01T08:30">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="file" class="labelAnnonce col-sm-2 col-form-label">Ajouter une Photo</label>
+            <div class="date col-sm-10">
+                <input type="file" id="file" name="file" multiple>
+            </div> 
+        </div>
+
+        <div class="row mb-3">
+            <label for="prix" class="labelAnnonce col-sm-2 col-form-label">Prix</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="prix" placeholder="Eur" >
+            </div>
+        </div>
+
+        
+        <button type="submit" class="btnAnnonce btn ">Valider</button>
+    </form>
+
+}
