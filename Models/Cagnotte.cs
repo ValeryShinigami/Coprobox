@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace coproBox.Models
 {
@@ -16,6 +17,8 @@ namespace coproBox.Models
 
         [Required]
         public double SommeObjectif { get; set; }
+        public double SommeActuelle { get; set; }
+        public DateTime EcheanceCagnotte { get; set; }
 
     }
 }

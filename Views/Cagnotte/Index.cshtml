@@ -7,6 +7,14 @@
 @foreach (var cagnotte in Model)
 {
     <div class="cagnotte">
+        <div>
+            <div class="filling-heart">
+                <img src="~/image/heartempty2.png" />
+            </div>
+            <div class="filling-heart">
+                <img src="~/image/heartfull2.png" />
+            </div>
+        </div>
         <div>@cagnotte.Titre</div>
         <div>@cagnotte.Description</div>
         <div>@cagnotte.SommeObjectif€</div>
