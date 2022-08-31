@@ -7,13 +7,11 @@ namespace coproBox.Models
     {
         void DeleteCreateDatabase(); // méthode qui ne retourne rien et ne prend rien en paramètre
 
+        // Gestion Utilisateurs
+
         List<Utilisateur> ObtientTousLesUtilisateurs();
 
-        //retournera 2 paramètres dans IDal : la liste et les séjours...
-
         public int CreerUtilisateur(string Nom, string Prenom, DateTime dateNaissance);
-
-        List<Annonce> ObtientToutesLesAnnonces();
 
         List<Compte> ObtientTousLesComptes();
 
@@ -23,6 +21,15 @@ namespace coproBox.Models
 
         List<Adresse> ObtientToutesLesAdresses();
 
+        // Gestion Annonces
+
+        List<Annonce> ObtientToutesLesAnnonces();
+
+        // Gestion Cagnotte Solidaire
+
+        public List<Cagnotte> ObtientToutesLesCagnottes();
+        public int CreerCagnotte(String titre, String description, Double sommeObjectif);
+        public void ModifierCagnotte(Cagnotte cagnotte);
     }
 
 }

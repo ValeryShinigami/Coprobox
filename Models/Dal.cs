@@ -94,6 +94,33 @@ namespace coproBox.Models
             return _bddContext.Adresses.ToList();
         }
 
+        // CAGNOTTE
+
+        public List<Cagnotte> ObtientToutesLesCagnottes()
+        {
+            return _bddContext.Cagnottes.ToList();
+        }
+        
+        public int CreerCagnotte(String titre, String description, Double sommeObjectif)
+        {
+            Cagnotte cagnotte = new Cagnotte() { Titre = titre, Description = description, SommeObjectif = sommeObjectif };
+            _bddContext.Cagnottes.Add(cagnotte);
+            _bddContext.SaveChanges();
+            return cagnotte.Id;
+        }
+        
+        public void ModifierCagnotte(Cagnotte cagnotte)
+        {
+            Cagnotte cagnotteARemplacer= _bddContext.Cagnottes.Find(cagnotte.Id);
+
+            if(cagnotteARemplacer != null)
+            {
+                cagnotteARemplacer.Titre = cagnotte.Titre;
+                cagnotteARemplacer.Description = cagnotte.Description;
+                cagnotteARemplacer.SommeObjectif = cagnotte.SommeObjectif;
+            }
+        }
+
         //FERMETURE DE LA CONNEXION avec MySQL
         public void Dispose()
         {

@@ -1,0 +1,15 @@
+﻿@model List<coproBox.Models.Cagnotte>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Cagnottes";
+}
+<div class="liste-cagnottes">
+@foreach (var cagnotte in Model)
+{
+    <div class="cagnotte">
+        <div>@cagnotte.Titre</div>
+        <div>@cagnotte.Description</div>
+        <div>@cagnotte.SommeObjectif€</div>
+    </div>
+}
+</div>
