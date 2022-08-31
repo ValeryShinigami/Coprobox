@@ -16,5 +16,10 @@ namespace coproBox.Controllers
         {
             return View();
         }
+
+        public IActionResult AfficherAnnonce()
+        {
+            return View();
+        }
     }
 }
