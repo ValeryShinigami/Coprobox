@@ -12,21 +12,32 @@
 				<div class="zoneCard col-md-6">
 					<div class="card mb-3" style="max-width: 540px;">
 						<div class="row g-0">
+						@foreach (var annonce in Model)
+					   {
 							<div class="col-md-4">
-								<img src="/Image/velo.jpeg" class="img-fluid rounded-start" alt="...">
+
+
+									<img src="@annonce.ImagePath" class="img-fluid rounded-start" alt="...">
 							</div>
 							<div class="col-md-8">
 								<div class="card-body">
-									<h5 class="card-title">Titre</h5>
-									<p class="card-text">Catégorie</p>
-									<p class="card-text">Date et heure:</p>
-									<p class="card-text"><strong>Description:</strong> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-									<p class="card-text"><small class="text-muted">Prix: eur</small></p>
+
+									<h5 class="card-title">@annonce.titre</h5>
+										<p class="card-text">@annonce.typeService</p>
+										<p class="card-text">@annonce.dateDebut</p>
+										<p class="card-text">@annonce.dateFin</p>
+										<p class="card-text">@annonce.tauxHoraire</p>
+										<p class="card-text">@annonce.description</p>
+									<p class="card-text"><small class="text-muted">@annonce.prix</small></p>
 									<a href="#" class="btnCard btn">Contacter</a>
 									<a href="#" class="btnCard btn">Réserver</a>
+
 								</div>
 							</div>
+						
+						}	
 						</div>
+
 					</div>
 				</div>
 				<div class="col-md-6">

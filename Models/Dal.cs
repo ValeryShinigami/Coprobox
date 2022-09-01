@@ -52,10 +52,7 @@ namespace coproBox.Models
             }
         }
 
-        public List<Annonce> ObtientToutesLesAnnonces()
-        {
-            return _bddContext.Annonces.ToList();
-        }
+     
 
         // COMPTES
         public void ModifierCompte(int Id, string numeroIdentifiant, string role, string motDePasse, string codeIban)
@@ -93,6 +90,38 @@ namespace coproBox.Models
         {
             return _bddContext.Adresses.ToList();
         }
+        // ANNONCE DEBUT
+        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0)
+        {
+            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService };
+            if (id != 0)
+            {
+                annonceToAdd.Id = id;
+            }
+            this._bddContext.Annonces.Add(annonceToAdd);
+            this._bddContext.SaveChanges();
+        }
+
+        public List<Annonce> ObtientToutesLesAnnonces()
+        {
+            return _bddContext.Annonces.ToList();
+        }
+
+        public void SupprimerAnnonce(int id)
+        {
+            Annonce annonceToDelete = this._bddContext.Annonces.Find(id);
+            this._bddContext.Annonces.Remove(annonceToDelete);
+            this._bddContext.SaveChanges();
+        }
+
+        //supprimer annonce suite
+
+        //modifier annonce
+
+
+
+
+        //ANNONCE FIN 
 
         // CAGNOTTE
 
