@@ -7,44 +7,20 @@
 }
    
     <div class="titreAnnonce">Déposer une annonce</div>
-
-    <form class="formAnnonce" method="post" enctype="multipart/form-data">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+    <form class="formAnnonce " method="post" enctype="multipart/form-data">
 
 
     @using (Html.BeginForm())
     {
-  
-
-    
-    
-        @* <fieldset class="row mb-3">
-            <label for="inputEmail3" class="labelAnnonce col-sm-2 col-form-label">Annonce</label>
-            <div class="col-sm-10">
-                <select class="form-select" aria-label="Default select example" data-val="true">
-                    <option selected>Choisissez une catégorie</option>
-                    <optgroup label="Catégorie">
-                        <option value="1">Don d'objet</option>
-                        <option value="2">Evènement</option>
-                        <option value="3">Prêt matériel</option>
-                    </optgroup>
-                <optgroup label="Service">
-                    <option value="4">Garde d'animaux</option>
-                    <option value="4">Babysitting</option>
-                    <option value="4">Aide menagère</option>
-                    <option value="4">Soutien scolaire</option>
-                    <option value="4">Parking</option>
-                </optgroup>
-                    
-                </select>
-            </div>
-    </fieldset>*@
-
+ 
          <fieldset class="row mb-3">
             <label for="inputEmail3" class="labelAnnonce col-sm-2 col-form-label">Annonce</label>
             <div class="col-sm-10">
                  @Html.DropDownListFor(m => m.TypeService,
                  new SelectList(Enum.GetValues(typeof(TypeService))),
-                 "Selectionner le Service")
+                 "Sélectionner le Service")
             </div>
         </fieldset>
 
@@ -111,7 +87,7 @@
         <div class="row mb-3">
             @Html.LabelFor(model => model.TauxHoraire,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
             <div class="col-sm-6">
-                @Html.TextBoxFor(model => model.TauxHoraire, new { @class = "form-control", placeholder = "en eur / h" })
+                @Html.TextBoxFor(model => model.TauxHoraire, new { @class = "form-control", placeholder = "en € / h" })
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.TauxHoraire)
@@ -133,7 +109,7 @@
         </div>*@
             @Html.LabelFor(model => model.Tarif,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
             <div class="col-sm-6">
-                @Html.TextBoxFor(model => model.Tarif, new { @class = "form-control", placeholder = "Eur" })
+                @Html.TextBoxFor(model => model.Tarif, new { @class = "form-control", placeholder = "EUR" })
             </div>
             <div class="col-sm-4">
                 @Html.ValidationMessageFor(model => model.Tarif)
@@ -145,3 +121,5 @@
     }
 
     </form>
+</div>
+</div>
