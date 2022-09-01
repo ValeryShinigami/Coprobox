@@ -14,25 +14,19 @@ namespace coproBox.Controllers
             _webEnv = environment;
             this.dal = new Dal();
         }
- 
+
+        public IActionResult CreerAnnonce()
+        {
+            return View();
+        }
+
         public IActionResult AfficherAnnonce()
         {
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);
         }
 
-        public IActionResult CreerAnnonce()
-<<<<<<< HEAD
-        {
-            return View();
-        }
 
-        public IActionResult AfficherAnnonce()
-=======
->>>>>>> c1c4285 (changement vue creerAnnonce)
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult Creer(Annonce annonce)

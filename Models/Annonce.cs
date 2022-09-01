@@ -18,7 +18,7 @@ namespace coproBox.Models
 
         public TypeService TypeService { get; set;}
 
-        public IFormFile Image { get; set; }
+       // public IFormFile Image { get; set; }
 
     }
 }
