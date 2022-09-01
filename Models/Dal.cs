@@ -130,10 +130,14 @@ namespace coproBox.Models
             return _bddContext.Cagnottes.ToList();
         }
         
-        public int CreerCagnotte(String titre, String description, Double sommeObjectif)
+        public int CreerCagnotte(Cagnotte cagnotte)
         {
-            Cagnotte cagnotte = new Cagnotte() { Titre = titre, Description = description, SommeObjectif = sommeObjectif };
-            _bddContext.Cagnottes.Add(cagnotte);
+            Cagnotte Cagnotte = new Cagnotte() { 
+                Titre = cagnotte.Titre, 
+                Description = cagnotte.Description, 
+                SommeObjectif = cagnotte.SommeObjectif,
+                EcheanceCagnotte = cagnotte.EcheanceCagnotte};
+            _bddContext.Cagnottes.Add(Cagnotte);
             _bddContext.SaveChanges();
             return cagnotte.Id;
         }
@@ -148,6 +152,27 @@ namespace coproBox.Models
                 cagnotteARemplacer.Description = cagnotte.Description;
                 cagnotteARemplacer.SommeObjectif = cagnotte.SommeObjectif;
             }
+        }
+
+        // QUITTANCE
+
+        public List<Quittance> ObtientTouteslesQuittances()
+        {
+            return _bddContext.Quittances.ToList();
+        }
+
+        public int CreerQuittance(Quittance quittance)
+        {
+            Quittance Quittance = new Quittance()
+            {
+                DateButoir = quittance.DateButoir,
+                DateEmission = quittance.DateEmission,
+                Emetteur = quittance.Emetteur,
+                Montant = quittance.Montant
+            };
+            _bddContext.Quittances.Add(Quittance);
+            _bddContext.SaveChanges();
+            return Quittance.Id;
         }
 
         //FERMETURE DE LA CONNEXION avec MySQL

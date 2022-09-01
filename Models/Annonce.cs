@@ -20,6 +20,8 @@ namespace coproBox.Models
 
        // public IFormFile Image { get; set; }
 
+
+
     }
 }
 

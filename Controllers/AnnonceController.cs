@@ -16,11 +16,13 @@ namespace coproBox.Controllers
         }
 
         public IActionResult CreerAnnonce()
+
         {
             return View();
         }
 
         public IActionResult AfficherAnnonce()
+
         {
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);

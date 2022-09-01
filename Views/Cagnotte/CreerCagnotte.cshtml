@@ -1,0 +1,35 @@
+﻿@model coproBox.Models.Cagnotte
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Création Cagnotte";
+}
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Créer une Cagnotte : </legend>
+        <div>
+            @Html.LabelFor(model => model.Titre)
+            @Html.TextBoxFor(model => model.Titre)
+            @Html.ValidationMessageFor(model => model.Titre)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { type = "textarea", rows = 7, cols = 20 } })
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.SommeObjectif)
+            @Html.EditorFor(model => model.SommeObjectif, new { htmlAttributes = new { type = "number", min = 0 } })
+            @Html.ValidationMessageFor(model => model.SommeObjectif)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.EcheanceCagnotte)
+            @Html.EditorFor(model => model.EcheanceCagnotte, new { htmlAttributes = new { type = "date" } })
+            @Html.ValidationMessageFor(model => model.EcheanceCagnotte)
+        </div>
+        <div class="button">
+            <input type="submit" value="Créer" />
+        </div>
+    </fieldset>
+}
