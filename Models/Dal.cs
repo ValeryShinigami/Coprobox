@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace coproBox.Models
 {
@@ -174,6 +176,41 @@ namespace coproBox.Models
             _bddContext.SaveChanges();
             return Quittance.Id;
         }
+
+
+
+        // AUTHENTIFICATION
+
+
+
+        public int AjouterUtilisateur(string nom, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string EncodeMD5(string motDePasse)
+        {
+            string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
+            return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
+        }
+
+
+        public Utilisateur Authentifier(string nom, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Utilisateur ObtenirUtilisateur(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Utilisateur ObtenirUtilisateur(string idStr)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         //FERMETURE DE LA CONNEXION avec MySQL
         public void Dispose()
