@@ -15,6 +15,7 @@ namespace coproBox.Controllers
             this.dal = new Dal();
         }
  
+
         public IActionResult Index()
         {
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
@@ -34,6 +35,7 @@ namespace coproBox.Controllers
                 return View(annonce);
             dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService);
             return RedirectToAction("Index");
+
         }
 
         //modifier

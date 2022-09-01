@@ -1,5 +1,6 @@
-﻿@using coproBox.Models
+@using coproBox.Models
 @model coproBox.Models.Annonce
+
 @{
     Layout = "_Layout";
     ViewBag.Title = "CreerAnnonce";
@@ -9,7 +10,10 @@
 
     <form class="formAnnonce" method="post" enctype="multipart/form-data">
 
-    @using (Html.BeginForm()){
+
+    @using (Html.BeginForm())
+    {
+  
 
     
     
@@ -72,7 +76,7 @@
             </div>
         </div>
 
-       @* <div class="row mb-3">
+    @* <div class="row mb-3">
             <label for="party" class="labelAnnonce col-sm-2 col-form-label">Date et heure:</label>
             <div class="date col-sm-10">
                 <p class="du">Du</p>
@@ -81,8 +85,7 @@
                 <input id="party" type="datetime-local" name="partydate" value="2022-09-01T08:30">
             </div>
     </div>*@
-    
-
+  
         <div class="row mb-3">
             @Html.LabelFor(model => model.DateDebut,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
             <div class="date col-sm-6">
@@ -138,7 +141,6 @@
 
         </div>
 
-        
         <button type="submit" class="btnAnnonce btn" >Valider</button>
     }
 
