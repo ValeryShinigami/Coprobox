@@ -130,10 +130,14 @@ namespace coproBox.Models
             return _bddContext.Cagnottes.ToList();
         }
         
-        public int CreerCagnotte(String titre, String description, Double sommeObjectif)
+        public int CreerCagnotte(Cagnotte cagnotte)
         {
-            Cagnotte cagnotte = new Cagnotte() { Titre = titre, Description = description, SommeObjectif = sommeObjectif };
-            _bddContext.Cagnottes.Add(cagnotte);
+            Cagnotte Cagnotte = new Cagnotte() { 
+                Titre = cagnotte.Titre, 
+                Description = cagnotte.Description, 
+                SommeObjectif = cagnotte.SommeObjectif,
+                EcheanceCagnotte = cagnotte.EcheanceCagnotte};
+            _bddContext.Cagnottes.Add(Cagnotte);
             _bddContext.SaveChanges();
             return cagnotte.Id;
         }

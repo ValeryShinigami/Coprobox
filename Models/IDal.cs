@@ -29,7 +29,7 @@ namespace coproBox.Models
         // Gestion Cagnotte Solidaire
 
         public List<Cagnotte> ObtientToutesLesCagnottes();
-        public int CreerCagnotte(String titre, String description, Double sommeObjectif);
+        public int CreerCagnotte(Cagnotte cagnotte);
         public void ModifierCagnotte(Cagnotte cagnotte);
     }
 

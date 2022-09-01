@@ -18,5 +18,25 @@ namespace coproBox.Controllers
             List<Cagnotte> listeDesCagnottes = dal.ObtientToutesLesCagnottes();
             return View(listeDesCagnottes);
         }
+
+        public IActionResult CreerCagnotte()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreerCagnotte(Cagnotte cagnotte)
+        {
+            if(!ModelState.IsValid)
+                return View(cagnotte);
+            if(dal.ObtientToutesLesCagnottes().Find(c => c.Titre == cagnotte.Titre) != null)
+            {
+                ModelState.AddModelError("Titre", "Ce titre de cagnotte existe déjà");
+                return View(cagnotte);
+            }
+
+            dal.CreerCagnotte(cagnotte);
+            return RedirectToAction("Index");
+        }
     }
 }
