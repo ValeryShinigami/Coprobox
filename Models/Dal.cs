@@ -154,6 +154,27 @@ namespace coproBox.Models
             }
         }
 
+        // QUITTANCE
+
+        public List<Quittance> ObtientTouteslesQuittances()
+        {
+            return _bddContext.Quittances.ToList();
+        }
+
+        public int CreerQuittance(Quittance quittance)
+        {
+            Quittance Quittance = new Quittance()
+            {
+                DateButoir = quittance.DateButoir,
+                DateEmission = quittance.DateEmission,
+                Emetteur = quittance.Emetteur,
+                Montant = quittance.Montant
+            };
+            _bddContext.Quittances.Add(Quittance);
+            _bddContext.SaveChanges();
+            return Quittance.Id;
+        }
+
         //FERMETURE DE LA CONNEXION avec MySQL
         public void Dispose()
         {
