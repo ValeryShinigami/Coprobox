@@ -16,10 +16,10 @@ namespace coproBox.Controllers
         }
 
         public IActionResult CreerAnnonce()
-
         {
             return View();
         }
+
 
         public IActionResult AfficherAnnonce()
 
@@ -27,8 +27,6 @@ namespace coproBox.Controllers
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);
         }
-
-
 
         [HttpPost]
         public ActionResult Creer(Annonce annonce)
