@@ -250,6 +250,7 @@ a {
 .img-container {
     position: absolute;
     height: 200px;
+    pointer-events: none;
 }
 
 .filling-heart {

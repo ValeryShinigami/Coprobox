@@ -1,12 +1,11 @@
 ﻿@model List<coproBox.Models.Cagnotte>
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Cagnottes";
+    ViewBag.Title = "Anciennes Cagnottes";
 }
 <div class="liste-cagnottes">
     <a href="/cagnotte/CreerCagnotte">Go</a>
-    <h1>Les Cagnottes Solidaires</h1>
-    <h4><a href="/cagnotte/AnciennesCagnottes">(Anciennes cagnottes)</a></h4>
+    <h1>Anciennes Cagnottes Solidaires</h1>
     @foreach (var cagnotte in Model)
     {
         <div class="cagnotte">
@@ -16,7 +15,7 @@
                         <img src="~/image/heartempty2.png" width="200" height="200" />
                     </div>
                     <div class="img-container">
-                            <div class="filling-heart h3art" style="height:@((int)(200*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-200.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
+                        <div class="filling-heart h3art" style="height:@((int)(200*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-200.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
                             <img src="~/image/heartfull2.png" />
                         </div>
                     </div>
@@ -26,5 +25,12 @@
             <div>@cagnotte.Description</div>
             <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
         </div>
-}
+    }
 </div>
+@if ((int)@ViewData["page"] > 0){
+    <a href="/cagnotte/AnciennesCagnottes/@((int)ViewData["page"]-1)">Prev</a>
+}
+@if((int)ViewData["reste"] > 0){
+    <a href="/cagnotte/AnciennesCagnottes/@((int)ViewData["page"]+1)">Next</a>
+}
+    
