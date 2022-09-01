@@ -65,7 +65,7 @@ header {
     background-repeat: no-repeat;
 }
 
-    .fake-pic:hover {
+.fake-pic:hover {
         cursor: crosshair;
     }
 #bande {
@@ -89,7 +89,6 @@ width:100%;
     color: #4DC7E4;
     font-size: 0.9em;
 }
-
 
 .icone-contact span {
 font-size:14px;
@@ -129,7 +128,6 @@ li, .base {
 
 .bas-2 {
     display: flex;
-    height: 110px;
 }
 
 .base {
@@ -155,14 +153,19 @@ a {
     background: rgba(0, 0, 0, 0.6);
 }
 
+@media all and (max-width:745px) {
+    .bas-2 {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 /*************************  CSS VALERY DEBUT    ************************************************/
 
 .date{
     display:flex;
     align-items: center;
-    
-}
+ }
 
 .du, .au {
     margin-right: 10px;
