@@ -38,5 +38,13 @@ namespace coproBox.Controllers
             dal.CreerCagnotte(cagnotte);
             return RedirectToAction("Index");
         }
+
+        public IActionResult AnciennesCagnottes(int id)
+        {
+            ViewData["page"] = id;
+            ViewData["reste"] = dal.CombienDeCagnottesApres(id);
+            List<Cagnotte> listeDesCagnottes = dal.ObtientCertainesAnciennesCagnottes(id);
+            return View(listeDesCagnottes);
+        }
     }
 }

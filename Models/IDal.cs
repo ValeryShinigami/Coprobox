@@ -29,6 +29,8 @@ namespace coproBox.Models
 
         // Gestion Cagnotte Solidaire
         public List<Cagnotte> ObtientToutesLesCagnottes();
+        public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page);
+        public int CombienDeCagnottesApres(int page);
         public int CreerCagnotte(Cagnotte cagnotte);
         public void ModifierCagnotte(Cagnotte cagnotte);
 

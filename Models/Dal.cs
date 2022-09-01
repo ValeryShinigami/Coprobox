@@ -146,7 +146,17 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientToutesLesCagnottes()
         {
-            return _bddContext.Cagnottes.ToList();
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte > DateTime.Now && c.SommeActuelle < c.SommeObjectif).ToList();
+        }
+
+        public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page)
+        {
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now).Skip(page * 4).Take(4).ToList();
+        }
+
+        public int CombienDeCagnottesApres(int page)
+        {
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now).Skip(page * 4).Count() - 4;
         }
         
         public int CreerCagnotte(Cagnotte cagnotte)
