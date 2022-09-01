@@ -22,17 +22,10 @@ namespace coproBox.Controllers
         }
 
         public IActionResult CreerAnnonce()
-<<<<<<< HEAD
         {
             return View();
         }
 
-        public IActionResult AfficherAnnonce()
-=======
->>>>>>> c1c4285 (changement vue creerAnnonce)
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult Creer(Annonce annonce)

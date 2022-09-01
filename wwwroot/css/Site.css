@@ -11,13 +11,9 @@
 
 header {
     background-color: #F4F4F4;
-    height:75px;
+    height:76px;
     margin : 0;
     padding:0;
-}
-
-#logo {
-margin-top:4px;
 }
 
 #center {
@@ -33,11 +29,12 @@ margin-top:4px;
     text-decoration: none;
     background-color: transparent;
     color: #323A7C;
-    font-size:13px;
+    
 }
 
 .nav-link {
     margin-right: 1em !important;
+    font-size: 1.4em;
 }
 
 .nav-link:hover {
@@ -55,14 +52,13 @@ margin-top:4px;
 }
 
 .header-pic svg {
-        width: 15px;
-    }
+    width: 15px;
+}
 
 .profil-image {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    margin-top: 4px;
     background-image: url("/Image/profil.png");
     background-size: cover;
     background-position: center;
@@ -91,7 +87,7 @@ width:100%;
 .text {
     margin-top: 10px;
     color: #4DC7E4;
-    font-size: 12px;
+    font-size: 0.9em;
 }
 
 
@@ -118,7 +114,7 @@ text-align : center;
 }
 
 li, .base {
-    font-size: 10px;
+    font-size: 0.8em;
 }
 
 .list-style {
