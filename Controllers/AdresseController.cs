@@ -31,7 +31,7 @@ namespace coproBox.Controllers
             return View("Error");
         }
 
-        [HttpPost]
+       /* [HttpPost]
         public IActionResult ModifierAdresse(Adresse adresse)
         {
 
@@ -39,7 +39,7 @@ namespace coproBox.Controllers
             {
                 using (Dal dal = new Dal())
                 {
-                    dal.ModifierAdresse(adresse.Id, adresse.numeroPorte, adresse.numeroRue, adresse.typeRue, adresse.codePostal);
+                    dal.ModifierAdresse(adresse.Id, adresse.numeroPorte, adresse.numeroRue, adresse.nomRue, adresse.codePostal);
                     return RedirectToAction("ModifierAdresse", new { @id = adresse.Id });
                 }
             }
@@ -47,6 +47,6 @@ namespace coproBox.Controllers
             {
                 return View("Error");
             }
-        }
+        } */
     }
 }

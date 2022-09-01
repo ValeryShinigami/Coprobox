@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace coproBox.Models
 {
@@ -31,33 +32,49 @@ namespace coproBox.Models
             // .Include permet de créer une jointure... et d'afficher ou modifier des clés étrangères.
         }
 
-        public int CreerUtilisateur(string Nom, string Prenom, DateTime dateNaissance)
+        public int CreerUtilisateur(string Nom, string Prenom, int numeroRue, string nomRue, int codePostal, string nomVille, string email)
         {
-            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom, dateNaissance = dateNaissance };
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
+            Adresse adresse = new Adresse {numeroRue = numeroRue, nomRue = nomRue, codePostal = codePostal , nomVille = nomVille };
+            Compte compte = new Compte { email = email };
             //_bddContext.InfosPersonnelles.Add(infosPersonnelle);
 
-            Utilisateur utilisateur = new Utilisateur() { InfosPersonnelle = infosPersonnelle}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois égalemen le rajouter dans la BDD de la liste de séjour via bddContext
+            Utilisateur utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Adresse = adresse, Compte = compte}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
             _bddContext.Utilisateurs.Add(utilisateur);
             _bddContext.SaveChanges();
             return utilisateur.Id;
         }
 
 
-        public void ModifierUtilisateur(int id, string lieu, string telephone)
+        public void ModifierUtilisateur(Utilisateur utilisateur)
         {
-            Utilisateur utilisateur = _bddContext.Utilisateurs.Find(id);
+            Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
 
             if (utilisateur != null)
             {
-                utilisateur.Id = id;
-               _bddContext.SaveChanges();
+                Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom;
+                Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
+                Utilisateur.InfosPersonnelle.dateNaissance  = utilisateur.InfosPersonnelle.dateNaissance;
+                Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte;
+                Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue;
+                Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue;
+                Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal;
+                Utilisateur.Adresse.nomVille = Utilisateur.Adresse.nomVille;
+                Utilisateur.Compte.numeroIdentifiant = Utilisateur.Compte.numeroIdentifiant;
+                Utilisateur.Compte.role = Utilisateur.Compte.role;
+                Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse;
+                Utilisateur.Compte.email = Utilisateur.Compte.email;
+                Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;
+
+
+                _bddContext.SaveChanges();
             }
         }
-
-     
-
+              
         // COMPTES
-        public void ModifierCompte(int Id, string numeroIdentifiant, string role, string motDePasse, string codeIban)
+
+
+        public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban)
         {
             Compte compte = _bddContext.Comptes.Find(Id);
             if (compte != null)
@@ -76,14 +93,14 @@ namespace coproBox.Models
         }
 
         //ANNONCES :
-        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string typeRue, int codePostal)
+        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille)
         {
             Adresse adresse = _bddContext.Adresses.Find(Id);
             if (adresse != null)
             {
                 adresse.numeroPorte = numeroPorte;
                 adresse.numeroRue = numeroRue;
-                adresse.typeRue = typeRue;
+                adresse. nomRue = nomRue;
                 adresse.codePostal = codePostal;
             }
         }
@@ -187,7 +204,7 @@ namespace coproBox.Models
           {
               throw new NotImplementedException();
           }
-
+        */
           private string EncodeMD5(string motDePasse)
           {
               string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
@@ -195,7 +212,7 @@ namespace coproBox.Models
           }
 
 
-          public Utilisateur Authentifier(string nom, string password)
+        /*  public Utilisateur Authentifier(string nom, string password)
           {
 
           }
@@ -217,6 +234,7 @@ namespace coproBox.Models
         {
             _bddContext.Dispose();
         }
+              
     }
 }
 

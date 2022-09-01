@@ -8,10 +8,11 @@ namespace coproBox.Models
         public int Id { get; set; }
         public int codePostal { get; set;}
         [MaxLength(30)]
-        public string typeRue { get; set;}
+        public string nomRue { get; set;}
         public int numeroRue { get; set; }
         [MaxLength(5)]
         public string numeroPorte { get; set; }
+        public string nomVille { get; set; }
     }
 }
 

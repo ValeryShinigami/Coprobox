@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace coproBox.Models
 {
@@ -10,15 +11,14 @@ namespace coproBox.Models
         // Gestion Utilisateurs
 
         List<Utilisateur> ObtientTousLesUtilisateurs();
-
-        public int CreerUtilisateur(string Nom, string Prenom, DateTime dateNaissance);
+        public int CreerUtilisateur(string Nom, string Prenom, int numeroRue, string nomRue, int codePostal, string nomVille,  string email);
+        public void ModifierUtilisateur(Utilisateur utilisateur);
+        
 
         List<Compte> ObtientTousLesComptes();
+        public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban);
 
-        public void ModifierCompte(int Id, string numeroIdentifiant, string role, string motDePasse, string codeIban);
-
-        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string typeRue, int codePostal); // il faudrait rajouter la ville non ? histoire de ne pas refaire cette modif pour le projet 3...
-
+        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille); // il faudrait rajouter la ville non ? histoire de ne pas refaire cette modif pour le projet 3...
         List<Adresse> ObtientToutesLesAdresses();
 
         // Gestion Annonces
@@ -37,11 +37,12 @@ namespace coproBox.Models
         public int CreerQuittance(Quittance quittance);
 
 
-       /* //Anthentification
-        int AjouterUtilisateur(string nom, string password);
-        Utilisateur Authentifier(string nom, string password);
-        Utilisateur ObtenirUtilisateur(int id);
-        Utilisateur ObtenirUtilisateur(string idStr); */
+        /* //Anthentification
+         int AjouterUtilisateur(string nom, string password);
+         Utilisateur Authentifier(string nom, string password);
+         Utilisateur ObtenirUtilisateur(int id);
+         Utilisateur ObtenirUtilisateur(string idStr); */
+
     }
 
 }

@@ -62,7 +62,7 @@ namespace coproBox.Models
                  {
                    Id = 1,
                    codePostal = 92240,
-                   typeRue = "avenue du général Leclerc",
+                   nomRue = "avenue du général Leclerc",
                    numeroRue = 2,
                    numeroPorte = "A102"
                  },
@@ -71,7 +71,7 @@ namespace coproBox.Models
                  {
                    Id = 2,
                    codePostal = 92240,
-                   typeRue = "avenue du général Leclerc",
+                   nomRue = "avenue du général Leclerc",
                    numeroRue = 2,
                    numeroPorte = "B208"
                  }
