@@ -24,7 +24,8 @@ namespace coproBox.Models
         // Gestion Annonces
 
         List<Annonce> ObtientToutesLesAnnonces();
-
+        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0);
+        public void SupprimerAnnonce(int id);
         // Gestion Cagnotte Solidaire
 
         public List<Cagnotte> ObtientToutesLesCagnottes();

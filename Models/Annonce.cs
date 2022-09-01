@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace coproBox.Models
@@ -16,6 +17,8 @@ namespace coproBox.Models
         public DateTime DateFin { get; set; }
 
         public TypeService TypeService { get; set;}
+
+        public IFormFile Image { get; set; }
 
     }
 }
