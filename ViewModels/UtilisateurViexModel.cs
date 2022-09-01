@@ -3,9 +3,8 @@ namespace coproBox.ViewModels
 {
     public class UtilisateurViexModel
     {
-        public UtilisateurViexModel()
-        {
-        }
+        public UtilisateurViexModel Utilisateur { get; set; }
+        public bool Authentifie { get; set; }
     }
 }
 

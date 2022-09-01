@@ -75,7 +75,7 @@ namespace coproBox.Models
             return _bddContext.Comptes.ToList();
         }
 
-        
+        //ANNONCES :
         public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string typeRue, int codePostal)
         {
             Adresse adresse = _bddContext.Adresses.Find(Id);
@@ -106,8 +106,7 @@ namespace coproBox.Models
 
         public List<Annonce> ObtientToutesLesAnnonces()
         {
-            List<Annonce> listeAnnonces = this._bddContext.Annonces.ToList();
-            return listeAnnonces;
+            return _bddContext.Annonces.ToList();
         }
 
         public void SupprimerAnnonce(int id)
@@ -180,36 +179,36 @@ namespace coproBox.Models
 
 
 
-        // AUTHENTIFICATION
+        /*  // AUTHENTIFICATION
 
 
 
-        public int AjouterUtilisateur(string nom, string password)
-        {
-            throw new NotImplementedException();
-        }
+          public int AjouterUtilisateur(string nom, string password)
+          {
+              throw new NotImplementedException();
+          }
 
-        private string EncodeMD5(string motDePasse)
-        {
-            string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
-            return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
-        }
+          private string EncodeMD5(string motDePasse)
+          {
+              string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
+              return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
+          }
 
 
-        public Utilisateur Authentifier(string nom, string password)
-        {
-            throw new NotImplementedException();
-        }
+          public Utilisateur Authentifier(string nom, string password)
+          {
 
-        public Utilisateur ObtenirUtilisateur(int id)
-        {
-            throw new NotImplementedException();
-        }
+          }
 
-        public Utilisateur ObtenirUtilisateur(string idStr)
-        {
-            throw new NotImplementedException();
-        }
+          public Utilisateur ObtenirUtilisateur(int id)
+          {
+
+          }
+
+          public Utilisateur ObtenirUtilisateur(string idStr)
+          {
+
+          }*/
 
 
 
