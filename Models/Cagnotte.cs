@@ -8,16 +8,19 @@ namespace coproBox.Models
         public int Id { get; set; }
 
         [MaxLength(30)]
-        [Required]
+        [Required(ErrorMessage = "Le titre de la cagnotte doit être rempli !")]
         public string Titre { get; set; }
 
         [MaxLength(200)]
-        [Required]
+        [Required(ErrorMessage = "La description de la cagnotte doit être remplie !")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La somme à atteindre doit être renseignée !")]
         public double SommeObjectif { get; set; }
+
         public double SommeActuelle { get; set; }
+
+        [Required(ErrorMessage = "Il faut une date de fin pour la cagnotte !")]
         public DateTime EcheanceCagnotte { get; set; }
 
     }

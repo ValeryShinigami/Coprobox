@@ -14,9 +14,9 @@ namespace coproBox.Controllers
             _webEnv = environment;
             this.dal = new Dal();
         }
- 
 
         public IActionResult Index()
+
         {
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);

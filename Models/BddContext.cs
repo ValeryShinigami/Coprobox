@@ -14,6 +14,7 @@ namespace coproBox.Models
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Profil> Profils { get; set; }
         public DbSet<Cagnotte> Cagnottes { get; set; }
+        public DbSet<Quittance> Quittances { get; set; }
 
 
         // partie ANNONCE
