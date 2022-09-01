@@ -92,7 +92,57 @@ namespace coproBox.Models
                     AdresseId = 2
                 }
             );
+            this.Annonces.AddRange(
+               new Annonce
+               {
+                   Id = 1,
+                   Titre = "Vélo de courses",
+                   TypeService = TypeService.Prêt_Matériel,
+                   Description = "Prêt de ce magnifique vélo pour vous enmener partout autour de la résidence",
+                   TauxHoraire = "0",
+                   Tarif = 20,
+                   DateDebut = DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/velo.jpeg"
+               },
 
+               new Annonce
+               {
+                   Id = 2,
+                   Titre = "Fête entre voisin",
+                   TypeService = TypeService.Evènement,
+                   Description = "Super soirée entre voisin pour danser manger et rigoler ensemble venez comme vous êtes!!",
+                   TauxHoraire = "0",
+                   Tarif = 150,
+                   DateDebut = DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/party.jpg"
+               },
+               new Annonce
+               {
+                   Id = 3,
+                   Titre = "Outillage",
+                   TypeService = TypeService.Prêt_Matériel,
+                   Description = "Prêt d'outillage pour petit ou grand travaux n'hésitez pas à me contacter pour plus d'informations",
+                   TauxHoraire = "0",
+                   Tarif = 30,
+                   DateDebut= DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/outillage.jpg"
+               },
+               new Annonce
+               {
+                   Id = 4,
+                   Titre = "Garde de chien",
+                   TypeService = TypeService.Garde_Animaux,
+                   Description = "Je recherche une personne pour garder mon chien il est très propre et sage",
+                   TauxHoraire = "0",
+                   Tarif = 550,
+                   DateDebut = DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/chien.jpg"
+               }
+           ); 
             this.Cagnottes.AddRange(
                 new Cagnotte
                 {
