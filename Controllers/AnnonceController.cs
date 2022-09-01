@@ -15,27 +15,27 @@ namespace coproBox.Controllers
             this.dal = new Dal();
         }
 
-        public IActionResult CreerAnnonce()
-        {
-            return View();
-        }
-
-
-        public IActionResult AfficherAnnonce()
+        public IActionResult Index()
 
         {
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);
         }
 
+        public IActionResult CreerAnnonce()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public ActionResult Creer(Annonce annonce)
+        public ActionResult CreerAnnonce(Annonce annonce)
         {
             
             if (!ModelState.IsValid)
                 return View(annonce);
             dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService);
-            return RedirectToAction("AfficherAnnonce");
+            return RedirectToAction("Index");
+
         }
 
         //modifier

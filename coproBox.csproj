@@ -18,6 +18,7 @@
     <None Remove="Views\Utilisateur\" />
     <None Remove="Views\Annonce\" />
     <None Remove="Views\Adresse\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.5" />
@@ -36,6 +37,7 @@
     <Folder Include="Views\Utilisateur\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Adresse\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
