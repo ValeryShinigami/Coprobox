@@ -245,3 +245,30 @@ a {
 /*************************  partie card fin   ************************************************/
 
 /*************************  CSS VALERY FIN    ************************************************/
+
+/*************************  Cagnotte    ************************************************/
+
+.img-container {
+    position: absolute;
+    height: 200px;
+}
+
+.filling-heart {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+
+
+.h3art {
+    overflow: hidden;
+    position: relative;
+}
+
+.h3art img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+}

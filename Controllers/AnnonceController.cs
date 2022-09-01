@@ -22,12 +22,19 @@ namespace coproBox.Controllers
         }
 
         public IActionResult CreerAnnonce()
+
         {
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Creer(Annonce annonce)
+
+        public IActionResult AfficherAnnonce()
+
+
+
         {
             
             if (!ModelState.IsValid)
