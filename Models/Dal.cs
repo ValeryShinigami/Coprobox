@@ -118,7 +118,22 @@ namespace coproBox.Models
         //supprimer annonce suite
 
         //modifier annonce
-
+        public void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath)
+        {
+            Annonce annonceToUpdate = this._bddContext.Annonces.Find(id);
+            if (annonceToUpdate != null)
+            {
+                annonceToUpdate.Titre = titre;
+                annonceToUpdate.Description = description;
+                annonceToUpdate.TauxHoraire = tauxHoraire;
+                annonceToUpdate.Tarif = tarif;
+                annonceToUpdate.DateDebut = dateDebut;
+                annonceToUpdate.DateFin = dateFin;
+                annonceToUpdate.TypeService=typeService;
+                annonceToUpdate.ImagePath = imagePath;
+                this._bddContext.SaveChanges();
+            }
+        }
 
 
 

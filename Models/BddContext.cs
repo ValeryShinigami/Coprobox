@@ -141,6 +141,31 @@ namespace coproBox.Models
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
                    ImagePath = "/Image/chien.jpg"
+               },
+               new Annonce
+               {
+                   Id = 5,
+                   Titre = "Garde d'enfant",
+                   TypeService = TypeService.Baby_Sitting,
+                   Description = "Je recherche une personne pour garder mon enfant il est très gentil et sourriant",
+                   TauxHoraire = "10",
+                   Tarif = 0,
+                   DateDebut = DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/enfant.png"
+               },
+
+               new Annonce
+               {
+                   Id = 6,
+                   Titre = "Rangement appartement",
+                   TypeService = TypeService.Ménage,
+                   Description = "Je recherche une personne pour nettoyer mon appartement suite à une fête",
+                   TauxHoraire = "0",
+                   Tarif = 50,
+                   DateDebut = DateTime.Now,
+                   DateFin = DateTime.Now,
+                   ImagePath = "/Image/maison.jpg"
                }
            ); 
             this.Cagnottes.AddRange(
