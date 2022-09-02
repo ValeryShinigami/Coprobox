@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<div class="titreAfficherAnnonce">Annonces publiées</div>
+<div class="animate__animated animate__backInDown titreAfficherAnnonce">Annonces publiées</div>
 
 <div class="container-fluid">
 			<div class="row justify-content-center">
@@ -14,10 +14,10 @@
 
 					<div class="card mb-3 m-3" style="max-width: 540px;">
 						<div class="row g-0">						
-							<div class="col-md-4">
+							<div class="col-md-5">
 							<img src="@annonce.ImagePath" class="img-thumbnail" alt="...">
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-7">
 								<div class="card-body">
 									<h5 class="card-title">@annonce.Titre</h5>
 										<p class="card-text">@annonce.TypeService</p>
@@ -31,7 +31,7 @@
 
 							<div class="mt-1">
 								<a href=@editlink class="card-link">Modifier</a>
-								<a href=@deletelink class="card-link">Supprimer</a>
+								<a href=@deletelink class="btnSupprimer card-link">Supprimer</a>
 								@*@if (User.IsInRole(Role.Admin.ToString()))
 								{
 									<a href=@deletelink class="card-link">Supprimer</a>

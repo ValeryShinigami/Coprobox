@@ -6,7 +6,7 @@
     ViewBag.Title = "Modifier";
 }
 
-<div class="titreAnnonce">Déposer une annonce</div>
+<div class="animate__animated animate__backInDown titreAnnonce">Modifier une annonce</div>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <form class="formAnnonce " method="post" enctype="multipart/form-data">
@@ -94,7 +94,7 @@
                              @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })                        
                         </div>
                         <div class="text-center">
-                            <img src="@Model.ImagePath" height="250" width="250" />
+                        <img src="@Model.ImagePath" height="250" width="250" />
                         </div>           
                 </div>
 
