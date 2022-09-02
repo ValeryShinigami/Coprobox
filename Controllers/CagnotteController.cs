@@ -68,5 +68,28 @@ namespace coproBox.Controllers
             List<Cagnotte> listeDesCagnottes = dal.ObtientCertainesAnciennesCagnottes(id);
             return View(listeDesCagnottes);
         }
+
+        public IActionResult InfoCagnotte(int id)
+        {
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
+            if(cagnotte == null)
+            {
+                return View("Error");
+            }
+            return View(cagnotte);
+        }
+
+        [HttpPost]
+        public IActionResult InfoCagnotte(int id, int Montant)
+        {
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
+            if (cagnotte == null)
+            {
+                return View("Error");
+            }
+            cagnotte.SommeActuelle += Montant;
+            dal.ModifierCagnotte(cagnotte);
+            return RedirectToAction("Index");
+        }
     }
 }

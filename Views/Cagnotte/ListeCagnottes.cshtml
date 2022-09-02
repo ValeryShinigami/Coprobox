@@ -4,9 +4,17 @@
         <div class="cagnotte">
             <div>
                 <div class="heart-container">
-                    <div class="filling-heart">
-                        <img src="~/image/heartempty2.png" width="200" height="200" />
-                    </div>
+                    @if (@cagnotte.SommeActuelle < @cagnotte.SommeObjectif && @cagnotte.EcheanceCagnotte > DateTime.Now){
+                        <a href="/cagnotte/infocagnotte/@cagnotte.Id">
+                            <div class="filling-heart">
+                                <img src="~/image/heartempty2.png" width="200" height="200" />
+                            </div>
+                        </a>
+                    } else{
+                        <div class="filling-heart">
+                            <img src="~/image/heartempty2.png" width="200" height="200" />
+                        </div>
+                    }
                     <div class="img-container">
                         <div class="filling-heart h3art" style="height:@((int)(200*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-200.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
                             <img src="~/image/heartfull2.png" />

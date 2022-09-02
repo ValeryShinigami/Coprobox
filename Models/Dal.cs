@@ -151,7 +151,7 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientToutesLesCagnottesActives()
         {
-            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte > DateTime.Now).ToList();
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte > DateTime.Now && c.SommeActuelle < c.SommeObjectif).ToList();
         }
 
         public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page)
