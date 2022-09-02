@@ -8,7 +8,10 @@
 <div class="container-fluid">
 			<div class="row justify-content-center">
 				@foreach (var annonce in Model)
-					   {			
+					   {								   
+						   string editlink = "/Annonce/Modifier/" + annonce.Id;
+						   string deletelink = "/Annonce/Supprimer/" + annonce.Id;
+
 					<div class="card mb-3 m-3" style="max-width: 540px;">
 						<div class="row g-0">						
 							<div class="col-md-4">
@@ -25,6 +28,16 @@
 									<p class="card-text"><small class="text-muted">@annonce.Tarif €</small></p>
 									<a href="#" class="btnCard btn">Contacter</a>
 									<a href="#" class="btnCard btn">Réserver</a>
+
+							<div class="mt-1">
+								<a href=@editlink class="card-link">Modifier</a>
+								<a href=@deletelink class="card-link">Supprimer</a>
+								@*@if (User.IsInRole(Role.Admin.ToString()))
+								{
+									<a href=@deletelink class="card-link">Supprimer</a>
+								}*@
+
+							</div>
 								</div>
 							</div>												
 						</div>
