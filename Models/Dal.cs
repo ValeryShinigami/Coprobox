@@ -26,7 +26,7 @@ namespace coproBox.Models
         //UTILISATEURS
         public List<Utilisateur> ObtientTousLesUtilisateurs() // permet de retourner tous les séjours sous forme de liste
         {
-            return _bddContext.Utilisateurs.ToList();
+            return _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).ToList();
 
             //return _bddContext.Utilisateurs.Include(u=> u.Compte).Include.(u=>u.Adresse).ToList();
             // .Include permet de créer une jointure... et d'afficher ou modifier des clés étrangères.

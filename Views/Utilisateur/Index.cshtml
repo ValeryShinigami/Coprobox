@@ -1,0 +1,30 @@
+﻿@model List<coproBox.Models.Utilisateur>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Utilisateur";
+}
+<div class="liste-utilisateur">
+
+    <a href="/Utilisateur/CreerUtilisateur">Go</a>
+    <h1>Liste des utilisateurs</h1>
+    <h4><a href="/utilisateur/ListeUtilisateurs">(Liste des utilisateurs)</a></h4>
+
+    @foreach (var utilisateur in Model)
+    {
+<main class="main">
+    <article class="box">
+        Article 1
+    </article>
+    <article class="box">
+        Article 2
+    </article>
+    <article class="box">
+        Article 3
+    </article>
+    <article class="box">
+        Article 4
+    </article>
+</main>
+    }
+
+</div>

@@ -55,7 +55,20 @@ namespace coproBox.Models
                 montant = 0
                 }
             );
-
+            this.InfosPersonnelles.AddRange(
+                new InfosPersonnelle
+                {
+                    Id = 1,
+                    Nom = "KALOMBO",
+                    Prenom = "Valery"
+                },
+                  new InfosPersonnelle
+                  {
+                      Id = 2,
+                      Nom = "BENMAKHLOUF",
+                      Prenom = "Fouzy"
+                  }
+            );
 
            this.Adresses.AddRange(
                  new Adresse
@@ -82,14 +95,16 @@ namespace coproBox.Models
                 {
                     Id = 1,
                     CompteId = 1,
-                    AdresseId = 1
+                    AdresseId = 1,
+                    InfosPersonnelleId = 1
                 },
 
                 new Utilisateur
                 {
                     Id = 2,
                     CompteId = 2,
-                    AdresseId = 2
+                    AdresseId = 2,
+                    InfosPersonnelleId = 2
                 }
             );
             this.Annonces.AddRange(
