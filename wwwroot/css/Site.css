@@ -265,3 +265,22 @@ a {
     position: absolute;
     bottom: 0;
 }
+
+
+/*********************************************  Utilisateur  ************************************************/
+
+
+
+.user-section {
+display : flex;
+justify-content:center;
+}
+
+.user-form {
+margin-bottom:20px;
+border: solid;
+}
+
+.user-btn-submit {
+margin-bottom : 20px;
+}
