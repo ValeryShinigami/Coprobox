@@ -1,0 +1,16 @@
+﻿@model coproBox.Models.Cagnotte
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Infos Cagnotte";
+}
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>How much? </legend>
+        <input type="number" name="Montant">
+        <div class="button">
+            <input type="submit" value="Aider <3" />
+        </div>
+    </fieldset>
+}

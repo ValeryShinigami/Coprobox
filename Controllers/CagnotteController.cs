@@ -1,6 +1,8 @@
 ﻿using coproBox.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace coproBox.Controllers
 {
@@ -15,7 +17,7 @@ namespace coproBox.Controllers
 
         public IActionResult Index()
         {
-            List<Cagnotte> listeDesCagnottes = dal.ObtientToutesLesCagnottes();
+            List<Cagnotte> listeDesCagnottes = dal.ObtientToutesLesCagnottesActives();
             return View(listeDesCagnottes);
         }
 
@@ -39,12 +41,55 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult ModifierCagnotte(int Id)
+        {
+            Cagnotte Cagnotte = dal.ObtientToutesLesCagnottes().Find(c => c.Id == Id);
+            if(Cagnotte == null)
+            {
+                return View("Error");
+            }
+            return View(Cagnotte);
+        }
+
+        [HttpPost]
+        public IActionResult ModifierCagnotte(Cagnotte cagnotte)
+        {
+            if(!ModelState.IsValid)
+                return View(cagnotte);
+            
+            dal.ModifierCagnotte(cagnotte);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult AnciennesCagnottes(int id)
         {
             ViewData["page"] = id;
             ViewData["reste"] = dal.CombienDeCagnottesApres(id);
             List<Cagnotte> listeDesCagnottes = dal.ObtientCertainesAnciennesCagnottes(id);
             return View(listeDesCagnottes);
+        }
+
+        public IActionResult InfoCagnotte(int id)
+        {
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
+            if(cagnotte == null)
+            {
+                return View("Error");
+            }
+            return View(cagnotte);
+        }
+
+        [HttpPost]
+        public IActionResult InfoCagnotte(int id, int Montant)
+        {
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
+            if (cagnotte == null)
+            {
+                return View("Error");
+            }
+            cagnotte.SommeActuelle += Montant;
+            dal.ModifierCagnotte(cagnotte);
+            return RedirectToAction("Index");
         }
     }
 }

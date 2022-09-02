@@ -146,6 +146,11 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientToutesLesCagnottes()
         {
+            return _bddContext.Cagnottes.ToList();
+        }
+
+        public List<Cagnotte> ObtientToutesLesCagnottesActives()
+        {
             return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte > DateTime.Now && c.SommeActuelle < c.SommeObjectif).ToList();
         }
 
@@ -180,6 +185,8 @@ namespace coproBox.Models
                 cagnotteARemplacer.Titre = cagnotte.Titre;
                 cagnotteARemplacer.Description = cagnotte.Description;
                 cagnotteARemplacer.SommeObjectif = cagnotte.SommeObjectif;
+                cagnotteARemplacer.EcheanceCagnotte = cagnotte.EcheanceCagnotte;
+                _bddContext.SaveChanges();
             }
         }
 
