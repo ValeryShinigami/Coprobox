@@ -32,18 +32,17 @@ namespace coproBox.Models
             // .Include permet de créer une jointure... et d'afficher ou modifier des clés étrangères.
         }
 
-        public int CreerUtilisateur(string Nom, string Prenom, int numeroRue, string nomRue, int codePostal, string nomVille, string email)
+        public int CreerUtilisateur(Utilisateur utilisateur)
         {
-            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
-            Adresse adresse = new Adresse {numeroRue = numeroRue, nomRue = nomRue, codePostal = codePostal , nomVille = nomVille };
-            Compte compte = new Compte { email = email };
-            //_bddContext.InfosPersonnelles.Add(infosPersonnelle);
+              InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
+              Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
+             //_bddContext.InfosPersonnelles.Add(infosPersonnelle);
 
-            Utilisateur utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Adresse = adresse, Compte = compte}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
-            _bddContext.Utilisateurs.Add(utilisateur);
-            _bddContext.SaveChanges();
-            return utilisateur.Id;
-        }
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+              _bddContext.Utilisateurs.Add(utilisateur);
+              _bddContext.SaveChanges();
+              return utilisateur.Id;
+          }
 
 
         public void ModifierUtilisateur(Utilisateur utilisateur)
