@@ -3,30 +3,9 @@
     Layout = "_Layout";
     ViewBag.Title = "Anciennes Cagnottes";
 }
-<div class="liste-cagnottes">
-    <a href="/cagnotte/CreerCagnotte">Go</a>
-    <h1>Anciennes Cagnottes Solidaires</h1>
-    @foreach (var cagnotte in Model)
-    {
-        <div class="cagnotte">
-            <div>
-                <div class="heart-container">
-                    <div class="filling-heart">
-                        <img src="~/image/heartempty2.png" width="200" height="200" />
-                    </div>
-                    <div class="img-container">
-                        <div class="filling-heart h3art" style="height:@((int)(200*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-200.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
-                            <img src="~/image/heartfull2.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>@cagnotte.Titre</div>
-            <div>@cagnotte.Description</div>
-            <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
-        </div>
-    }
-</div>
+<a href="/cagnotte/CreerCagnotte">Go</a>
+<h1 class ="header-cagnotte">Anciennes Cagnottes Solidaires</h1>
+@Html.Partial("ListeCagnottes", Model)
 @if ((int)@ViewData["page"] > 0){
     <a href="/cagnotte/AnciennesCagnottes/@((int)ViewData["page"]-1)">Prev</a>
 }
