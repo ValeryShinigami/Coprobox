@@ -146,7 +146,7 @@ namespace coproBox.Models
                {
                    Id = 5,
                    Titre = "Garde d'enfant",
-                   TypeService = TypeService.Baby_Sitting,
+                   TypeService = TypeService.BabySitting,
                    Description = "Je recherche une personne pour garder mon enfant il est très gentil et sourriant",
                    TauxHoraire = "10",
                    Tarif = 0,
