@@ -43,22 +43,7 @@ namespace coproBox.Controllers
             dal.CreerUtilisateur(utilisateur);
             return RedirectToAction("Index"); // en attente de voir vers où le user sera redirigé
         }
-        /*[HttpPost]
-        public IActionResult CreerUtilisateur(Utilisateur utilisateur) // sans annotation, par défaut, il s'agit d'un méthode http GET
-        {
-            if (!ModelState.IsValid)
-                return View(utilisateur);
-
-            /if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.InfosPersonnelle.Nom == utilisateur.InfosPersonnelle.Nom && u.InfosPersonnelle.Prenom == utilisateur.InfosPersonnelle.Prenom && u.Compte.email == utilisateur.Compte.email) !=null)
-            {
-                ModelState.AddModelError("Utilisateur", "Cet utilisateur est déjà enregistré");
-                return View(utilisateur);
-            }
-
-            dal.CreerUtilisateur(utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Adresse.numeroRue, utilisateur.Adresse.nomRue, utilisateur.Adresse.codePostal, utilisateur.Adresse.nomVille, utilisateur.Compte.email);
-            return RedirectToAction("Index");
-        }
-        */
+    
         public IActionResult ModifierUtilisateur(int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
         {
             if (id != 0)
@@ -74,6 +59,17 @@ namespace coproBox.Controllers
                 }
             }
             return View("Error");
+        }
+
+        [HttpPost]
+        public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
+        {
+            if (!ModelState.IsValid)
+                return View(utilisateur);
+
+            
+            dal.ModifierUtilisateur(utilisateur);
+            return RedirectToAction("Index");
         }
 
     }
