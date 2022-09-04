@@ -24,6 +24,12 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
+        public IActionResult ListeUtilisateur()
+        {
+            List<Utilisateur> listeDesUtilisateurs = dal.ObtientTousLesUtilisateurs();
+            return View(listeDesUtilisateurs);
+        }
+
         public IActionResult CreerUtilisateur()
         {
             return View();

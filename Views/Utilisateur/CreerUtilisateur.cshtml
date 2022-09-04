@@ -6,59 +6,82 @@
 }
 
 @using (Html.BeginForm())
-    {
-<div class="user-section">
-    <div class="container">
-        <fieldset class="user-form">
-            <legend>Créer un compte : </legend>
+{
+    <div class="user-section">Créer un utilisateur</div>
 
-          
-
-            <div class="row user-name mb-1">
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
-                </div>
-                <div class="col-10">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
-                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
-                </div>
+    <div class="user-body">
+        <div class="user-nom">
+            <div class="label-nom">
+                @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
             </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+            </div>
+        </div>
+        <div class="user-prenom">
+            <div class="label-nom">
+                @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+            </div>
+        </div>
+    </div>
+    @* <div class="container-fluid">
 
-            <div class="row user-fname mb-1">
+
+            <fieldset class="row mb-3">  
+
                 <div class="col-2">
+                    <div class="row user-name mb-1">
+                        @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+                    </div>
+                    <div class="user-text ">
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                        @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+                    </div>
+                </div>
+
+
+
+
+                <div>
                     @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
                 </div>
-                <div class="col-10">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
-                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
-                </div>
-            </div>
-            <div class="row user_email mb-1">
-                <div class="col-2">
+                <div>
                     @Html.LabelFor(m => Model.Compte.email)
                 </div>
-                <div class="col-10">
-                    @Html.TextBoxFor(m => Model.Compte.email)
-                    @Html.ValidationMessageFor(m => Model.Compte.email)
-                </div>
-            </div>
-
-            <div class="row user_email mb-1">
-                <div class="col-2">
+                <div>
                     @Html.LabelFor(m => Model.Compte.motDePasse)
                 </div>
-                <div class="col-10">
-                    @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
-                    @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
+
+
+
+                <div class="col-sm-6 col-md-8">
+
+                    <div class="user-text">
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
+                        @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
+                    </div>
+                    <div class="user-text">
+                        @Html.TextBoxFor(m => Model.Compte.email)
+                        @Html.ValidationMessageFor(m => Model.Compte.email)
+                    </div>
+                    <div class="user-text">
+                        @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
+                        @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
+                    </div>
                 </div>
-            </div>
-            <div class="user-btn-submit">
-                <input type="submit" value="Enregistrer" />
-            </div>
-        </fieldset>
-    </div>
-</div>
 
+                <div class="user-btn-submit">
+                    <input type="submit" value="Enregistrer" />
+                </div>
 
+            </fieldset>
+        </div>
+
+    *@
 
     }

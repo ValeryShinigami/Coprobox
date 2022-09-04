@@ -291,6 +291,7 @@ a {
 .user-section {
 display : flex;
 justify-content:center;
+
 }
 
 .user-form {
@@ -300,4 +301,15 @@ border: solid;
 
 .user-btn-submit {
 margin-bottom : 20px;
+}
+
+
+.user-text {
+width: 100%;
+border:solid;
+}
+
+.user-body {
+    width: 70%;
+    padding: 0 20px 0 20px;
 }
