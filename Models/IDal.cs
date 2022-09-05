@@ -40,6 +40,7 @@ namespace coproBox.Models
         // Gestion Quittances
         public List<Quittance> ObtientTouteslesQuittances();
         public int CreerQuittance(Quittance quittance);
+        public void ModifierQuittance(Quittance Quittance);
 
 
         /* //Anthentification
