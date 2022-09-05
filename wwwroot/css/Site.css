@@ -240,7 +240,11 @@ a {
 /*************************  partie card fin   ************************************************/
 
 
+<<<<<<< HEAD
 .btnSupprimer{
+=======
+.btnSupprimer, .btnModifier{
+>>>>>>> valery
     color: lightskyblue;
 }
 
