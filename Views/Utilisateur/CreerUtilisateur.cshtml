@@ -10,8 +10,17 @@
     <div class="user-section">Créer un utilisateur</div>
 
     <div class="user-body">
-        <div class="user-nom">
-            <div class="label-nom">
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
+                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
                 @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
             </div>
             <div class="user-text ">
@@ -19,69 +28,31 @@
                 @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
             </div>
         </div>
-        <div class="user-prenom">
-            <div class="label-nom">
-                @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => Model.Compte.motDePasse)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
-                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+                @Html.TextBoxFor(m => Model.Compte.motDePasse)
+                @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
             </div>
         </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => Model.Compte.email)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => Model.Compte.email)
+                @Html.ValidationMessageFor(m => Model.Compte.email)
+            </div>
+        </div>
+
+        <div class="user-btn-submit">
+            <input type="submit" value="Enregistrer" />
+        </div>
+
     </div>
-    @* <div class="container-fluid">
-
-
-            <fieldset class="row mb-3">  
-
-                <div class="col-2">
-                    <div class="row user-name mb-1">
-                        @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
-                    </div>
-                    <div class="user-text ">
-                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
-                        @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
-                    </div>
-                </div>
 
 
 
-
-                <div>
-                    @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
-                </div>
-                <div>
-                    @Html.LabelFor(m => Model.Compte.email)
-                </div>
-                <div>
-                    @Html.LabelFor(m => Model.Compte.motDePasse)
-                </div>
-
-
-
-                <div class="col-sm-6 col-md-8">
-
-                    <div class="user-text">
-                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
-                        @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
-                    </div>
-                    <div class="user-text">
-                        @Html.TextBoxFor(m => Model.Compte.email)
-                        @Html.ValidationMessageFor(m => Model.Compte.email)
-                    </div>
-                    <div class="user-text">
-                        @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
-                        @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
-                    </div>
-                </div>
-
-                <div class="user-btn-submit">
-                    <input type="submit" value="Enregistrer" />
-                </div>
-
-            </fieldset>
-        </div>
-
-    *@
-
-    }
+        }

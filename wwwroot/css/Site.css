@@ -286,30 +286,35 @@ a {
 
 /*********************************************  Utilisateur  ************************************************/
 
-
-
-.user-section {
-display : flex;
-justify-content:center;
-
+.user-body {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 0 20px 0 20px;
+    justify-content: center;
 }
 
-.user-form {
-margin-bottom:20px;
-border: solid;
+.user-label {
+width : 30%;
+text-align: end;
+margin-bottom : 15px;
+}
+
+.user-categorie {
+    display: inline-flex;
+}
+
+.user-text {
+    width: 70%;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
 
 .user-btn-submit {
-margin-bottom : 20px;
+    margin-bottom: 20px;
 }
 
+.user-index-section {
+display : inline-flex;
 
-.user-text {
-width: 100%;
-border:solid;
-}
-
-.user-body {
-    width: 70%;
-    padding: 0 20px 0 20px;
 }

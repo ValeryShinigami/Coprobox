@@ -3,30 +3,16 @@
     Layout = "_Layout";
     ViewBag.Title = "Utilisateur";
 }
-<div class="liste-utilisateur">
 
-    <a href="/Utilisateur/CreerUtilisateur">Créer un utilisateur</a>
-    <h1>Liste des utilisateurs</h1>
-    <h4><a href="/utilisateur/ListeUtilisateurs">(Liste des utilisateurs)</a></h4>
-    <h4><a href="/utilisateur/ModifierUtilisateur">(Modifier son compte)</a></h4>
-
-
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>adresse mail</th>
-            <th>role</th>
-            <th>nombre d'annonce</th>
-        </tr>
-        @foreach (var utilisateur in Model)
-        {
-            <tr>
-                <td>@utilisateur.InfosPersonnelle.Prenom</td>
-                <td>@utilisateur.InfosPersonnelle.Nom</td>
-                <td>@utilisateur.Compte.email</td>
-                <td>@utilisateur.Compte.nombreAnnonce</td>
-            </tr>
-        }
-    </table>
-</div>
+       
+    <div class="user-index-section">
+        <div class="user-box">
+            <a href="/utilisateur/CreerUtilisateur"><img id="" src="../Image/logoA.png" width="90" height="90" />Créer un utilisateur</a>
+        </div>
+        <div class="user-box">
+            <a href="/utilisateur/ListeUtilisateur/"><img id="" src="../Image/logoB.png" width="90" height="90" />Liste des utilisateurs</a>
+        </div>
+        <div class="user-box">
+            <a href="Utilisateur/ModifierUtilisateur/"><img id="" src="../Image/logoC.png" width="90" height="90" />Modifier un utilisateur</a>
+        </div>
+    </div>
