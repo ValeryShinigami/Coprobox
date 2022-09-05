@@ -20,8 +20,11 @@ namespace coproBox.Models
 
         [Required(ErrorMessage = "Merci d'indiquer un prix valide")]
         public int Tarif { get; set; }
-        
+
+        [DataType(DataType.Date)]
         public DateTime DateDebut { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime DateFin { get; set; }
 
         public TypeService TypeService { get; set; }
