@@ -59,14 +59,14 @@ namespace coproBox.Models
                 new InfosPersonnelle
                 {
                     Id = 1,
-                    Nom = "KALOMBO",
-                    Prenom = "Valery"
+                    Nom = "BENMAKHLOUF",
+                    Prenom = "Fouzy"
                 },
                   new InfosPersonnelle
                   {
                       Id = 2,
-                      Nom = "BENMAKHLOUF",
-                      Prenom = "Fouzy"
+                      Nom = "KALOMBO",
+                      Prenom = "Valery"
                   }
             );
 

@@ -71,6 +71,7 @@ namespace coproBox.Controllers
         [HttpPost]
         public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
         {
+
             if (!ModelState.IsValid)
                 return View(utilisateur);
 

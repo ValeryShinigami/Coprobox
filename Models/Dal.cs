@@ -34,11 +34,16 @@ namespace coproBox.Models
 
         public int CreerUtilisateur(Utilisateur utilisateur)
         {
-              InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
-              Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
-             //_bddContext.InfosPersonnelles.Add(infosPersonnelle);
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
+            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
+            Adresse adresse = new Adresse();
+            InfosContact infosContact = new InfosContact();
+            Profil profil = new Profil();
+            Notification notification = new Notification();
 
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse= adresse, InfosContact = infosContact, Profil = profil,
+              Notification = notification}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
               _bddContext.Utilisateurs.Add(utilisateur);
               _bddContext.SaveChanges();
               return utilisateur.Id;
@@ -47,9 +52,10 @@ namespace coproBox.Models
 
         public void ModifierUtilisateur(Utilisateur utilisateur)
         {
-            Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
-
-            if (utilisateur != null)
+            Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle)
+            .Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
+           
+            if (Utilisateur != null)
             {
                 Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom;
                 Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
