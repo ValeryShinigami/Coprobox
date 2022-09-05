@@ -5,53 +5,98 @@
     ViewBag.Title = "Création compte utilisateur";
 }
 
-{
-    <fieldset>
-        <legend>Créer un compte : </legend>
-        <div class="user.name">
-            @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
-            @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
-            @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+@using (Html.BeginForm())
+    {
+<div class="user-section">
+    <div class="container">
+        <fieldset class="user-form">
+            <legend>Créer un compte : </legend>
+
+            @*
+
+        <div class="row user_adresse1 mb-1">
+            <div class="col-2">
+                @Html.LabelFor(m => Model.Adresse.numeroRue)
+            </div>
+            <div class="col-10 d-flex">
+                <div class="col-3">
+                    @Html.TextBoxFor(m => Model.Adresse.numeroRue)
+                    @Html.ValidationMessageFor(m => Model.Adresse.numeroRue)
+                </div>
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.Adresse.nomRue)
+                </div>
+                <div class="col-7">
+                    @Html.TextBoxFor(m => Model.Adresse.nomRue)
+                    @Html.ValidationMessageFor(m => Model.Adresse.nomRue)
+                </div>
+            </div>
         </div>
 
-        <div>
-            @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
-            @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
-            @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
-        </div>
+        <div class="row user_adresse2 mb-1">
+            <div class="col-2">
+                @Html.LabelFor(m => Model.Adresse.codePostal)
+            </div>
+            <div class="col-10 d-flex">
+                <div class="col-3">
+                    @Html.TextBoxFor(m => Model.Adresse.codePostal)
+                    @Html.ValidationMessageFor(m => Model.Adresse.codePostal)
+                </div>
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.Adresse.nomVille)
+                </div>
+                <div class="col-7">
+                    @Html.TextBoxFor(m => Model.Adresse.nomVille)
+                    @Html.ValidationMessageFor(m => Model.Adresse.nomVille)
+                </div>
+            </div>
+        </div> *@
 
-        <div class="user_numRue">
-            @Html.LabelFor(m => Model.Adresse.numeroRue)
-            @Html.TextBoxFor(m => Model.Adresse.numeroRue)
-            @Html.ValidationMessageFor(m => Model.Adresse.numeroRue)
-        </div>
+            <div class="row user-name mb-1">
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+                </div>
+                <div class="col-10">
+                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+                </div>
+            </div>
 
-        <div class="user_nomRue">
-            @Html.LabelFor(m => Model.Adresse.nomRue)
-            @Html.TextBoxFor(m => Model.Adresse.nomRue)
-            @Html.ValidationMessageFor(m => Model.Adresse.nomRue)
-        </div>
+            <div class="row user-fname mb-1">
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
+                </div>
+                <div class="col-10">
+                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
+                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
+                </div>
+            </div>
+            <div class="row user_email mb-1">
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.Compte.email)
+                </div>
+                <div class="col-10">
+                    @Html.TextBoxFor(m => Model.Compte.email)
+                    @Html.ValidationMessageFor(m => Model.Compte.email)
+                </div>
+            </div>
 
-        <div class="user_codePostal">
-            @Html.LabelFor(m => Model.Adresse.codePostal)
-            @Html.TextBoxFor(m => Model.Adresse.codePostal)
-            @Html.ValidationMessageFor(m => Model.Adresse.codePostal)
-        </div>
+            <div class="row user_email mb-1">
+                <div class="col-2">
+                    @Html.LabelFor(m => Model.Compte.motDePasse)
+                </div>
+                <div class="col-10">
+                    @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
+                    @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
+                </div>
+            </div>
+            <div class="user-btn-submit">
+                <input type="submit" value="Enregistrer" />
+            </div>
+        </fieldset>
+    </div>
+</div>
 
-        <div class="user_ville">
-            @Html.LabelFor(m => Model.Adresse.nomVille)
-            @Html.TextBoxFor(m => Model.Adresse.nomVille)
-            @Html.ValidationMessageFor(m => Model.Adresse.nomVille)
-        </div>
 
-        <div class="user_mdp">
-            @Html.LabelFor(m => Model.Compte.motDePasse)
-            @Html.TextBoxFor(m => Model.Compte.motDePasse)
-            @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
-        </div>
 
-        <input type="submit" value="Enregistrer" />
-
-        <input type="submit" value="Effacer" />
-    </fieldset>
-}
+    }

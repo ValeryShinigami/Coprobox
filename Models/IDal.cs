@@ -11,7 +11,7 @@ namespace coproBox.Models
         // Gestion Utilisateurs
 
         List<Utilisateur> ObtientTousLesUtilisateurs();
-        public int CreerUtilisateur(string Nom, string Prenom, int numeroRue, string nomRue, int codePostal, string nomVille,  string email);
+        public int CreerUtilisateur(Utilisateur utilisateur);
         public void ModifierUtilisateur(Utilisateur utilisateur);
         
 
@@ -25,6 +25,8 @@ namespace coproBox.Models
 
         List<Annonce> ObtientToutesLesAnnonces();
         public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0);
+
+        void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath);
         public void SupprimerAnnonce(int id);
 
         // Gestion Cagnotte Solidaire

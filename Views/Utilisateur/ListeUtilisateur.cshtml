@@ -9,17 +9,17 @@
     <h1>Liste des utilisateurs</h1>
     <h4><a href="/utilisateur/ListeUtilisateurs">(Liste des utilisateurs)</a></h4>
 
- 
-        <table>
-            <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>adresse mail</th>
-                <th>role</th>
-                <th>nombre d'annonce</th>
-            </tr>
-            @foreach (var utilisateur in Model)
-                {
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>adresse mail</th>
+            <th>role</th>
+            <th>nombre d'annonce</th>
+        </tr>
+        @foreach (var utilisateur in Model)
+        {
             <tr>
                 <td><%: item.Title %></td>
                 <td><%: String.Format("{0:g}", item.ReleaseDate) %></td>
@@ -27,6 +27,6 @@
                 <td><%: item.Rating %></td>
                 <td><%: String.Format("{0:F}", item.Price) %></td>
             </tr>
-                }
-        </table>
+        }
+    </table>
 </div>

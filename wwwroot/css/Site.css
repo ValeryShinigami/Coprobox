@@ -238,6 +238,16 @@ a {
 }
 
 /*************************  partie card fin   ************************************************/
+
+
+.btnSupprimer{
+    color: lightskyblue;
+}
+
+.btnSupprimer:hover {
+    color: red;
+}
+
 /*************************  CSS VALERY FIN    ************************************************/
 /*************************  Cagnotte    ************************************************/
 .liste-cagnottes {
@@ -281,4 +291,23 @@ a {
     height: auto;
     position: absolute;
     bottom: 0;
+}
+
+
+/*********************************************  Utilisateur  ************************************************/
+
+
+
+.user-section {
+display : flex;
+justify-content:center;
+}
+
+.user-form {
+margin-bottom:20px;
+border: solid;
+}
+
+.user-btn-submit {
+margin-bottom : 20px;
 }
