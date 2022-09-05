@@ -2,46 +2,125 @@
 @{
     Layout = null;
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ModifierUtilisateur</title>
-</head>
-<body>
-    @using (Html.BeginForm())
+
+
+@using (Html.BeginForm())
     {
-    <fieldset>
-        <legend>Modifier un compte : </legend>
-        @Html.LabelFor(m => Model.Compte.numeroIdentifiant)
-        @Html.TextBoxFor(m => Model.Compte.numeroIdentifiant)
-        @Html.ValidationMessageFor(m => Model.Compte.numeroIdentifiant)
-        <br />
-        <br />
-        @Html.LabelFor(m => Model.Compte.role)
-        @Html.TextBoxFor(m => Model.Compte.role)
-        @Html.ValidationMessageFor(m => Model.Compte.role)
-        <br />
-        <br />
+    <div class="user-section">Modifier un utilisateur</div>
+        <div class="zone-form">
 
-        @Html.LabelFor(m => Model.Compte.email) <!--possible d'utiliser directement les -->
-        @Html.TextBoxFor(m => Model.Compte.email)
-        @Html.ValidationMessageFor(m => Model.Compte.email)
-        <br/>
-        <br/>
-        @Html.LabelFor(m => Model.Compte.codeIban)
-        @Html.TextBoxFor(m => Model.Compte.codeIban)
-        @Html.ValidationMessageFor(m => Model.Compte.codeIban)
-        <br />
-        <br />
-        @Html.LabelFor(m => Model.Compte.motDePasse)
-        @Html.TextBoxFor(m => Model.Compte.motDePasse)
-        @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
-        <br />
-        <br />
+            <div class="row justify-content-center">
+                <form class="formAnnonce " method="post" enctype="multipart/form-data">
+                    <fieldset class="user-form">
+                        <div class="row mb-3">
 
-        <input type="submit" value="Modifier" />
-    </fieldset>
+                            @Html.LabelFor(m => Model.InfosPersonnelle.Nom, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Titre" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.InfosPersonnelle.Prenom, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(model => model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Titre" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Compte.email, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Compte.email, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Compte.email)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.InfosPersonnelle.dateNaissance, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.InfosPersonnelle.dateNaissance, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.InfosPersonnelle.dateNaissance)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.numeroPorte, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.numeroPorte, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.numeroPorte)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.numeroRue, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.numeroRue, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.numeroRue)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.nomRue, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.nomRue, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.nomRue)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.codePostal, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.codePostal, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.codePostal)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.nomVille, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.nomVille, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.nomVille)
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-modification-user btn">Valider</button>
+                    </fieldset>
+                    }
+
+                </form>
+            </div>
+        </div>
+
     }
-</body>
-</html>
+                    
+                <input type="submit" value="Modifier" />
+ 
+        }
+ 
