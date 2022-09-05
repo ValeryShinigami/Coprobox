@@ -32,10 +32,17 @@ namespace coproBox.Models
         public string ImagePath { get; set; }
         [NotMapped]
 
-         public IFormFile Image { get; set; }
+        public IFormFile Image { get; set; }
 
-      //  public int? UtilisateurId { get; set; }
-      //  public virtual Utilisateur Utilisateur { get; set; }
+        public int? UtilisateurId { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
+
+        public int? InfosPersonnelleId { get; set; }
+        public virtual InfosPersonnelle InfosPersonnelle { get; set; }
+
+        public int? CompteId { get; set; }
+        public virtual Compte  Compte { get; set; }
+
 
     }
 }

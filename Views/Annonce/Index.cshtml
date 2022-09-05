@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<coproBox.Models.Annonce>
+@using coproBox.Models
+@{
     Layout = "_Layout";
     ViewBag.Title = "Index";
 }
@@ -19,7 +21,7 @@
 							</div>
 							<div class="col-md-7">
 								<div class="card-body">
-									<h5 class="card-title">@annonce.Titre</h5>
+									<h5 class="card-title">@annonce.Titre </h5>
 										<p class="card-text">@annonce.TypeService</p>
 										<p class="card-text">@annonce.DateDebut</p>
 										<p class="card-text">@annonce.DateFin</p>
@@ -33,15 +35,17 @@
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+											<h5 class="modal-title" id="exampleModalLabel">@annonce.Utilisateur.InfosPersonnelle.Nom</h5>
+											<h5 class="modal-title" id="exampleModalLabel">@annonce.Utilisateur.InfosPersonnelle.Prenom</h5>
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										</div>
 										<div class="modal-body">
-											...
+											
+											<p>Pour plus d'informations merci de me contacter à l'adresse email suivante:</p>
+											<a href="mailto: @annonce.Utilisateur.Compte.email"> @annonce.Utilisateur.Compte.email</a>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save changes</button>
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
 										</div>
 									</div>
 								</div>
