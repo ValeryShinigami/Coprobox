@@ -297,14 +297,29 @@ a {
     bottom: 0;
 }
 
-
 /*********************************************  Utilisateur  ************************************************/
+.user-index-logo {
+    display: flex;
+    align-items:center;
+    justify-content : center;
+    margin: 15px;
+}
+.user-index-log {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
 
-
+.user-list {
+margin-right : 80px;
+margin-left : 80px;
+margin-top : 80px;
+}
 
 .user-section {
-display : flex;
-justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 .user-form {

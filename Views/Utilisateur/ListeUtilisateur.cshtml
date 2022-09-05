@@ -3,14 +3,11 @@
     Layout = "_Layout";
     ViewBag.Title = "Utilisateur";
 }
-<div class="liste-utilisateur">
+<div class="user-list">
 
-    <a href="/Utilisateur/CreerUtilisateur">Créer un utilisateur</a>
-    <h1>Liste des utilisateurs</h1>
-    <h4><a href="/utilisateur/ListeUtilisateurs">(Liste des utilisateurs)</a></h4>
+  
 
-
-    <table>
+    <table class="table table-striped table-hover">
         <tr>
             <th>Nom</th>
             <th>Prenom</th>
@@ -21,11 +18,11 @@
         @foreach (var utilisateur in Model)
         {
             <tr>
-                <td>@utilisateur.InfosPersonnelle.Prenom</td>
+                <td class="table-info">@utilisateur.InfosPersonnelle.Prenom</td>
                 <td>@utilisateur.InfosPersonnelle.Nom</td>
-                <td>@utilisateur.Compte.email</td>
+                <td class="table-info">@utilisateur.Compte.email</td>
                 <td>@utilisateur.Compte.role</td>
-                <td>@utilisateur.Compte.nombreAnnonce</td>
+                <td class="table-info">@utilisateur.Compte.nombreAnnonce</td>
             </tr>
         }
     </table>
