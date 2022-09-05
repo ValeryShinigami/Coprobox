@@ -1,10 +1,10 @@
-﻿using System;
+﻿using coproBox.Models;
+
 namespace coproBox.ViewModels
 {
-    public class UtilisateurViexModel
+    public class UtilisateurViewModel
     {
-        public UtilisateurViexModel Utilisateur { get; set; }
+        public Utilisateur Utilisateur { get; set; }
         public bool Authentifie { get; set; }
     }
 }
-
