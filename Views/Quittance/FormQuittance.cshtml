@@ -1,0 +1,25 @@
+﻿@model coproBox.Models.Quittance
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Créer une Quittance : </legend>
+        <div>
+            @Html.LabelFor(model => model.Emetteur)
+            @Html.TextBoxFor(model => model.Emetteur)
+            @Html.ValidationMessageFor(model => model.Emetteur)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Montant)
+            @Html.EditorFor(model => model.Montant, new { htmlAttributes = new { type = "number", min = 0, step="any" } })
+            @Html.ValidationMessageFor(model => model.Montant)
+        </div>
+        <div>
+            @Html.LabelFor(model => model.DateButoir)
+            @Html.EditorFor(model => model.DateButoir, new { htmlAttributes = new { type = "date" } })
+            @Html.ValidationMessageFor(model => model.DateButoir)
+        </div>
+        <div class="button">
+            <input type="submit" value="Créer" />
+        </div>
+    </fieldset>
+}

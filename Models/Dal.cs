@@ -216,16 +216,27 @@ namespace coproBox.Models
             Quittance Quittance = new Quittance()
             {
                 DateButoir = quittance.DateButoir,
-                DateEmission = quittance.DateEmission,
                 Emetteur = quittance.Emetteur,
-                Montant = quittance.Montant
+                Montant = quittance.Montant,
+                Statut = Statut.Creee
             };
             _bddContext.Quittances.Add(Quittance);
             _bddContext.SaveChanges();
             return Quittance.Id;
         }
 
+        public void ModifierQuittance(Quittance quittance)
+        {
+            Quittance Quittance = _bddContext.Quittances.Find(quittance.Id);
 
+            if(Quittance != null)
+            {
+                Quittance.DateButoir = quittance.DateButoir;
+                Quittance.Montant = quittance.Montant;
+                Quittance.Emetteur = quittance.Emetteur;
+                _bddContext.SaveChanges();
+            }
+        }
 
         /*  // AUTHENTIFICATION
 
