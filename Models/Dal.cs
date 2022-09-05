@@ -75,7 +75,29 @@ namespace coproBox.Models
                 _bddContext.SaveChanges();
             }
         }
-              
+
+        public Utilisateur Authentifier(string email, string motdepasse)
+        {
+            string motDePasse = EncodeMD5(motdepasse);
+            Utilisateur user = this._bddContext.Utilisateurs.FirstOrDefault(u => u.Compte.email == email && u.Compte.motDePasse == motDePasse);
+            return user;
+        }
+
+        public Utilisateur ObtenirUtilisateur(int id)
+        {
+            return this._bddContext.Utilisateurs.FirstOrDefault(u => u.Id == id);
+        }
+
+        public Utilisateur ObtenirUtilisateur(string idStr)
+        {
+            int id;
+            if (int.TryParse(idStr, out id))
+            {
+                return this.ObtenirUtilisateur(id);
+            }
+            return null;
+        }
+
         // COMPTES
 
 
