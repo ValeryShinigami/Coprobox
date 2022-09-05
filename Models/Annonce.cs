@@ -31,6 +31,9 @@ namespace coproBox.Models
 
          public IFormFile Image { get; set; }
 
+      //  public int? UtilisateurId { get; set; }
+      //  public virtual Utilisateur Utilisateur { get; set; }
+
     }
 }
 
