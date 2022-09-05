@@ -13,39 +13,39 @@
     <div class="user-body">
         <div class="user-categorie">
             <div class="user-label">
-                @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
+                @Html.LabelFor(m => m.InfosPersonnelle.Prenom)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
-                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
+                @Html.TextBoxFor(m => m.InfosPersonnelle.Prenom)
+                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Prenom)
             </div>
         </div>
         <div class="user-categorie">
             <div class="user-label">
-                @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+                @Html.LabelFor(m => m.InfosPersonnelle.Nom)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
-                @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+                @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
+                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Nom)
 
             </div>
         </div>
         <div class="user-categorie">
             <div class="user-label">
-                @Html.LabelFor(m => Model.Compte.motDePasse)
+                @Html.LabelFor(m => m.Compte.motDePasse)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => Model.Compte.motDePasse)
-                @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
+                @Html.TextBoxFor(m => m.Compte.motDePasse)
+                @Html.ValidationMessageFor(m => m.Compte.motDePasse)
             </div>
         </div>
         <div class="user-categorie">
             <div class="user-label">
-                @Html.LabelFor(m => Model.Compte.email)
+                @Html.LabelFor(m => m.Compte.email)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => Model.Compte.email)
-                @Html.ValidationMessageFor(m => Model.Compte.email)
+                @Html.TextBoxFor(m => m.Compte.email)
+                @Html.ValidationMessageFor(m => m.Compte.email)
             </div>
         </div>
 
