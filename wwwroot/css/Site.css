@@ -209,17 +209,19 @@ a {
     }
 
 .titreAnnonce {
-    margin-left: 42%;
+    margin-left: 40%;
     margin-top: 1%;
     margin-bottom: 1%;
+    font-size: 30px;
 }
 
 /*************************  partie card debut   ************************************************/
 
 .titreAfficherAnnonce {
-    margin-left: 45%;
+    margin-left: 42%;
     margin-top: 1%;
     margin-bottom: 1%;
+    font-size: 30px;
     
 }
 .card-title{
@@ -245,6 +247,21 @@ a {
 
 .btnSupprimer:hover {
     color: red;
+}
+
+.navAnnonce{
+    font-size: 1em;
+}
+
+
+
+.teste{
+    position: fixed;
+}
+.croixAnnonce {
+    font-size: 10px;
+    font-weight: bold;
+    color: #323a7c;
 }
 
 /*************************  CSS VALERY FIN    ************************************************/
