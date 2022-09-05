@@ -17,10 +17,10 @@
         
             <div class="row user-name mb-1">
                 <div class="col-2">
-                    @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
+                    @Html.LabelFor(m => m.InfosPersonnelle.Nom)
                 </div>
                 <div class="col-10">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                    @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
                     @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
                 </div>
             </div>
