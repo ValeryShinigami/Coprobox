@@ -5,28 +5,22 @@
 }
 <div class="liste-utilisateur">
 
-    <a href="/Utilisateur/CreerUtilisateur">Créer un utilisateur</a>
-    <h1>Liste des utilisateurs</h1>
-    <h4><a href="/utilisateur/ListeUtilisateurs">(Liste des utilisateurs)</a></h4>
 
- 
-        <table>
-            <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>adresse mail</th>
-                <th>role</th>
-                <th>nombre d'annonce</th>
-            </tr>
-            @foreach (var utilisateur in Model)
-                {
-            <tr>
-                <td><%: item.Title %></td>
-                <td><%: String.Format("{0:g}", item.ReleaseDate) %></td>
-                <td><%: item.Genre %></td>
-                <td><%: item.Rating %></td>
-                <td><%: String.Format("{0:F}", item.Price) %></td>
-            </tr>
-                }
-        </table>
+<div>
+    <a href="/utilisateur/CreerUtilisateur"><img id="logo" src="../Image/logoA.png" width="90" height="90" /></a>
+    <p>Créer un utilisateur</p>
+</div>
+
+<div>
+    <a href="/utilisateur/ListeUtilisateur"><img id="logo" src="../Image/logoB.png" width="90" height="90" /></a>
+    <p>Liste des utilisateurs</p>
+</div>
+
+<div>
+    <a href="/utilisateur/ModifierUtilisateur"><img id="logo" src="../Image/logoC.png" width="90" height="90" /></a>
+    <p>Modifier un utilisateur</p>
+</div>
+
+
+
 </div>
