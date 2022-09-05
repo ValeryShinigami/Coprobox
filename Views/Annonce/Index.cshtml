@@ -25,11 +25,30 @@
 										<p class="card-text">@annonce.TauxHoraire €/h</p>
 										<p class="card-text">@annonce.Description</p>
 									<p class="card-text"><small class="text-muted">@annonce.Tarif €</small></p>
-									<a href="#" class="btnCard btn">Contacter</a>
+							<a href="#exampleModal" class="btnCard btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacter</a>
+
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											...
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-primary">Save changes</button>
+										</div>
+									</div>
+								</div>
+							</div>
 									<a href="#" class="btnCard btn">Réserver</a>
 
 							<div class="mt-1">
-								<a href=@editlink class="card-link">Modifier</a>
+								<a href=@editlink class="btnModifier card-link">Modifier</a>
 								<a href=@deletelink class="btnSupprimer card-link">Supprimer</a>
 								@*@if (User.IsInRole(Role.Admin.ToString()))
 								{

@@ -240,7 +240,7 @@ a {
 /*************************  partie card fin   ************************************************/
 
 
-.btnSupprimer{
+.btnSupprimer, .btnModifier{
     color: lightskyblue;
 }
 

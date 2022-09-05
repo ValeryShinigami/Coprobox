@@ -5,121 +5,95 @@
     Layout = "_Layout";
     ViewBag.Title = "CreerAnnonce";
 }
-   
-    <div class="animate__animated animate__backInDown titreAnnonce">Déposer une annonce</div>
+
+<div class="animate__animated animate__backInDown titreAnnonce">Déposer une annonce</div>
 <div class="container-fluid">
     <div class="row justify-content-center">
-    <form class="formAnnonce " method="post" enctype="multipart/form-data">
+        <form class="formAnnonce " method="post" enctype="multipart/form-data">
 
+            @using (Html.BeginForm())
+            {
 
-    @using (Html.BeginForm())
-    {
- 
-         <fieldset class="row mb-3">
-            <label for="inputEmail3" class="labelAnnonce col-sm-2 col-form-label">Annonce</label>
-            <div class="col-sm-10">
-                 @Html.DropDownListFor(m => m.TypeService,
-                 new SelectList(Enum.GetValues(typeof(TypeService))),
-                 "Sélectionner le Service")
-            </div>
-        </fieldset>
+                <fieldset class="row mb-3">
+                    <label for="inputEmail3" class="labelAnnonce col-sm-2 col-form-label">Annonce</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(m => m.TypeService,
+                    new SelectList(Enum.GetValues(typeof(TypeService))),
+                    "Sélectionner le Service")
+                    </div>
+                </fieldset>
 
-         <div class="row mb-3">
-            @*  <label for="titre" class="labelAnnonce col-sm-2 col-form-label">Titre</label>
-              <div class="col-sm-10">
-                 <input type="text" class="form-control" id="titre" >
-        </div>*@
-            @Html.LabelFor(model => model.Titre,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="col-sm-6">
-            @Html.TextBoxFor(model => model.Titre, new { @class = "form-control", placeholder = "Titre" })
-            </div>
-            <div class="col-sm-4">
-            @Html.ValidationMessageFor(model => model.Titre)
-            </div>
-        </div>
-      
-        <div class="row mb-3">
-            @*  <label for="floatingTextarea" class="labelAnnonce col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-10">
-            <textarea class="form-control" placeholder="Description" id="floatingTextarea"></textarea>
-        </div>*@
-            @Html.LabelFor(model => model.Description,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="col-sm-6">
-                @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Description" })
-            </div>
-            <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.Titre,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.Titre, new { @class = "form-control", placeholder = "Titre" })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.Titre)
+                    </div>
+                </div>
 
-    @* <div class="row mb-3">
-            <label for="party" class="labelAnnonce col-sm-2 col-form-label">Date et heure:</label>
-            <div class="date col-sm-10">
-                <p class="du">Du</p>
-                <input id="party" type="datetime-local" name="partydate" value="2022-09-01T08:30">
-                <p class="au">Au</p>
-                <input id="party" type="datetime-local" name="partydate" value="2022-09-01T08:30">
-            </div>
-    </div>*@
-  
-        <div class="row mb-3">
-            @Html.LabelFor(model => model.DateDebut,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="date col-sm-6">
-                @Html.EditorFor(model => model.DateDebut, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-            </div>
-            <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.DateDebut)
-            </div>
-        </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.Description,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="col-sm-6">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Description" })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
 
-        <div class="row mb-3">
-            @Html.LabelFor(model => model.DateFin,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="date col-sm-6">
-                @Html.EditorFor(model => model.DateFin, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
-            </div>
-            <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.DateFin)
-            </div>
-        </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.DateDebut,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="date col-sm-6">
+                        @Html.EditorFor(model => model.DateDebut, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.DateDebut)
+                    </div>
+                </div>
 
-     
-        
-        <div class="row mb-3">
-            @Html.LabelFor(model => model.TauxHoraire,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="col-sm-6">
-                @Html.TextBoxFor(model => model.TauxHoraire, new { @class = "form-control", placeholder = "en € / h" })
-            </div>
-            <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.TauxHoraire)
-            </div>
-        </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.DateFin,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="date col-sm-6">
+                        @Html.EditorFor(model => model.DateFin, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.DateFin)
+                    </div>
+                </div>
 
-                   @* AJOUT D'UNE IMAGE
-        <div class="row mb-3">
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.TauxHoraire,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.TauxHoraire, new { @class = "form-control", placeholder = "en € / h" })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.TauxHoraire)
+                    </div>
+                </div>
+
+                @* AJOUT D'UNE IMAGE
+            <div class="row mb-3">
             <label for="file" class="labelAnnonce col-sm-2 col-form-label">Ajouter une Photo</label>
             <div class="date col-sm-10">
-                <input type="file" id="file" name="file" multiple>
+            <input type="file" id="file" name="file" multiple>
             </div>
-    </div>*@
+            </div>*@
 
-        <div class="row mb-3">
-           @* <label for="prix" class="labelAnnonce col-sm-2 col-form-label">Prix</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="prix" placeholder="Eur">
-        </div>*@
-            @Html.LabelFor(model => model.Tarif,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
-            <div class="col-sm-6">
-                @Html.TextBoxFor(model => model.Tarif, new { @class = "form-control", placeholder = "EUR" })
-            </div>
-            <div class="col-sm-4">
-                @Html.ValidationMessageFor(model => model.Tarif)
-            </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(model => model.Tarif,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.Tarif, new { @class = "form-control", placeholder = "EUR" })
+                    </div>
+                    <div class="col-sm-4">
+                        @Html.ValidationMessageFor(model => model.Tarif)
+                    </div>
+                </div>
 
-        </div>
+                <button type="submit" class="btnAnnonce btn">Valider</button>
+            }
 
-        <button type="submit" class="btnAnnonce btn" >Valider</button>
-    }
-
-    </form>
-</div>
+        </form>
+    </div>
 </div>
