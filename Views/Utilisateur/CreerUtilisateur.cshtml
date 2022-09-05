@@ -9,49 +9,12 @@
     {
 <div class="user-section">
     <div class="container">
+
         <fieldset class="user-form">
+
             <legend>Créer un compte : </legend>
 
-            @*
-
-        <div class="row user_adresse1 mb-1">
-            <div class="col-2">
-                @Html.LabelFor(m => Model.Adresse.numeroRue)
-            </div>
-            <div class="col-10 d-flex">
-                <div class="col-3">
-                    @Html.TextBoxFor(m => Model.Adresse.numeroRue)
-                    @Html.ValidationMessageFor(m => Model.Adresse.numeroRue)
-                </div>
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.Adresse.nomRue)
-                </div>
-                <div class="col-7">
-                    @Html.TextBoxFor(m => Model.Adresse.nomRue)
-                    @Html.ValidationMessageFor(m => Model.Adresse.nomRue)
-                </div>
-            </div>
-        </div>
-
-        <div class="row user_adresse2 mb-1">
-            <div class="col-2">
-                @Html.LabelFor(m => Model.Adresse.codePostal)
-            </div>
-            <div class="col-10 d-flex">
-                <div class="col-3">
-                    @Html.TextBoxFor(m => Model.Adresse.codePostal)
-                    @Html.ValidationMessageFor(m => Model.Adresse.codePostal)
-                </div>
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.Adresse.nomVille)
-                </div>
-                <div class="col-7">
-                    @Html.TextBoxFor(m => Model.Adresse.nomVille)
-                    @Html.ValidationMessageFor(m => Model.Adresse.nomVille)
-                </div>
-            </div>
-        </div> *@
-
+        
             <div class="row user-name mb-1">
                 <div class="col-2">
                     @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
