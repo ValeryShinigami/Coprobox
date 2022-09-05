@@ -7,7 +7,7 @@ namespace coproBox.Models
     public enum TypeService // avec "enum", chaque élément sera associé à un entier...
     {
         [Display(Name = "Baby Sitting")]
-        Baby_Sitting,
+        BabySitting,
         [Display(Name = "Cagnotte Solidaire")]
         Cagnotte_Solidaire,
         [Display(Name = "Courses")]

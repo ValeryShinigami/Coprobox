@@ -90,6 +90,27 @@
                         </div>
 
 
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.codePostal, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.codePostal, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.codePostal)
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+
+                            @Html.LabelFor(model => model.Adresse.nomVille, new { @class = "labelAnnonce col-sm-2 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextAreaFor(m => m.Adresse.nomVille, new { @class = "form-control", placeholder = "Description" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.ValidationMessageFor(model => model.Adresse.nomVille)
+                            </div>
+                        </div>
 
                         <button type="submit" class="btn-modification-user btn">Valider</button>
                     </fieldset>
@@ -100,45 +121,6 @@
         </div>
 
     }
-   
-                       <div class="row user_adresse1 mb-1">
-                        <div class="col-2">
-                            @Html.LabelFor(m => Model.Adresse.numeroRue)
-                        </div>
-                        <div class="col-10 d-flex">
-                            <div class="col-3">
-                                @Html.TextBoxFor(m => Model.Adresse.numeroRue)
-                                @Html.ValidationMessageFor(m => Model.Adresse.numeroRue)
-                            </div>
-                            <div class="col-2">
-                                @Html.LabelFor(m => Model.Adresse.nomRue)
-                            </div>
-                            <div class="col-7">
-                                @Html.TextBoxFor(m => Model.Adresse.nomRue)
-                                @Html.ValidationMessageFor(m => Model.Adresse.nomRue)
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row user_adresse2 mb-1">
-                        <div class="col-2">
-                            @Html.LabelFor(m => Model.Adresse.codePostal)
-                        </div>
-                        <div class="col-10 d-flex">
-                            <div class="col-3">
-                                @Html.TextBoxFor(m => Model.Adresse.codePostal)
-                                @Html.ValidationMessageFor(m => Model.Adresse.codePostal)
-                            </div>
-                            <div class="col-2">
-                                @Html.LabelFor(m => Model.Adresse.nomVille)
-                            </div>
-                            <div class="col-7">
-                                @Html.TextBoxFor(m => Model.Adresse.nomVille)
-                                @Html.ValidationMessageFor(m => Model.Adresse.nomVille)
-                            </div>
-                        </div>
-                    </div>
-                <input type="submit" value="Modifier" />
- 
-        }
+ }
  

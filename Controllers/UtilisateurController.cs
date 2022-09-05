@@ -16,11 +16,10 @@ namespace coproBox.Controllers
         {
             this.dal = new Dal();
         }
-        
+    
         public IActionResult Index()
         {
-            List<Utilisateur> listeDesUtilisateurs = dal.ObtientTousLesUtilisateurs();
-            return View(listeDesUtilisateurs);
+            return View();
         }
 
         public IActionResult ListeUtilisateur()
@@ -28,6 +27,7 @@ namespace coproBox.Controllers
             List<Utilisateur> listeDesUtilisateurs = dal.ObtientTousLesUtilisateurs();
             return View(listeDesUtilisateurs);
         }
+
 
         public IActionResult CreerUtilisateur()
         {
@@ -46,9 +46,10 @@ namespace coproBox.Controllers
                     return View(utilisateur);
                 }
             dal.CreerUtilisateur(utilisateur);
-            return RedirectToAction("Index"); // en attente de voir vers où le user sera redirigé
+            return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
         }
-    
+
+        //MODIFIER UN UTILISATEUR
         public IActionResult ModifierUtilisateur(int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
         {
             if (id != 0)

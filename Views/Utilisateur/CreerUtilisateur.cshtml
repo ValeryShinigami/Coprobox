@@ -6,6 +6,7 @@
 }
 
 @using (Html.BeginForm())
+
 {
     <div class="user-section">Créer un utilisateur</div>
 
@@ -26,6 +27,7 @@
             <div class="user-text ">
                 @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
                 @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
+
             </div>
         </div>
         <div class="user-categorie">
@@ -52,7 +54,4 @@
         </div>
 
     </div>
-
-
-
-        }
+ }
