@@ -118,7 +118,10 @@ namespace coproBox.Models
                    Tarif = 20,
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/velo.jpeg"
+                   ImagePath = "/Image/velo.jpeg",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 2
                },
 
                new Annonce
@@ -131,7 +134,10 @@ namespace coproBox.Models
                    Tarif = 150,
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/party.jpg"
+                   ImagePath = "/Image/party.jpg",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 1
                },
                new Annonce
                {
@@ -143,7 +149,10 @@ namespace coproBox.Models
                    Tarif = 30,
                    DateDebut= DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/outillage.jpg"
+                   ImagePath = "/Image/outillage.jpg",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 1
                },
                new Annonce
                {
@@ -155,7 +164,10 @@ namespace coproBox.Models
                    Tarif = 550,
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/chien.jpg"
+                   ImagePath = "/Image/chien.jpg",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 1
                },
                new Annonce
                {
@@ -167,7 +179,10 @@ namespace coproBox.Models
                    Tarif = 0,
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/enfant.png"
+                   ImagePath = "/Image/enfant.png",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 1
                },
 
                new Annonce
@@ -180,7 +195,10 @@ namespace coproBox.Models
                    Tarif = 50,
                    DateDebut = DateTime.Now,
                    DateFin = DateTime.Now,
-                   ImagePath = "/Image/maison.jpg"
+                   ImagePath = "/Image/maison.jpg",
+                   UtilisateurId = 1,
+                   InfosPersonnelleId = 1,
+                   CompteId = 1
 
                }
            ); 
