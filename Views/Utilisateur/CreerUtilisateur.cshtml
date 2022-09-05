@@ -17,40 +17,40 @@
         
             <div class="row user-name mb-1">
                 <div class="col-2">
-                    @Html.LabelFor(m => m.InfosPersonnelle.Nom)
+                    @Html.LabelFor(m => Model.InfosPersonnelle.Nom)
                 </div>
                 <div class="col-10">
-                        @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
-                        @Html.ValidationMessageFor(m => m.InfosPersonnelle.Nom)
+                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom)
+                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
                 </div>
             </div>
 
             <div class="row user-fname mb-1">
                 <div class="col-2">
-                        @Html.LabelFor(m => m.InfosPersonnelle.Prenom)
+                    @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
                 </div>
                 <div class="col-10">
-                        @Html.TextBoxFor(m => m.InfosPersonnelle.Prenom)
-                        @Html.ValidationMessageFor(m => m.InfosPersonnelle.Prenom)
+                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
+                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
                 </div>
             </div>
             <div class="row user_email mb-1">
                 <div class="col-2">
-                        @Html.LabelFor(m => m.Compte.email)
+                    @Html.LabelFor(m => Model.Compte.email)
                 </div>
                 <div class="col-10">
-                        @Html.TextBoxFor(m => m.Compte.email)
-                        @Html.ValidationMessageFor(m => m.Compte.email)
+                    @Html.TextBoxFor(m => Model.Compte.email)
+                    @Html.ValidationMessageFor(m => Model.Compte.email)
                 </div>
             </div>
 
             <div class="row user_email mb-1">
                 <div class="col-2">
-                        @Html.LabelFor(m => m.Compte.motDePasse)
+                    @Html.LabelFor(m => Model.Compte.motDePasse)
                 </div>
                 <div class="col-10">
-                        @Html.EditorFor(m => m.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
-                    @Html.ValidationMessageFor(m => m.Compte.motDePasse)
+                    @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
+                    @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
                 </div>
             </div>
             <div class="user-btn-submit">
