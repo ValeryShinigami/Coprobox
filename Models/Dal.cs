@@ -91,7 +91,6 @@ namespace coproBox.Models
             return _bddContext.Comptes.ToList();
         }
 
-        //ANNONCES :
         public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille)
         {
             Adresse adresse = _bddContext.Adresses.Find(Id);
@@ -122,7 +121,7 @@ namespace coproBox.Models
 
         public List<Annonce> ObtientToutesLesAnnonces()
         {
-            return _bddContext.Annonces.ToList();
+            return _bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).ToList();
         }
 
         public void SupprimerAnnonce(int id)
@@ -216,16 +215,27 @@ namespace coproBox.Models
             Quittance Quittance = new Quittance()
             {
                 DateButoir = quittance.DateButoir,
-                DateEmission = quittance.DateEmission,
                 Emetteur = quittance.Emetteur,
-                Montant = quittance.Montant
+                Montant = quittance.Montant,
+                Statut = Statut.Creee
             };
             _bddContext.Quittances.Add(Quittance);
             _bddContext.SaveChanges();
             return Quittance.Id;
         }
 
+        public void ModifierQuittance(Quittance quittance)
+        {
+            Quittance Quittance = _bddContext.Quittances.Find(quittance.Id);
 
+            if(Quittance != null)
+            {
+                Quittance.DateButoir = quittance.DateButoir;
+                Quittance.Montant = quittance.Montant;
+                Quittance.Emetteur = quittance.Emetteur;
+                _bddContext.SaveChanges();
+            }
+        }
 
         /*  // AUTHENTIFICATION
 

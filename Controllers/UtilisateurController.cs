@@ -12,13 +12,14 @@ namespace coproBox.Controllers
 
         private IDal dal;
 
+
         public UtilisateurController()
         {
             this.dal = new Dal();
         }
-    
+
         public IActionResult Index()
-        {
+        {            
             return View();
         }
 
@@ -27,7 +28,6 @@ namespace coproBox.Controllers
             List<Utilisateur> listeDesUtilisateurs = dal.ObtientTousLesUtilisateurs();
             return View(listeDesUtilisateurs);
         }
-
 
         public IActionResult CreerUtilisateur()
         {
@@ -38,7 +38,7 @@ namespace coproBox.Controllers
         public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
-                return View(utilisateur);
+       return View(utilisateur);
 
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
@@ -73,12 +73,12 @@ namespace coproBox.Controllers
             if (!ModelState.IsValid)
                 return View(utilisateur);
 
-            
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
 
     }
+
 }
 
 /*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
@@ -94,3 +94,5 @@ Utilisateur.Compte.role = Utilisateur.Compte.role;
 Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
 Utilisateur.Compte.email = Utilisateur.Compte.email; OK
 Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */
+
+

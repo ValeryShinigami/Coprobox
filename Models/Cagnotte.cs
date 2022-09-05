@@ -20,6 +20,7 @@ namespace coproBox.Models
 
         public double SommeActuelle { get; set; }
 
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "Il faut une date de fin pour la cagnotte !")]
         public DateTime EcheanceCagnotte { get; set; }
 
