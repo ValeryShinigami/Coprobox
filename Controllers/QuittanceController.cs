@@ -24,7 +24,27 @@ namespace coproBox.Controllers
                 return View(quittance);
             quittance.Statut = Statut.Creee;
             dal.CreerQuittance(quittance);
-            return RedirectToAction("/");
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ModifierQuittance(int Id)
+        {
+            Quittance Quittance = dal.ObtientTouteslesQuittances().Find(q => q.Id == Id);
+            if (Quittance == null)
+            {
+                return View("Error");
+            }
+            return View(Quittance);
+        }
+
+        [HttpPost]
+        public IActionResult ModifierQuittance(Quittance quittance)
+        {
+            if (!ModelState.IsValid)
+                return View(quittance);
+
+            dal.ModifierQuittance(quittance);
+            return RedirectToAction("Index");
         }
     }
 }

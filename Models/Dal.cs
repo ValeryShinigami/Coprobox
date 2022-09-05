@@ -69,7 +69,29 @@ namespace coproBox.Models
                 _bddContext.SaveChanges();
             }
         }
-              
+
+        public Utilisateur Authentifier(string email, string motdepasse)
+        {
+            string motDePasse = EncodeMD5(motdepasse);
+            Utilisateur user = this._bddContext.Utilisateurs.FirstOrDefault(u => u.Compte.email == email && u.Compte.motDePasse == motDePasse);
+            return user;
+        }
+
+        public Utilisateur ObtenirUtilisateur(int id)
+        {
+            return this._bddContext.Utilisateurs.FirstOrDefault(u => u.Id == id);
+        }
+
+        public Utilisateur ObtenirUtilisateur(string idStr)
+        {
+            int id;
+            if (int.TryParse(idStr, out id))
+            {
+                return this.ObtenirUtilisateur(id);
+            }
+            return null;
+        }
+
         // COMPTES
 
 
@@ -215,16 +237,27 @@ namespace coproBox.Models
             Quittance Quittance = new Quittance()
             {
                 DateButoir = quittance.DateButoir,
-                DateEmission = quittance.DateEmission,
                 Emetteur = quittance.Emetteur,
-                Montant = quittance.Montant
+                Montant = quittance.Montant,
+                Statut = Statut.Creee
             };
             _bddContext.Quittances.Add(Quittance);
             _bddContext.SaveChanges();
             return Quittance.Id;
         }
 
+        public void ModifierQuittance(Quittance quittance)
+        {
+            Quittance Quittance = _bddContext.Quittances.Find(quittance.Id);
 
+            if(Quittance != null)
+            {
+                Quittance.DateButoir = quittance.DateButoir;
+                Quittance.Montant = quittance.Montant;
+                Quittance.Emetteur = quittance.Emetteur;
+                _bddContext.SaveChanges();
+            }
+        }
 
         /*  // AUTHENTIFICATION
 

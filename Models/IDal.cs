@@ -13,7 +13,9 @@ namespace coproBox.Models
         List<Utilisateur> ObtientTousLesUtilisateurs();
         public int CreerUtilisateur(Utilisateur utilisateur);
         public void ModifierUtilisateur(Utilisateur utilisateur);
-        
+        Utilisateur Authentifier(string email, string motdepasse);
+        Utilisateur ObtenirUtilisateur(int id);
+        Utilisateur ObtenirUtilisateur(string idStr);
 
         List<Compte> ObtientTousLesComptes();
         public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban);
@@ -40,6 +42,7 @@ namespace coproBox.Models
         // Gestion Quittances
         public List<Quittance> ObtientTouteslesQuittances();
         public int CreerQuittance(Quittance quittance);
+        public void ModifierQuittance(Quittance Quittance);
 
 
         /* //Anthentification
