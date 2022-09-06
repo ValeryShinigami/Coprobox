@@ -41,5 +41,18 @@
     <Content Remove="wwwroot\" />
     <Content Remove="wwwroot\css\" />
     <Content Remove="wwwroot\Image\" />
+    <Content Remove="wwwroot\Image\user-enveloppe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Image\user-enveloppe.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Views\Utilisateur\user-enveloppe.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
   </ItemGroup>
 </Project>

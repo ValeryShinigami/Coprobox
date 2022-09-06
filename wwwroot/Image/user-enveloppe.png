@@ -1,0 +1,152 @@
+﻿@model coproBox.Models.Utilisateur
+@{
+    Layout = "_Layout";
+}
+
+
+    <form class="row mb-2 mx-3" method="post">
+        <div class="form-group mt-4">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ">
+                                <img src="~/Image/user-profil.png" width="24" height="25" />
+                            </span>
+                        </div>
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="form-group col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ">
+                                <img src="~/Image/user-profil.png" width="24" height="25" />
+                            </span>
+                        </div>
+                        <div class="user-texte">
+                            @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.InfosPersonnelle.dateNaissance, new { @class = "form-label" })
+                        <div class="user-texte">
+                            @Html.EditorFor(m => m.InfosPersonnelle.dateNaissance, new { @class = "form-control", placeholder = "Date de naissance", htmlAttributes = new { type = "" } })
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.dateNaissance)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <div class="form-row">
+                <div class="form-group col-8">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text "><img src="~/Image/enveloppe-user.png" width="24" height="25"/>
+                                
+                            </span>
+                        </div>
+                        @Html.TextBoxFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email"})
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.Compte.email)
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Adresse.NumeroPorte, new { @class = "form-label" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Adresse.NumeroPorte, new { @class = "form-control", placeholder = "n°d'appartement" })
+                </div>
+                <div class="col-sm-4">
+                    @Html.ValidationMessageFor(model => model.Adresse.AdressePrincipale)
+                </div>
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Adresse.AdressePrincipale, new { @class = "form-label" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Adresse.AdressePrincipale, new { @class = "form-control", placeholder = "Adresse principale" })
+                </div>
+                <div class="col-sm-4">
+                    @Html.ValidationMessageFor(model => model.Adresse.AdressePrincipale)
+                </div>
+            </div>
+        </div>
+        <div class="row w-100">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Adresse.CodePostal, new { @class = "form-label" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Adresse.CodePostal, new { @class = "form-control", placeholder = "Code Postal" })
+                </div>
+                <div class="col-sm-4">
+                    @Html.ValidationMessageFor(model => model.Adresse.CodePostal)
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Adresse.Ville, new { @class = "form-label" })
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Adresse.Ville, new { @class = "form-control", placeholder = "Ville" })
+                </div>
+                <div class="col-sm-4">
+                    @Html.ValidationMessageFor(model => model.Adresse.Ville)
+                </div>
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.Compte.motDePasse)
+            </div>
+            <div class="user-text ">
+                @Html.EditorFor(m => m.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password" } })
+                @Html.ValidationMessageFor(m => m.Compte.motDePasse)
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.InfosContact.telephone)
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.InfosContact.telephone , new { @class = "form-control", placeholder = "Telephone" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.InfosContact.telephone)
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Valider</button>
+        </div>
+    </form>
+
+
+
+
+@*    <div class="user-section">Modifier un utilisateur</div>
+
+    <div class="zone-form">
+
+        <div class="row justify-content-center">
+            <form class="formAnnonce " method="post" enctype="multipart/form-data">
+                <fieldset class="user-form">
+                    <div class="row mb-3">
+
+            
+    
+*@
+
+
+
+
