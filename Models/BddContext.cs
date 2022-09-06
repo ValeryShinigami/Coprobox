@@ -227,6 +227,18 @@ namespace coproBox.Models
                     SommeActuelle = 100
                 }
                 );
+            this.Quittances.Add(
+                new Quittance
+                {
+                    DateEmission = DateTime.Now,
+                    DateButoir = DateTime.Now,
+                    DateLocation = DateTime.Now,
+                    Emetteur = "Proprio",
+                    LocataireId = 1,
+                    Montant = 999,
+                    Statut = Statut.Payee
+                }
+                );
             this.SaveChanges();
         }
     }

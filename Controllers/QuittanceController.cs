@@ -1,4 +1,5 @@
 ﻿using coproBox.Models;
+using coproBox.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coproBox.Controllers
@@ -45,6 +46,20 @@ namespace coproBox.Controllers
 
             dal.ModifierQuittance(quittance);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult AfficherQuittance(int Id)
+        {
+            Quittance quittance = dal.ObtientTouteslesQuittances().Find(q => q.Id == Id);
+            Utilisateur utilisateur = dal.ObtenirUtilisateur((int)quittance.LocataireId);
+
+            QuittanceViewModel QuittanceViewModel = new QuittanceViewModel
+            {
+                Quittance = quittance,
+                Utilisateur = utilisateur
+            };
+            
+            return View(QuittanceViewModel);
         }
     }
 }
