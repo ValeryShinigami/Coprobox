@@ -29,9 +29,10 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
-        //**********************************$CREER UTILISATEUR **************************
+       //**********************************$CREER UTILISATEUR **************************
         public IActionResult CreerUtilisateur()
         {
+
             return View();
         }
 
@@ -48,7 +49,6 @@ namespace coproBox.Controllers
                 }
             dal.CreerUtilisateur(utilisateur);
             return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
-
         }
 
         //MODIFIER UN UTILISATEUR
@@ -75,7 +75,6 @@ namespace coproBox.Controllers
 
             if (!ModelState.IsValid)
                 return View(utilisateur);
-
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
