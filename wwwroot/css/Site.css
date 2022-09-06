@@ -362,6 +362,12 @@ display : inline-flex;
 
 }
 
+.user-update-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*********************************************  Quittance  ************************************************/
 .quittance {
     padding: 5px 10%;
@@ -378,4 +384,4 @@ display : inline-flex;
 
 .emetteur {
     padding-left: 80%;
-}
+    }

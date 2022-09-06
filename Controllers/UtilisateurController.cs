@@ -72,13 +72,16 @@ namespace coproBox.Controllers
         [HttpPost]
         public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
         {
+
             if (!ModelState.IsValid)
                 return View(utilisateur);
+
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
 
     }
+
 }
 
 /*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
@@ -94,3 +97,4 @@ Utilisateur.Compte.role = Utilisateur.Compte.role;
 Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
 Utilisateur.Compte.email = Utilisateur.Compte.email; OK
 Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */
+
