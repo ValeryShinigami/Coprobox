@@ -71,11 +71,10 @@ namespace coproBox.Controllers
         [HttpPost]
         public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
         {
-
             if (!ModelState.IsValid)
+            {
                 return View(utilisateur);
-
-            
+            }
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
@@ -83,16 +82,16 @@ namespace coproBox.Controllers
     }
 }
 
-/*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
-Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom; OK
-Utilisateur.InfosPersonnelle.dateNaissance = utilisateur.InfosPersonnelle.dateNaissance; OK
-Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte; OK
-Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue; OK
-Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue; OK
-Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal; OK
+/*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom;
+Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
+Utilisateur.InfosPersonnelle.dateNaissance = utilisateur.InfosPersonnelle.dateNaissance;
+Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte;
+Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue;
+Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue;
+Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal;
 Utilisateur.Adresse.nomVille = Utilisateur.Adresse.nomVille;
 Utilisateur.Compte.numeroIdentifiant = Utilisateur.Compte.numeroIdentifiant;
 Utilisateur.Compte.role = Utilisateur.Compte.role;
-Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
-Utilisateur.Compte.email = Utilisateur.Compte.email; OK
-Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */
+Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse;
+Utilisateur.Compte.email = Utilisateur.Compte.email;
+Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;*/

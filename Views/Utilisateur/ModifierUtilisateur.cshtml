@@ -44,7 +44,7 @@
                     <span class="input-group-text" id="inputGroupPrepend">@@</span>
                     @Html.LabelFor(model => model.Compte.email, new { @class = "form-label" })
                     <div class="col-sm-6">
-                        @Html.TextAreaFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email" })
+                        @Html.TextBoxFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email" })
                     </div>
                     <div class="col-sm-4">
                         @Html.ValidationMessageFor(model => model.Compte.email)
@@ -56,7 +56,7 @@
             <div class="col-md-3">
                 @Html.LabelFor(model => model.Adresse.numeroPorte, new { @class = "form-label" })
                 <div class="col-sm-6">
-                    @Html.TextAreaFor(m => m.Adresse.numeroPorte, new { @class = "form-control", placeholder = "n°d'appartement" })
+                    @Html.TextBoxFor(m => m.Adresse.numeroPorte, new { @class = "form-control", placeholder = "n°d'appartement" })
                 </div>
                 <div class="col-sm-4">
                     @Html.ValidationMessageFor(model => model.Adresse.numeroPorte)
@@ -65,7 +65,7 @@
             <div class="col-md-3">
                 @Html.LabelFor(model => model.Adresse.numeroRue, new { @class = "form-label" })
                 <div class="col-sm-6">
-                    @Html.TextAreaFor(m => m.Adresse.numeroRue, new { @class = "form-control", placeholder = "n°de rue" })
+                    @Html.TextBoxFor(m => m.Adresse.numeroRue, new { @class = "form-control", placeholder = "n°de rue" })
                 </div>
                 <div class="col-sm-4">
                     @Html.ValidationMessageFor(model => model.Adresse.numeroRue)
@@ -75,7 +75,7 @@
             <div class="col-md-6">
                 @Html.LabelFor(model => model.Adresse.nomRue, new { @class = "form-label" })
                 <div class="col-sm-6">
-                    @Html.TextAreaFor(m => m.Adresse.nomRue, new { @class = "form-control", placeholder = "complément adresse" })
+                    @Html.TextBoxFor(m => m.Adresse.nomRue, new { @class = "form-control", placeholder = "complément adresse" })
                 </div>
                 <div class="col-sm-4">
                     @Html.ValidationMessageFor(model => model.Adresse.nomRue)
@@ -86,7 +86,7 @@
             <div class="col-md-3">
                 @Html.LabelFor(model => model.Adresse.codePostal, new { @class = "form-label" })
                 <div class="col-sm-6">
-                    @Html.TextAreaFor(m => m.Adresse.codePostal, new { @class = "form-control", placeholder = "Code Postal" })
+                    @Html.TextBoxFor(m => m.Adresse.codePostal, new { @class = "form-control", placeholder = "Code Postal" })
                 </div>
                 <div class="col-sm-4">
                     @Html.ValidationMessageFor(model => model.Adresse.codePostal)
@@ -95,7 +95,7 @@
             <div class="col-md-6">
                 @Html.LabelFor(model => model.Adresse.nomVille, new { @class = "form-label" })
                 <div class="col-sm-6">
-                    @Html.TextAreaFor(m => m.Adresse.nomVille, new { @class = "form-control", placeholder = "Ville" })
+                    @Html.TextBoxFor(m => m.Adresse.nomVille, new { @class = "form-control", placeholder = "Ville" })
                 </div>
                 <div class="col-sm-4">
                     @Html.ValidationMessageFor(model => model.Adresse.nomVille)
@@ -109,6 +109,17 @@
             <div class="user-text ">
                 @Html.EditorFor(m => m.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password" } })
                 @Html.ValidationMessageFor(m => m.Compte.motDePasse)
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.InfosContact.telephone)
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.InfosContact.telephone , new { @class = "form-control", placeholder = "Telephone" })
+            </div>
+            <div class="col-sm-4">
+                @Html.ValidationMessageFor(model => model.InfosContact.telephone)
             </div>
         </div>
         <div class="col-12">
