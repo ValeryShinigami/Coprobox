@@ -43,7 +43,15 @@ namespace coproBox.Models
         public int? CompteId { get; set; }
         public virtual Compte  Compte { get; set; }
 
-
+        public enum Statut
+        {
+            Creee,
+            Validée,
+            Non_Validée,
+            Supprimée,
+            Payee,
+            EnLigne
+        }
     }
 }
 

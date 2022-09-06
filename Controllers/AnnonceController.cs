@@ -38,14 +38,15 @@ namespace coproBox.Controllers
             return View("Index", listeDesAnnonces);
         }
 
-        public IActionResult TriIndex(string searchString)
+        public IActionResult TriIndex(TypeService searchDropDown)
 
         {
             
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchDropDown.ToString()))
             {
-                listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService.ToString().ToLower().Contains(searchString.ToLower())).ToList();
+               // listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService.ToString().ToLower().Contains(searchString.ToLower())).ToList();
+                listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService == searchDropDown).ToList();
             }
             return View("Index", listeDesAnnonces);
         }
