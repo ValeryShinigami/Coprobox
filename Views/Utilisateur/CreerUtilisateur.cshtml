@@ -6,14 +6,29 @@
 }
 
 @using (Html.BeginForm())
-    {
-<div class="user-section">
-    <div class="container">
 
-        <fieldset class="user-form">
+{
+    <div class="user-section">Créer un utilisateur</div>
+    <div class="user-body">
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.InfosPersonnelle.Prenom)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => m.InfosPersonnelle.Prenom)
+                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Prenom)
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.InfosPersonnelle.Nom)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
+                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Nom)
 
-            <legend>Créer un compte : </legend>
-
+<<<<<<< HEAD
+<<<<<<< HEAD
         
             <div class="row user-name mb-1">
                 <div class="col-2">
@@ -23,43 +38,34 @@
                     @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
                     @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Nom)
                 </div>
+=======
+>>>>>>> f0ea3065c70c6f2b395ffdfcf80a0e19a217df70
+=======
+>>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
             </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.Compte.motDePasse)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => m.Compte.motDePasse)
+                @Html.ValidationMessageFor(m => m.Compte.motDePasse)
+            </div>
+        </div>
+        <div class="user-categorie">
+            <div class="user-label">
+                @Html.LabelFor(m => m.Compte.email)
+            </div>
+            <div class="user-text ">
+                @Html.TextBoxFor(m => m.Compte.email)
+                @Html.ValidationMessageFor(m => m.Compte.email)
+            </div>
+        </div>
 
-            <div class="row user-fname mb-1">
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.InfosPersonnelle.Prenom)
-                </div>
-                <div class="col-10">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom)
-                    @Html.ValidationMessageFor(m => Model.InfosPersonnelle.Prenom)
-                </div>
-            </div>
-            <div class="row user_email mb-1">
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.Compte.email)
-                </div>
-                <div class="col-10">
-                    @Html.TextBoxFor(m => Model.Compte.email)
-                    @Html.ValidationMessageFor(m => Model.Compte.email)
-                </div>
-            </div>
+        <div class="user-btn-submit">
+            <input type="submit" value="Enregistrer" />
+        </div>
 
-            <div class="row user_email mb-1">
-                <div class="col-2">
-                    @Html.LabelFor(m => Model.Compte.motDePasse)
-                </div>
-                <div class="col-10">
-                    @Html.EditorFor(m => Model.Compte.motDePasse, new { htmlAttributes = new { type = "password" } })
-                    @Html.ValidationMessageFor(m => Model.Compte.motDePasse)
-                </div>
-            </div>
-            <div class="user-btn-submit">
-                <input type="submit" value="Enregistrer" />
-            </div>
-        </fieldset>
     </div>
-</div>
-
-
-
-    }
+ }

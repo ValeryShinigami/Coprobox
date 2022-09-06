@@ -12,6 +12,7 @@ namespace coproBox.Models
         [Required(ErrorMessage = "Le nom doit être précisé.")]
         [MaxLength(30)]
         public string Prenom { get; set; }
+        [DataType(DataType.Date)]
         public DateTime dateNaissance { get; set; }
     }
 }

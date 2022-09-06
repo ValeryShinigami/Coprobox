@@ -11,8 +11,10 @@ namespace coproBox.Models
         [Required]
         public double Montant { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         public DateTime DateEmission { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         public DateTime DateButoir { get; set; }
         public byte[] Fichier { get; set; }
         public Statut Statut { get; set; }

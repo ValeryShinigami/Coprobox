@@ -10,16 +10,16 @@ namespace coproBox.Controllers
     public class UtilisateurController : Controller
     {
 
+
         private IDal dal;
 
         public UtilisateurController()
         {
             this.dal = new Dal();
         }
-
-
+    
         public IActionResult Index()
-        {            
+        {
             return View();
         }
 
@@ -29,8 +29,14 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
+        //**********************************$CREER UTILISATEUR **************************
+<<<<<<< HEAD
         public IActionResult CreerUtilisateur()
         {
+=======
+        public IActionResult CreerUtilisateur()
+        {
+>>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
             return View();
         }
 
@@ -38,7 +44,8 @@ namespace coproBox.Controllers
         public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
-       return View(utilisateur);
+<<<<<<< HEAD
+                return View(utilisateur);
 
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
@@ -47,6 +54,18 @@ namespace coproBox.Controllers
                 }
             dal.CreerUtilisateur(utilisateur);
             return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
+=======
+                return View(utilisateur);
+
+            if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
+                {
+                    ModelState.AddModelError("email", "Cet email est déjà enregistré");
+                    return View(utilisateur);
+                }
+            dal.CreerUtilisateur(utilisateur);
+            return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
+
+>>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
         }
 
         //MODIFIER UN UTILISATEUR
@@ -68,11 +87,19 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
+<<<<<<< HEAD
         public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
                 return View(utilisateur);
 
+            
+=======
+        public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
+        {
+            if (!ModelState.IsValid)
+                return View(utilisateur);
+>>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
@@ -80,16 +107,16 @@ namespace coproBox.Controllers
     }
 }
 
-/*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom;
-Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
-Utilisateur.InfosPersonnelle.dateNaissance = utilisateur.InfosPersonnelle.dateNaissance;
-Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte;
-Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue;
-Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue;
-Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal;
+/*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
+Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom; OK
+Utilisateur.InfosPersonnelle.dateNaissance = utilisateur.InfosPersonnelle.dateNaissance; OK
+Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte; OK
+Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue; OK
+Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue; OK
+Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal; OK
 Utilisateur.Adresse.nomVille = Utilisateur.Adresse.nomVille;
 Utilisateur.Compte.numeroIdentifiant = Utilisateur.Compte.numeroIdentifiant;
 Utilisateur.Compte.role = Utilisateur.Compte.role;
-Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse;
-Utilisateur.Compte.email = Utilisateur.Compte.email;
-Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone; */
+Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
+Utilisateur.Compte.email = Utilisateur.Compte.email; OK
+Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */

@@ -2,11 +2,6 @@
     margin:0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height:100%
-
-}
-
-.corps {
-    height: 60vh;
 }
 
 header {
@@ -324,6 +319,24 @@ a {
     flex-direction: column;
 }
 
+.user-body {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 0 20px 0 20px;
+    justify-content: center;
+}
+
+.user-label {
+width : 30%;
+text-align: end;
+margin-bottom : 15px;
+}
+
+.user-categorie {
+    display: inline-flex;
+}
+
 .user-list {
 margin-right : 80px;
 margin-left : 80px;
@@ -335,11 +348,17 @@ margin-top : 80px;
     justify-content: center;
 }
 
-.user-form {
-margin-bottom:20px;
-border: solid;
+.user-text {
+    width: 70%;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
 
 .user-btn-submit {
-margin-bottom : 20px;
+    margin-bottom: 20px;
+}
+
+.user-index-section {
+display : inline-flex;
+
 }
