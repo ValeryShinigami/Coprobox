@@ -36,7 +36,6 @@
     <Folder Include="Views\Utilisateur\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Adresse\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

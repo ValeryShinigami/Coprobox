@@ -14,6 +14,11 @@
             @Html.ValidationMessageFor(model => model.Montant)
         </div>
         <div>
+            @Html.LabelFor(model => model.DateLocation)
+            @Html.EditorFor(model => model.DateLocation, new { htmlAttributes = new { type = "month" } })
+            @Html.ValidationMessageFor(model => model.DateLocation)
+        </div>
+        <div>
             @Html.LabelFor(model => model.DateButoir)
             @Html.EditorFor(model => model.DateButoir, new { htmlAttributes = new { type = "date" } })
             @Html.ValidationMessageFor(model => model.DateButoir)

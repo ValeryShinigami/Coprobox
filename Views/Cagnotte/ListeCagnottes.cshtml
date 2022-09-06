@@ -7,12 +7,12 @@
                     @if (@cagnotte.SommeActuelle < @cagnotte.SommeObjectif && @cagnotte.EcheanceCagnotte > DateTime.Now){
                         <a href="/cagnotte/infocagnotte/@cagnotte.Id">
                             <div class="filling-heart">
-                                <img src="~/image/heartempty2.png" width="200" height="200" />
+                                <img src="~/image/heartempty2.png" width="300" height="300" />
                             </div>
                         </a>
                     } else{
                         <div class="filling-heart">
-                            <img src="~/image/heartempty2.png" width="200" height="200" />
+                            <img src="~/image/heartempty2.png" width="300" height="300" />
                         </div>
                     }
                     <div class="img-container">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div>@cagnotte.Titre</div>
+            <h2>@cagnotte.Titre</h2>
             <div>@cagnotte.Description</div>
             <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
         </div>

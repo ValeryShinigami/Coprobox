@@ -4,7 +4,7 @@
 }
 
 
-<d class="user-update-form">
+<div class="user-update-form">
     <form class="row g-3 mb-2" method="post">
         <div class="row w-100">
             <div class="col-md-4">
@@ -42,8 +42,8 @@
                 <div class="form-group col-sm-6">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text fa fa-envelope"
-                                  ::before
+                            <span class="input-group-text "><img src="~/Image/enveloppe-user.png" width="20" height="20"/>
+                                
                             </span>
                         </div>
                         @Html.TextBoxFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email", maxlength = "96" })
@@ -61,7 +61,7 @@
                     @Html.TextBoxFor(m => m.Adresse.NumeroPorte, new { @class = "form-control", placeholder = "n°d'appartement" })
                 </div>
                 <div class="col-sm-4">
-                    @Html.ValidationMessageFor(model => model.Adresse.NumeroPorte)
+                    @Html.ValidationMessageFor(model => model.Adresse.AdressePrincipale)
                 </div>
             </div>
             <div class="col-md-3">

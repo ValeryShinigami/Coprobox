@@ -1,0 +1,25 @@
+﻿@model coproBox.ViewModels.QuittanceViewModel
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Quittance</title>
+        <link href="~/css/Site.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="quittance">
+            <h2>Quittance de loyer</h2>
+            <p>Adresse de la location :</p>
+            @*<p>@Model.Locataire.Adresse</p>*@
+
+            <p>
+                Je soussigné @Model.Quittance.Emetteur propriétaire du logement à l'adresse ci-dessus, déclare avoir reçu de M/Mme
+                @Model.Utilisateur.InfosPersonnelle.Prenom @Model.Utilisateur.InfosPersonnelle.Nom la somme de @Model.Quittance.Montant€
+                au titre du paiement du loyer et des charges pour la période de location du @Model.Quittance.DateLocation.Month/@Model.Quittance.DateLocation.Year
+                et lui en donne quittance, sous réserve de tous mes droits.
+            </p>
+            <p>Fait le @Model.Quittance.DateEmission.ToShortDateString()</p>
+            <p class="emetteur">@Model.Quittance.Emetteur</p>
+        </div>
+    </body>
+</html>

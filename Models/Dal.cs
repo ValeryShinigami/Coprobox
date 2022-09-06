@@ -91,7 +91,7 @@ namespace coproBox.Models
 
         public Utilisateur ObtenirUtilisateur(int id)
         {
-            return this._bddContext.Utilisateurs.FirstOrDefault(u => u.Id == id);
+            return this._bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id == id);
         }
 
         public Utilisateur ObtenirUtilisateur(string idStr)
@@ -243,11 +243,17 @@ namespace coproBox.Models
             return _bddContext.Quittances.ToList();
         }
 
+        public Quittance ObtenirQuittance(int Id)
+        {
+            return _bddContext.Quittances.Find(Id);
+        }
+
         public int CreerQuittance(Quittance quittance)
         {
             Quittance Quittance = new Quittance()
             {
                 DateButoir = quittance.DateButoir,
+                DateLocation = quittance.DateLocation,
                 Emetteur = quittance.Emetteur,
                 Montant = quittance.Montant,
                 Statut = Statut.Creee
