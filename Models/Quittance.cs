@@ -8,8 +8,13 @@ namespace coproBox.Models
     {
         public int Id { get; set; }
         public string Emetteur { get; set; }
+        public int? LocataireId { get; set; }
+        public Utilisateur Locataire { get; set; }
         [Required]
         public double Montant { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DateLocation { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime DateEmission { get; set; }
