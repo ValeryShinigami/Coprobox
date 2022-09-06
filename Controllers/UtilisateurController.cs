@@ -29,14 +29,10 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
-        //**********************************$CREER UTILISATEUR **************************
-<<<<<<< HEAD
+       //**********************************$CREER UTILISATEUR **************************
         public IActionResult CreerUtilisateur()
         {
-=======
-        public IActionResult CreerUtilisateur()
-        {
->>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
+
             return View();
         }
 
@@ -44,7 +40,6 @@ namespace coproBox.Controllers
         public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
-<<<<<<< HEAD
                 return View(utilisateur);
 
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
@@ -54,18 +49,6 @@ namespace coproBox.Controllers
                 }
             dal.CreerUtilisateur(utilisateur);
             return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
-=======
-                return View(utilisateur);
-
-            if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
-                {
-                    ModelState.AddModelError("email", "Cet email est déjà enregistré");
-                    return View(utilisateur);
-                }
-            dal.CreerUtilisateur(utilisateur);
-            return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
-
->>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
         }
 
         //MODIFIER UN UTILISATEUR
@@ -87,24 +70,17 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
-<<<<<<< HEAD
         public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
         {
-            if (!ModelState.IsValid)
-                return View(utilisateur);
 
-            
-=======
-        public IActionResult ModifierUtilisateur(Utilisateur utilisateur)
-        {
             if (!ModelState.IsValid)
                 return View(utilisateur);
->>>>>>> 6097aee422d09ec2513b2f58014a656a6c6f002d
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
 
     }
+
 }
 
 /*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
@@ -120,3 +96,4 @@ Utilisateur.Compte.role = Utilisateur.Compte.role;
 Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
 Utilisateur.Compte.email = Utilisateur.Compte.email; OK
 Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */
+

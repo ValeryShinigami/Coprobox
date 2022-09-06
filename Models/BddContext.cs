@@ -59,14 +59,14 @@ namespace coproBox.Models
                 new InfosPersonnelle
                 {
                     Id = 1,
-                    Nom = "KALOMBO",
-                    Prenom = "Valery"
+                    Nom = "BENMAKHLOUF",
+                    Prenom = "Fouzy"
                 },
                   new InfosPersonnelle
                   {
                       Id = 2,
-                      Nom = "BENMAKHLOUF",
-                      Prenom = "Fouzy"
+                      Nom = "KALOMBO",
+                      Prenom = "Valery"
                   }
             );
 
@@ -225,6 +225,18 @@ namespace coproBox.Models
                     Description = "Dernière cagnotte!",
                     SommeObjectif = 100,
                     SommeActuelle = 100
+                }
+                );
+            this.Quittances.Add(
+                new Quittance
+                {
+                    DateEmission = DateTime.Now,
+                    DateButoir = DateTime.Now,
+                    DateLocation = DateTime.Now,
+                    Emetteur = "Proprio",
+                    LocataireId = 1,
+                    Montant = 999,
+                    Statut = Statut.Payee
                 }
                 );
             this.SaveChanges();
