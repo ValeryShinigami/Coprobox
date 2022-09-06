@@ -4,49 +4,61 @@
 }
 
 
-<div class="user-update-form">
-    <form class="row g-3 mb-2" method="post">
-        <div class="row w-100">
-            <div class="col-md-4">
-                @Html.LabelFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-label" })
-                <div class="user-texte">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
-                </div>
-                <div class="col-sm-4">
-                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                @Html.LabelFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-label" })
-                <div class="user-texte">
-                    @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
-                </div>
-                <div class="col-sm-4">
-                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                @Html.LabelFor(model => model.InfosPersonnelle.dateNaissance, new { @class = "form-label" })
-                <div class="user-texte">
-                    @Html.EditorFor(m => m.InfosPersonnelle.dateNaissance, new { @class = "form-control", placeholder = "Date de naissance", htmlAttributes = new { type = "" } })
-                </div>
-                <div class="col-sm-4">
-                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.dateNaissance)
-                </div>
-            </div>
-        </div>
+    <form class="row mb-2 mx-3" method="post">
         <div class="form-group mt-4">
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text "><img src="~/Image/enveloppe-user.png" width="20" height="20"/>
+                            <span class="input-group-text ">
+                                <img src="~/Image/user-profil.png" width="24" height="25" />
+                            </span>
+                        </div>
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="form-group col-sm-6">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ">
+                                <img src="~/Image/user-profil.png" width="24" height="25" />
+                            </span>
+                        </div>
+                        <div class="user-texte">
+                            @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.InfosPersonnelle.dateNaissance, new { @class = "form-label" })
+                        <div class="user-texte">
+                            @Html.EditorFor(m => m.InfosPersonnelle.dateNaissance, new { @class = "form-control", placeholder = "Date de naissance", htmlAttributes = new { type = "" } })
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.ValidationMessageFor(model => model.InfosPersonnelle.dateNaissance)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <div class="form-row">
+                <div class="form-group col-8">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text "><img src="~/Image/enveloppe-user.png" width="24" height="25"/>
                                 
                             </span>
                         </div>
-                        @Html.TextBoxFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email", maxlength = "96" })
+                        @Html.TextBoxFor(m => m.Compte.email, new { @class = "form-control", placeholder = "email"})
                         <div class="col-sm-4">
                             @Html.ValidationMessageFor(model => model.Compte.email)
                         </div>
@@ -54,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="row w-100">
+        <div class="form-group mt-4">
             <div class="col-md-3">
                 @Html.LabelFor(model => model.Adresse.NumeroPorte, new { @class = "form-label" })
                 <div class="col-sm-6">
@@ -118,7 +130,7 @@
             <button class="btn btn-primary" type="submit">Valider</button>
         </div>
     </form>
-</div>
+
 
 
 

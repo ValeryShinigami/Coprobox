@@ -34,8 +34,9 @@ namespace coproBox.Models
 
         public int CreerUtilisateur(Utilisateur utilisateur)
         {
-            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
-            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom, Prenom = utilisateur.InfosPersonnelle.Prenom };
+            string password = EncodeMD5(utilisateur.Compte.motDePasse);
+            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = password};
             Adresse adresse = new Adresse();
             InfosContact infosContact = new InfosContact();
             Profil profil = new Profil();
@@ -74,6 +75,7 @@ namespace coproBox.Models
                 if(utilisateur.Compte.role != null)
                     Utilisateur.Compte.role = utilisateur.Compte.role;
                 Utilisateur.Compte.motDePasse = utilisateur.Compte.motDePasse;
+
                 Utilisateur.Compte.email = utilisateur.Compte.email;
                 if (utilisateur.InfosContact.telephone != null)
                     Utilisateur.InfosContact.telephone = utilisateur.InfosContact.telephone;
@@ -104,42 +106,6 @@ namespace coproBox.Models
             return null;
         }
 
-        // COMPTES
-
-
-        public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban)
-        {
-            Compte compte = _bddContext.Comptes.Find(Id);
-            if (compte != null)
-            {
-                compte.numeroIdentifiant = numeroIdentifiant;
-                compte.role = role;
-                compte.motDePasse = motDePasse;
-                compte.codeIban = codeIban;
-                _bddContext.SaveChanges();
-            }
-        }
-
-        public List<Compte> ObtientTousLesComptes()
-        {
-            return _bddContext.Comptes.ToList();
-        }
-
-        public void ModifierAdresse(int Id, string NumeroPorte, string AdressePrincipale, int CodePostal, string Ville)
-        {
-            Adresse adresse = _bddContext.Adresses.Find(Id);
-            if (adresse != null)
-            {
-                adresse.NumeroPorte = NumeroPorte;
-                adresse. AdressePrincipale = AdressePrincipale;
-                adresse.CodePostal = CodePostal;
-            }
-        }
-
-        public List<Adresse> ObtientToutesLesAdresses()
-        {
-            return _bddContext.Adresses.ToList();
-        }
         // ANNONCE DEBUT
         public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0)
         {

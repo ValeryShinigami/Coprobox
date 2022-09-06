@@ -17,13 +17,7 @@ namespace coproBox.Models
         Utilisateur ObtenirUtilisateur(int id);
         Utilisateur ObtenirUtilisateur(string idStr);
 
-        List<Compte> ObtientTousLesComptes();
-        public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban);
-
-        public void ModifierAdresse(int Id, string NumeroPorte,string AdressePrincipale, int codePostal, string Ville); 
-        List<Adresse> ObtientToutesLesAdresses();
-
-        // Gestion Annonces
+       // Gestion Annonces
 
         List<Annonce> ObtientToutesLesAnnonces();
         public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0);

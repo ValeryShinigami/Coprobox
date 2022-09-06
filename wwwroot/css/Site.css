@@ -359,16 +359,6 @@ margin-top : 80px;
 
 .user-index-section {
 display : inline-flex;
-
-}
-
-.user-update-form {
-    padding-left:20%;
-    padding-right: 20%;
-}
-
-.fa-envelope:before {
-content:"/../f0e0.png";
 }
 
 /*********************************************  Quittance  ************************************************/
