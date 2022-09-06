@@ -2,10 +2,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace coproBox.Controllers
 {
@@ -25,6 +29,28 @@ namespace coproBox.Controllers
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);
         }
+
+        public IActionResult SortIndex()
+
+        {
+            List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
+            listeDesAnnonces = listeDesAnnonces.OrderByDescending(a => a.TypeService).ToList();
+            return View("Index", listeDesAnnonces);
+        }
+
+        public IActionResult TriIndex(TypeService searchDropDown)
+
+        {
+            
+            List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
+            if (!String.IsNullOrEmpty(searchDropDown.ToString()))
+            {
+               // listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService.ToString().ToLower().Contains(searchString.ToLower())).ToList();
+                listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService == searchDropDown).ToList();
+            }
+            return View("Index", listeDesAnnonces);
+        }
+
 
         public IActionResult CreerAnnonce()
         {
