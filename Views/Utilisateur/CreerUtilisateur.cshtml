@@ -9,42 +9,83 @@
 
 {
     <div class="user-section">Créer un utilisateur</div>
-    <div class="user-body">
-        <div class="user-categorie">
-            <div class="user-label">
-                @Html.LabelFor(m => m.InfosPersonnelle.Prenom)
-            </div>
-            <div class="user-text ">
-                @Html.TextBoxFor(m => m.InfosPersonnelle.Prenom)
-                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Prenom)
-            </div>
-        </div>
-        <div class="user-categorie">
-            <div class="user-label">
-                @Html.LabelFor(m => m.InfosPersonnelle.Nom)
-            </div>
-            <div class="user-text ">
-                @Html.TextBoxFor(m => m.InfosPersonnelle.Nom)
-                @Html.ValidationMessageFor(m => m.InfosPersonnelle.Nom)
-            </div>
-        </div>
-        <div class="user-categorie">
-            <div class="user-label">
-                @Html.LabelFor(m => m.Compte.motDePasse)
-            </div>
-            <div class="user-text ">
-                @Html.EditorFor(m => m.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password" } })
-                @Html.ValidationMessageFor(m => m.Compte.motDePasse)
+
+    <form class="row my-5 mx-auto" style="width:300px" method="post">
+        <!-- Nom et Prenom -->
+
+        <div class="form-row d-flex my-5">
+            <div class="col">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text ">
+                            <img src="~/Image/user-profil.png" width="24" height="25" />
+                        </span>
+                    </div>
+                    <div class="col mx=2">
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
+                        @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="user-categorie">
-            <div class="user-label">
-                @Html.LabelFor(m => m.Compte.email)
+
+
+        <div class="form-row d-flex my-5">
+            <div class="col">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text ">
+                            <img src="~/Image/user-profil.png" width="24" height="25" />
+                        </span>
+                    </div>
+                    <div class="col mx=2">
+                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
+                        @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
+                    </div>
+                </div>
             </div>
-            <div class="user-text ">
-                @Html.TextBoxFor(m => m.Compte.email)
-                @Html.ValidationMessageFor(m => m.Compte.email)
-            </div>
+        </div>
+
+        <div class="form-row d-flex my-5">
+                <div class="form-group col-sm-6">
+                    <div class="col-10 mr-2">
+                        @Html.LabelFor(model => model.Compte.email, new { @class = "user-form-label" })
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ">
+                                    <img src="~/Image/enveloppe-user.png" width="24" height="25" />
+                                </span>
+                            </div>
+                            <div class="col mx=2">
+                                @Html.TextBoxFor(m => Model.Compte.email, new { @class = "form-control", placeholder = " adresse email" })
+                                @Html.ValidationMessageFor(model => model.Compte.email)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <div class="col ml">
+                        @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-form-label" })
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ">
+                                    <img src="~/Image/user-mdp.png" width="24" height="25" />
+                                </span>
+                            </div>
+                            <div class="col mx=2">
+                                <div class="col-md-11" type="password">
+                                    @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "form-control", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                                    @Html.ValidationMessageFor(model => model.Compte.motDePasse)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+   
+
+        <div class="col-12 my-4">
+            <button class="btn btn-success" type="submit" style="background-color: #41C070">Valider</button>
         </div>
 
         <div class="user-btn-submit">
@@ -52,8 +93,7 @@
         </div>
 
         <div class="user-btn-submit">
-            <a style="background-color: #193C8D" class="btn btn-primary" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
+            <a style="background-color: #41C070" class="btn btn-primary" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
         </div>
-
-    </div>
- }
+    </form>
+}

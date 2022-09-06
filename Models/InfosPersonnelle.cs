@@ -13,6 +13,7 @@ namespace coproBox.Models
         [MaxLength(30)]
         public string Prenom { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name =" Date de naissance")]
         public DateTime dateNaissance { get; set; }
     }
 }
