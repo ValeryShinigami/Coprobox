@@ -13,6 +13,20 @@
 </div>
 
 <div class="container-fluid">
+	
+	<div class="row justify-content-center">
+		<div class="d-flex justify-content-center ">
+			@using (Html.BeginForm("TriIndex", "Annonce", FormMethod.Get))
+			{
+				<p>
+					Catégorie: @Html.TextBox("SearchString")
+					<input type="submit" value="Rechercher" />
+				</p>
+			}
+		</div>
+			
+	</div>
+
 			<div class="row justify-content-center">
 				@foreach (var annonce in Model)
 					   {								   
@@ -41,7 +55,7 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<h5 class="modal-title" id="exampleModalLabel">@annonce.Utilisateur.InfosPersonnelle.Nom</h5>
-											<h5 class="modal-title" id="exampleModalLabel">@annonce.Utilisateur.InfosPersonnelle.Prenom</h5>
+											<h5 class="modal-title ps-2" id="exampleModalLabel">@annonce.Utilisateur.InfosPersonnelle.Prenom</h5>
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										</div>
 										<div class="modal-body">
