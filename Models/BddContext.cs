@@ -45,14 +45,14 @@ namespace coproBox.Models
             
                 new Compte
                 {
-                Id = 2,
-                numeroIdentifiant = "2",
-                role = "modérateur",
-                email = "valery_coprobox@gmail.com",
-                motDePasse = "VVVVV",
-                nombreAnnonce = 0,
-                codeIban = "FR76000 0000 000 0000",
-                montant = 0
+                    Id = 2,
+                    numeroIdentifiant = "2",
+                    role = "modérateur",
+                    email = "valery_coprobox@gmail.com",
+                    motDePasse = "VVVVV",
+                    nombreAnnonce = 0,
+                    codeIban = "FR76000 0000 000 0000",
+                    montant = 0
                 }
             );
             this.InfosPersonnelles.AddRange(
@@ -62,31 +62,31 @@ namespace coproBox.Models
                     Nom = "BENMAKHLOUF",
                     Prenom = "Fouzy"
                 },
-                  new InfosPersonnelle
-                  {
-                      Id = 2,
-                      Nom = "KALOMBO",
-                      Prenom = "Valery"
-                  }
+                new InfosPersonnelle
+                {
+                    Id = 2,
+                    Nom = "KALOMBO",
+                    Prenom = "Valery"
+                }
             );
 
            this.Adresses.AddRange(
                  new Adresse
                  {
-                   Id = 1,
-                   codePostal = 92240,
-                   nomRue = "avenue du général Leclerc",
-                   numeroRue = 2,
-                   numeroPorte = "A102"
+                     Id = 1,
+                     NumeroPorte = "A105",
+                     AdressePrincipale = "2 avenue du général Leclerc",
+                     CodePostal = 92240,
+                     Ville = "MALAKOFF"
                  },
 
                  new Adresse
                  {
-                   Id = 2,
-                   codePostal = 92240,
-                   nomRue = "avenue du général Leclerc",
-                   numeroRue = 2,
-                   numeroPorte = "B208"
+                     Id = 2,
+                     NumeroPorte = "A105",
+                     AdressePrincipale = "2 avenue du général Leclerc",
+                     CodePostal = 92240,
+                     Ville = "MALAKOFF"
                  }
              );
 

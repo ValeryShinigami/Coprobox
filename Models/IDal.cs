@@ -20,7 +20,7 @@ namespace coproBox.Models
         List<Compte> ObtientTousLesComptes();
         public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban);
 
-        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille); // il faudrait rajouter la ville non ? histoire de ne pas refaire cette modif pour le projet 3...
+        public void ModifierAdresse(int Id, string NumeroPorte,string AdressePrincipale, int codePostal, string Ville); 
         List<Adresse> ObtientToutesLesAdresses();
 
         // Gestion Annonces

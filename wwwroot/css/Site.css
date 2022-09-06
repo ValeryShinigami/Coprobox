@@ -363,7 +363,9 @@ display : inline-flex;
 }
 
 .user-update-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin : 10% 20% 10% 20%
+}
+
+.fa-envelope:before {
+content:"\f0e0";
 }

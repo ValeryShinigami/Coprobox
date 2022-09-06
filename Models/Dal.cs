@@ -61,16 +61,14 @@ namespace coproBox.Models
                 Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
                 if (utilisateur.InfosPersonnelle.dateNaissance != null)  
                     Utilisateur.InfosPersonnelle.dateNaissance  = utilisateur.InfosPersonnelle.dateNaissance;
-                if(utilisateur.Adresse.numeroPorte != null)
-                    Utilisateur.Adresse.numeroPorte = utilisateur.Adresse.numeroPorte;
-                if (utilisateur.Adresse.numeroRue != 0)
-                    Utilisateur.Adresse.numeroRue = utilisateur.Adresse.numeroRue;
-                if (utilisateur.Adresse.nomRue != null)
-                    Utilisateur.Adresse.nomRue = utilisateur.Adresse.nomRue;
-                if (utilisateur.Adresse.codePostal != 0)
-                    Utilisateur.Adresse.codePostal = utilisateur.Adresse.codePostal;
-                if (utilisateur.Adresse.nomVille != null)
-                    Utilisateur.Adresse.nomVille = utilisateur.Adresse.nomVille;
+                if (utilisateur.Adresse.NumeroPorte != null)
+                    Utilisateur.Adresse.NumeroPorte = utilisateur.Adresse.NumeroPorte;
+                if (utilisateur.Adresse.AdressePrincipale != null)
+                    Utilisateur.Adresse.AdressePrincipale = utilisateur.Adresse.AdressePrincipale;
+                if (utilisateur.Adresse.CodePostal != 0)
+                    Utilisateur.Adresse.CodePostal = utilisateur.Adresse.CodePostal;
+                if (utilisateur.Adresse.Ville != null)
+                    Utilisateur.Adresse.Ville = utilisateur.Adresse.Ville;
                 if(utilisateur.Compte.numeroIdentifiant != null)
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
                 if(utilisateur.Compte.role != null)
@@ -127,15 +125,14 @@ namespace coproBox.Models
             return _bddContext.Comptes.ToList();
         }
 
-        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille)
+        public void ModifierAdresse(int Id, string NumeroPorte, string AdressePrincipale, int CodePostal, string Ville)
         {
             Adresse adresse = _bddContext.Adresses.Find(Id);
             if (adresse != null)
             {
-                adresse.numeroPorte = numeroPorte;
-                adresse.numeroRue = numeroRue;
-                adresse. nomRue = nomRue;
-                adresse.codePostal = codePostal;
+                adresse.NumeroPorte = NumeroPorte;
+                adresse. AdressePrincipale = AdressePrincipale;
+                adresse.CodePostal = CodePostal;
             }
         }
 
