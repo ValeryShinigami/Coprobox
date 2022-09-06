@@ -1,21 +1,69 @@
-﻿@{
-    Layout = "_Layout";
-    ViewBag.Title = "Accueil";
-}
+﻿@model coproBox.ViewModels.UtilisateurViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Accueil</title>
+</head>
+<body>
+    <div class="conteneur">
+        <div class="row">
+            <div class="box1 border border-secondary col-md-6">
+            </div>
+            <div class="box2 border border-secondary col-md-6">
+                <h3 class="titreResidence">
+                    residence les pommiers
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box3 border border-secondary col-md-6">
+                <div class="logoTitre">
+                    <div class="titreCopro">Copro</div>
+                    <div class="titreBox">BOX</div>
+                </div>
+                <div class="Logo"></div>
+            </div>
+            <div class="box4 border border-secondary col-md-6">
+                <form role="form" method="post">
+                    <legend>Connexion</legend>
 
-<!--<div class="overlay">
-    <div class="description">
-        <h1>Welcome to the landing Page!</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, optio eligendi consequatur minima unde saepe illum, deserunt error et ad officiis hic. Quibusdam necessitatibus libero impedit deserunt voluptatibus quae qui.</p>
+                    <div class="form-group mb-4">
+                        <div class="row g-3 align-items-center justify-content-center">
+                            <div class="col-auto">
+                                @Html.LabelFor(m => m.Utilisateur.Compte.email, new { @class = "col-form-label"})
+                            </div>
+                            <div class="identifiant col-md-6">
+                                @Html.EditorFor(m => m.Utilisateur.Compte.email, new { @class = "form-control", htmlAttributes = new { type = "email", id = "email", placeholder="Entrer votre adresse mail"}})
+                                @Html.ValidationMessageFor(m => m.Utilisateur.Compte.email)
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <div class="row g-3 align-items-center justify-content-center">
+                            <div class="col-auto">
+                                @Html.LabelFor(m => m.Utilisateur.Compte.motDePasse, new { @class = "col-form-label"})
+                            </div>
+                            <div class="col-md-6">
+                                @Html.EditorFor(m => m.Utilisateur.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password", id = "inputPassword6", placeholder = "Entrer le mot de passe" } })
+                                @Html.ValidationMessageFor(m => m.Utilisateur.Compte.motDePasse)
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-5 mb-3">
+                        Valider
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
-</div> -->
-
-<div class="corps">
-    <h3 class="titre"></h3>
-    <p class="contenu"></p>
-
-
-
-</div>
-
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+</body>
+</html>

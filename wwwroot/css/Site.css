@@ -379,3 +379,78 @@ display : inline-flex;
     padding-left: 80%;
     }
 
+/*********************************************  Accueil  ************************************************/
+.conteneur {
+    width: 100vw;
+    height: 100vh;
+}
+
+.conteneur .box1, .conteneur .box2, .conteneur .box3, .conteneur .box4 {
+    height: 50vh;
+}
+
+.conteneur .box1 {
+    background-image: url('../image/propriete.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.conteneur .titreResidence {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.conteneur .box2 {
+    display: flex;
+    justify-content: center;
+    background-color: #f3c19c;
+}
+
+.conteneur .Logo {
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    background-image: url('../image/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.conteneur .box3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteneur .logoTitre {
+    display: flex;
+}
+
+.conteneur .titreCopro {
+    color: #f3c19c;
+}
+
+.conteneur .titreBox {
+    color: #8dd7cf;
+}
+
+.conteneur .titreBox, .titreCopro {
+    font-weight: bold;
+}
+
+.conteneur .identifiant {
+    margin-left: 25px;
+}
+
+.conteneur legend {
+    text-align: center;
+}
+
+.conteneur .box4 {
+    background-color: #8dd7cf;
+}
+
+.conteneur .btn {
+    margin-left: 35%;
+}

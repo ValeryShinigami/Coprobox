@@ -86,7 +86,7 @@ namespace coproBox.Models
 
         public Utilisateur Authentifier(string email, string motdepasse)
         {
-            string motDePasse = EncodeMD5(motdepasse);
+            string motDePasse = /*EncodeMD5(*/motdepasse/*)*/;
             Utilisateur user = this._bddContext.Utilisateurs.FirstOrDefault(u => u.Compte.email == email && u.Compte.motDePasse == motDePasse);
             return user;
         }
