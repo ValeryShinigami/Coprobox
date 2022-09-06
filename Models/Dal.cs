@@ -34,8 +34,9 @@ namespace coproBox.Models
 
         public int CreerUtilisateur(Utilisateur utilisateur)
         {
-            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
-            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom, Prenom = utilisateur.InfosPersonnelle.Prenom };
+            string password = EncodeMD5(utilisateur.Compte.motDePasse);
+            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = password};
             Adresse adresse = new Adresse();
             InfosContact infosContact = new InfosContact();
             Profil profil = new Profil();
@@ -61,21 +62,20 @@ namespace coproBox.Models
                 Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
                 if (utilisateur.InfosPersonnelle.dateNaissance != null)  
                     Utilisateur.InfosPersonnelle.dateNaissance  = utilisateur.InfosPersonnelle.dateNaissance;
-                if(utilisateur.Adresse.numeroPorte != null)
-                    Utilisateur.Adresse.numeroPorte = utilisateur.Adresse.numeroPorte;
-                if (utilisateur.Adresse.numeroRue != 0)
-                    Utilisateur.Adresse.numeroRue = utilisateur.Adresse.numeroRue;
-                if (utilisateur.Adresse.nomRue != null)
-                    Utilisateur.Adresse.nomRue = utilisateur.Adresse.nomRue;
-                if (utilisateur.Adresse.codePostal != 0)
-                    Utilisateur.Adresse.codePostal = utilisateur.Adresse.codePostal;
-                if (utilisateur.Adresse.nomVille != null)
-                    Utilisateur.Adresse.nomVille = utilisateur.Adresse.nomVille;
+                if (utilisateur.Adresse.NumeroPorte != null)
+                    Utilisateur.Adresse.NumeroPorte = utilisateur.Adresse.NumeroPorte;
+                if (utilisateur.Adresse.AdressePrincipale != null)
+                    Utilisateur.Adresse.AdressePrincipale = utilisateur.Adresse.AdressePrincipale;
+                if (utilisateur.Adresse.CodePostal != 0)
+                    Utilisateur.Adresse.CodePostal = utilisateur.Adresse.CodePostal;
+                if (utilisateur.Adresse.Ville != null)
+                    Utilisateur.Adresse.Ville = utilisateur.Adresse.Ville;
                 if(utilisateur.Compte.numeroIdentifiant != null)
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
                 if(utilisateur.Compte.role != null)
                     Utilisateur.Compte.role = utilisateur.Compte.role;
                 Utilisateur.Compte.motDePasse = utilisateur.Compte.motDePasse;
+
                 Utilisateur.Compte.email = utilisateur.Compte.email;
                 if (utilisateur.InfosContact.telephone != null)
                     Utilisateur.InfosContact.telephone = utilisateur.InfosContact.telephone;
@@ -106,43 +106,6 @@ namespace coproBox.Models
             return null;
         }
 
-        // COMPTES
-
-
-        public void ModifierCompte(int Id, string numeroIdentifiant, string Nom, string Prenom, DateTime dateNaissance, string role, string motDePasse, string codeIban)
-        {
-            Compte compte = _bddContext.Comptes.Find(Id);
-            if (compte != null)
-            {
-                compte.numeroIdentifiant = numeroIdentifiant;
-                compte.role = role;
-                compte.motDePasse = motDePasse;
-                compte.codeIban = codeIban;
-                _bddContext.SaveChanges();
-            }
-        }
-
-        public List<Compte> ObtientTousLesComptes()
-        {
-            return _bddContext.Comptes.ToList();
-        }
-
-        public void ModifierAdresse(int Id, string numeroPorte, int numeroRue, string nomRue, int codePostal, string nomVille)
-        {
-            Adresse adresse = _bddContext.Adresses.Find(Id);
-            if (adresse != null)
-            {
-                adresse.numeroPorte = numeroPorte;
-                adresse.numeroRue = numeroRue;
-                adresse. nomRue = nomRue;
-                adresse.codePostal = codePostal;
-            }
-        }
-
-        public List<Adresse> ObtientToutesLesAdresses()
-        {
-            return _bddContext.Adresses.ToList();
-        }
         // ANNONCE DEBUT
         public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0)
         {

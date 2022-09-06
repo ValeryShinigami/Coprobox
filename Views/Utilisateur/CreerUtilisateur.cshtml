@@ -33,7 +33,7 @@
                 @Html.LabelFor(m => m.Compte.motDePasse)
             </div>
             <div class="user-text ">
-                @Html.TextBoxFor(m => m.Compte.motDePasse)
+                @Html.EditorFor(m => m.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password" } })
                 @Html.ValidationMessageFor(m => m.Compte.motDePasse)
             </div>
         </div>

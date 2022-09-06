@@ -359,13 +359,6 @@ margin-top : 80px;
 
 .user-index-section {
 display : inline-flex;
-
-}
-
-.user-update-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /*********************************************  Quittance  ************************************************/
