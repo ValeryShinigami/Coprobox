@@ -282,14 +282,14 @@ a {
 
 .img-container {
     position: absolute;
-    height: 200px;
+    height: 300px;
     pointer-events: none;
 }
 
 .filling-heart {
     position: relative;
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
 }
 
 .h3art {
@@ -362,3 +362,27 @@ margin-top : 80px;
 display : inline-flex;
 
 }
+
+.user-update-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*********************************************  Quittance  ************************************************/
+.quittance {
+    padding: 5px 10%;
+    font-size: 15px;
+}
+
+.quittance h2 {
+    text-align: center;
+}
+
+.quittance p {
+    margin-top: 50px;
+}
+
+.emetteur {
+    padding-left: 80%;
+    }

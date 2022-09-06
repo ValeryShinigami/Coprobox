@@ -34,12 +34,17 @@ namespace coproBox.Models
 
         public int CreerUtilisateur(Utilisateur utilisateur)
         {
-              InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
-              Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
-             //_bddContext.InfosPersonnelles.Add(infosPersonnelle);
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom , Prenom = utilisateur.InfosPersonnelle.Prenom };
+            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = EncodeMD5(utilisateur.Compte.motDePasse)};
+            Adresse adresse = new Adresse();
+            InfosContact infosContact = new InfosContact();
+            Profil profil = new Profil();
+            Notification notification = new Notification();
 
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
-              _bddContext.Utilisateurs.Add(utilisateur);
+
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse= adresse, InfosContact = infosContact, Profil = profil,
+              Notification = notification}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+              _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
               return utilisateur.Id;
           }
@@ -47,24 +52,33 @@ namespace coproBox.Models
 
         public void ModifierUtilisateur(Utilisateur utilisateur)
         {
-            Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
-
-            if (utilisateur != null)
+            Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle)
+            .Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
+           
+            if (Utilisateur != null)
             {
                 Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom;
                 Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom;
-                Utilisateur.InfosPersonnelle.dateNaissance  = utilisateur.InfosPersonnelle.dateNaissance;
-                Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte;
-                Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue;
-                Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue;
-                Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal;
-                Utilisateur.Adresse.nomVille = Utilisateur.Adresse.nomVille;
-                Utilisateur.Compte.numeroIdentifiant = Utilisateur.Compte.numeroIdentifiant;
-                Utilisateur.Compte.role = Utilisateur.Compte.role;
-                Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse;
-                Utilisateur.Compte.email = Utilisateur.Compte.email;
-                Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;
-
+                if (utilisateur.InfosPersonnelle.dateNaissance != null)  
+                    Utilisateur.InfosPersonnelle.dateNaissance  = utilisateur.InfosPersonnelle.dateNaissance;
+                if(utilisateur.Adresse.numeroPorte != null)
+                    Utilisateur.Adresse.numeroPorte = utilisateur.Adresse.numeroPorte;
+                if (utilisateur.Adresse.numeroRue != 0)
+                    Utilisateur.Adresse.numeroRue = utilisateur.Adresse.numeroRue;
+                if (utilisateur.Adresse.nomRue != null)
+                    Utilisateur.Adresse.nomRue = utilisateur.Adresse.nomRue;
+                if (utilisateur.Adresse.codePostal != 0)
+                    Utilisateur.Adresse.codePostal = utilisateur.Adresse.codePostal;
+                if (utilisateur.Adresse.nomVille != null)
+                    Utilisateur.Adresse.nomVille = utilisateur.Adresse.nomVille;
+                if(utilisateur.Compte.numeroIdentifiant != null)
+                    Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
+                if(utilisateur.Compte.role != null)
+                    Utilisateur.Compte.role = utilisateur.Compte.role;
+                Utilisateur.Compte.motDePasse = utilisateur.Compte.motDePasse;
+                Utilisateur.Compte.email = utilisateur.Compte.email;
+                if (utilisateur.InfosContact.telephone != null)
+                    Utilisateur.InfosContact.telephone = utilisateur.InfosContact.telephone;
 
                 _bddContext.SaveChanges();
             }
@@ -79,7 +93,7 @@ namespace coproBox.Models
 
         public Utilisateur ObtenirUtilisateur(int id)
         {
-            return this._bddContext.Utilisateurs.FirstOrDefault(u => u.Id == id);
+            return this._bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id == id);
         }
 
         public Utilisateur ObtenirUtilisateur(string idStr)
@@ -232,11 +246,17 @@ namespace coproBox.Models
             return _bddContext.Quittances.ToList();
         }
 
+        public Quittance ObtenirQuittance(int Id)
+        {
+            return _bddContext.Quittances.Find(Id);
+        }
+
         public int CreerQuittance(Quittance quittance)
         {
             Quittance Quittance = new Quittance()
             {
                 DateButoir = quittance.DateButoir,
+                DateLocation = quittance.DateLocation,
                 Emetteur = quittance.Emetteur,
                 Montant = quittance.Montant,
                 Statut = Statut.Creee
