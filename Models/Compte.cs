@@ -26,7 +26,7 @@ namespace coproBox.Models
 
         [Required(ErrorMessage = "L'adresse mail doit être précisée.")]
         [MaxLength(50)]
-        [Display(Name ="email / username")]
+        [Display(Name ="email")]
         public string email { get; set; }
 
         [MaxLength(50)]

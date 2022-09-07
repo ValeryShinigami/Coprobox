@@ -346,6 +346,9 @@ margin-top : 80px;
 .user-section {
     display: flex;
     justify-content: center;
+    color : #41C070;
+    margin-bottom:20px;
+    margin-top:20px;
 }
 
 .user-text {
@@ -360,6 +363,10 @@ margin-top : 80px;
 
 .user-index-section {
 display : inline-flex;
+}
+
+.user-form-label {
+font-size:12px;
 }
 
 /*********************************************  Quittance  ************************************************/
