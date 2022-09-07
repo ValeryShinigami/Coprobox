@@ -210,6 +210,13 @@ a {
     font-size: 30px;
 }
 
+@media screen and (max-width: 563px) {
+    .titreAnnonce {
+        font-size: 15px;
+    }
+
+}
+
 /*************************  partie card debut   ************************************************/
 
 .titreAfficherAnnonce {
@@ -218,6 +225,11 @@ a {
     margin-bottom: 1%;
     font-size: 30px;
     
+}
+@media screen and (max-width: 563px) {
+    .titreAfficherAnnonce {
+        font-size: 15px;
+    }
 }
 .card-title{
     font-weight: bold;
@@ -250,14 +262,27 @@ a {
 
 
 
-.teste{
+.teste {
     position: fixed;
+    z-index: 1;
 }
+
+@media screen and (max-width: 756px)
+{
+    .teste {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+
 .croixAnnonce {
     font-size: 10px;
     font-weight: bold;
     color: #323a7c;
 }
+
+
 
 
 /*************************  CSS VALERY FIN    ************************************************/
