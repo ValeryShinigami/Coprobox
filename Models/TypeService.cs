@@ -20,7 +20,7 @@ namespace coproBox.Models
         Garde_Animaux,
         [Display(Name = "Ménage")]
         Ménage,
-        [Display(Name = "Parking")]
+        [Display(Name = "Place de Parking")]
         Parking,
         [Display(Name = "Prêt Matériel")]
         Prêt_Matériel,
