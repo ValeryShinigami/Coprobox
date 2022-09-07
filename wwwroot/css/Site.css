@@ -190,7 +190,7 @@ a {
    
 }
 
-.btnAnnonce, .btnCard {
+.btnAnnonce, .btnCard, .btnCard-user {
     background-color: #41c070;
     color: aliceblue;
     border-color: #41c070;
@@ -400,7 +400,7 @@ margin-left: -5px;
 .user-info-perso {
 display: flex;
 justify-content : space-between;
-margin-bottom: 30px;
+margin-bottom: 20px;
 }
 
 .user-nom {
@@ -408,14 +408,14 @@ margin-bottom: 30px;
     width: 100%;
     margin-right: -5px;
     margin-left: -5px;
-    margin-bottom : 10px -5px 10px -5px;
+    margin-bottom : 10px;
 }
 
 .user-input {
     border-radius: 0 5px 5px 0;
     border: 1px solid silver;
     border-left-style: none;
-    width: 90%;
+    width: 95%;
     height :40px;
     margin:auto;
 }
@@ -435,9 +435,21 @@ align-items: stretch;
     font-size:12px;
 }
 
-.user-validation-form {
+.user-create-btn {
+display : inline-flex;
+flex-direction: row;
+justify-content:space-around;
+}
+
+.btnCard-user {
+    background-color: #41c070;
+    color: aliceblue;
+    border-color: #41c070;
+    filter: drop-shadow(3px 3px 3px #126e63);
+    width: 200px;
 
 }
+
 @media screen and (max-width:884px) {
     .user-info-perso, .user-data {
         display: flex;
@@ -455,6 +467,12 @@ align-items: stretch;
         margin-right:-4px;
     }
 
+    .user-create-btn {
+        display:flex;
+        flex-direction:column;
+        height : 150px;
+        
+    }
 }
 
 /*********************************************  Quittance  ************************************************/

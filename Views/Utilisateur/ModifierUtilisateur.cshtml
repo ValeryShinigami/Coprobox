@@ -1,7 +1,7 @@
 @model coproBox.Models.Utilisateur
 @{
-        Layout = "_Layout";
- }
+    Layout = "_Layout";
+}
 <div class="user-section">Modifier un utilisateur</div>
 <form class="row g-3 mx-auto" style="width:900px" method="post">
 
@@ -30,9 +30,13 @@
                 </div>
             </div>
         </div>
-        <div class="user-section">Vos Infos contacts</div>
+    </div>
 
+</form>
+<div class="user-section">Vos Infos contacts</div>
 
+<form class="row g-3 mx-auto" style="width:900px" method="post">
+    <div class="user-formulaire">
         <!-- Email et Date de naissance -1 -->
         <div class="row user-info-perso">
             <div class="user-data">
@@ -58,9 +62,13 @@
                 </div>
             </div>
         </div>
+    </div>
+</form>
 
-        <div class="user-section">Votre Adresse</div>
+<div class="user-section">Votre Adresse</div>
 
+<form class="row g-3 mx-auto" style="width:900px" method="post">
+    <div class="user-formulaire">
         <!-- Adresse -1 -->
         <div class="row user-info-perso">
             <div class="user-data">
@@ -117,9 +125,13 @@
                 </div>
             </div>
         </div>
+    </div>
+</form>
 
-        <div class="user-section">Informations complémentaires</div>
+    <div class="user-section">Informations complémentaires</div>
 
+<form class="row g-3 mx-auto" style="width:900px" method="post">
+    <div class="user-formulaire">
         <div class="row user-info-perso">
             <div class="user-data">
                 @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
@@ -147,42 +159,13 @@
                 </div>
             </div>
         </div>
-
-        @*<div class="form-group mt-4">
-
-
+    </div>
+</form>
 
 
-
-
-
-        <!-- Complement -->
-        <div class="form-group mt-4">
-            <div class="form-row mx-auto d-flex" width="700px">
-                <div class="form-group col-md-6">
-                    @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-form-label" })
-                    <div class="col-md-11">
-                        @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "form-control", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.ValidationMessageFor(model => model.Compte.motDePasse)
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    @Html.LabelFor(model => model.InfosContact.telephone, new { @class = "user-form-label" })
-                    <div class="col">
-                        @Html.TextBoxFor(model => model.InfosContact.telephone, new { @class = "form-control", placeholder = "Telephone" })
-                    </div>
-                    <div class="col-sm-4">
-                        @Html.ValidationMessageFor(model => model.InfosContact.telephone)
-                    </div>
-                </div>
-            </div>
-        </div> *@
-
-        <div class="col-12 my-4">
-            <button class="btn btn-success" type="submit">Valider</button>
-        </div>
+    <div class="col-12 my-4">
+        <button class="btn btn-success" type="submit">Valider</button>
+    </div>
     </div>
 
 </form>
