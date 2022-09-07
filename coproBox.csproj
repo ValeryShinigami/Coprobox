@@ -14,10 +14,8 @@
     <None Remove="Views\Home\" />
     <None Remove="Views\Shared\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
-    <None Remove="Views\Compte\" />
     <None Remove="Views\Utilisateur\" />
     <None Remove="Views\Annonce\" />
-    <None Remove="Views\Adresse\" />
     <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -32,10 +30,8 @@
   <ItemGroup>
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Views\Compte\" />
     <Folder Include="Views\Utilisateur\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="Views\Adresse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

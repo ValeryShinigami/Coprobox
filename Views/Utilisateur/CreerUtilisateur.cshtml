@@ -10,10 +10,10 @@
 {
     <div class="user-section">Créer un utilisateur</div>
 
-    <form class="row my-5 mx-auto" style="width:300px" method="post">
+    <form class="row my-5 mx-3" method="post">
         <!-- Nom et Prenom -->
 
-        <div class="form-row d-flex my-5">
+        <div class="d-flex my-5">
             <div class="col">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -21,8 +21,8 @@
                             <img src="~/Image/user-profil.png" width="24" height="25" />
                         </span>
                     </div>
-                    <div class="col mx=2">
-                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
+                    <div class="col">
+                        @Html.TextBoxFor(model => model.InfosPersonnelle.Nom, new { @class = "form-control", placeholder = "Nom" })
                         @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
                     </div>
                 </div>
@@ -30,7 +30,7 @@
         </div>
 
 
-        <div class="form-row d-flex my-5">
+        <div class="d-flex my-5 mx-auto" style="width:300px">
             <div class="col">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -38,15 +38,15 @@
                             <img src="~/Image/user-profil.png" width="24" height="25" />
                         </span>
                     </div>
-                    <div class="col mx=2">
-                        @Html.TextBoxFor(m => Model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
+                    <div class="col">
+                        @Html.TextBoxFor(model => model.InfosPersonnelle.Prenom, new { @class = "form-control", placeholder = "Prenom" })
                         @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="form-row d-flex my-5">
+        <div class="row d-flex my-5">
                 <div class="form-group col-sm-6">
                     <div class="col-10 mr-2">
                         @Html.LabelFor(model => model.Compte.email, new { @class = "user-form-label" })
@@ -57,7 +57,7 @@
                                 </span>
                             </div>
                             <div class="col mx=2">
-                                @Html.TextBoxFor(m => Model.Compte.email, new { @class = "form-control", placeholder = " adresse email" })
+                                @Html.TextBoxFor(model => model.Compte.email, new { @class = "form-control", placeholder = " adresse email" })
                                 @Html.ValidationMessageFor(model => model.Compte.email)
                             </div>
                         </div>
@@ -85,7 +85,7 @@
    
 
         <div class="col-12 my-4">
-            <button class="btn btn-success" type="submit" style="background-color: #41C070">Valider</button>
+            <button class="btn btnCard" type="submit" >Valider</button>
         </div>
 
         <div class="user-btn-submit">

@@ -365,8 +365,71 @@ margin-top : 80px;
 display : inline-flex;
 }
 
-.user-form-label {
-font-size:12px;
+.form-row {
+display : flex;
+flex-wrap : wrap;
+margin-right: -5px;
+margin-left: -5px;
+}
+
+.user-info-perso {
+display: flex;
+justify-content : space-between;
+margin-bottom: 30px;
+}
+
+.user-nom {
+    display: inline-flex;
+    width: 100%;
+    margin-right: -5px;
+    margin-left: -5px;
+    margin-bottom : 10px -5px 10px -5px;
+}
+
+.user-input {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid silver;
+    border-left-style: none;
+    width: 90%;
+    height :40px;
+    margin:auto;
+}
+
+.user-data {
+width:50%;
+display: flex;
+flex-direction:column;
+align-items: stretch;
+}
+
+.input-group-text {
+    border-radius: 5px 0 0 5px;
+}
+
+.user-label-form {
+    font-size:12px;
+}
+
+.user-validation-form {
+
+}
+@media screen and (max-width:884px) {
+    .user-info-perso, .user-data {
+        display: flex;
+        flex-direction: column;
+        align-items:stretch;
+        width: 100vw;
+      
+    }
+    .user-section {
+        display:flex;
+        justify-content:center;
+    }
+    .user-nom {
+        margin-top: 35px;
+        margin-right:-4px;
+    }
+
 }
 
 /*********************************************  Quittance  ************************************************/
