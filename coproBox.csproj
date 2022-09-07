@@ -30,11 +30,8 @@
   <ItemGroup>
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-<<<<<<< HEAD
     <Folder Include="Views\Utilisateur\" />
-=======
     <Folder Include="Views\Compte\" />
->>>>>>> 1d54654e8c42280860f74cbaeede2869555bf3a5
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
   <ItemGroup>
