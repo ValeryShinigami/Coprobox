@@ -54,7 +54,10 @@ namespace coproBox.Controllers
 
            
         }
-
+        public IActionResult Reserver()
+        {
+            return View();
+        }
 
         public IActionResult CreerAnnonce()
         {
@@ -96,6 +99,7 @@ namespace coproBox.Controllers
             else
                 return NotFound();
         }
+
 
         [HttpPost]
         public ActionResult Modifier(Annonce annonce)
