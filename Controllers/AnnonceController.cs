@@ -48,8 +48,11 @@ namespace coproBox.Controllers
             {
                // listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService.ToString().ToLower().Contains(searchString.ToLower())).ToList();
                 listeDesAnnonces = listeDesAnnonces.Where(a => a.TypeService == searchDropDown).ToList();
-            }
+            } 
+            
             return View("Index", listeDesAnnonces);
+
+           
         }
 
 
@@ -65,14 +68,14 @@ namespace coproBox.Controllers
             if (!ModelState.IsValid)
                 return View(annonce);
 
-           /* A TESTER LUNDI 05/09/2022
-            * string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
-            string filePath = Path.Combine(uploads, annonce.Image.FileName);
-            using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                annonce.Image.CopyTo(fileStream);
-            }*/
-            dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService,Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
+              string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
+              string filePath = Path.Combine(uploads, annonce.Image.FileName);
+              using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+             {
+                 annonce.Image.CopyTo(fileStream);
+             }
+            
+            dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, "/Image/" + annonce.Image.FileName, Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
 
 
             return RedirectToAction("Index");
@@ -111,7 +114,6 @@ namespace coproBox.Controllers
                         annonce.Image.CopyTo(fileStream);
                     }
                     dal.ModifierAnnonce(annonce.Id, annonce.Titre,annonce.Description, annonce.TauxHoraire,annonce.Tarif, annonce.DateDebut, annonce.DateFin,annonce.TypeService, "/Image/" + annonce.Image.FileName);
-                  //  string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0
                 }
             }
             else
@@ -122,7 +124,7 @@ namespace coproBox.Controllers
         }
 
         /* Définir qui peut supprimer 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Moderateur")]
         public ActionResult Supprimer(int id)
         {
             dal.SupprimerAnnonce(id);

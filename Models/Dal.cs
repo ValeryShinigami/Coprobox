@@ -107,10 +107,12 @@ namespace coproBox.Models
         }
 
         // ANNONCE DEBUT
-        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0)
+        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, int id = 0)
         {
             Utilisateur utilisateur = ObtenirUtilisateur(id);
-            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle};
+
+            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle};
+
            
             this._bddContext.Annonces.Add(annonceToAdd);
             this._bddContext.SaveChanges();

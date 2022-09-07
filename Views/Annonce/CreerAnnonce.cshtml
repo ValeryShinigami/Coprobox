@@ -75,13 +75,13 @@
                     </div>
                 </div>
 
-                @* AJOUT D'UNE IMAGE
-            <div class="row mb-3">
-            <label for="file" class="labelAnnonce col-sm-2 col-form-label">Ajouter une Photo</label>
-            <div class="date col-sm-10">
-            <input type="file" id="file" name="file" multiple>
-            </div>
-            </div>*@
+                <div class="row mb-3">
+                    @Html.HiddenFor(model=>model.ImagePath)
+                    @Html.LabelFor(model => model.Image, new { id = "imageLabel", @style = "text-align:center;" })
+                         <div class="col-sm-6">
+                             @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })                        
+                        </div>           
+                </div>
 
                 <div class="row mb-3">
                     @Html.LabelFor(model => model.Tarif,  new { @class = "labelAnnonce col-sm-2 col-form-label" })
