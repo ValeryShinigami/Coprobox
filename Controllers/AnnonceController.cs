@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 
@@ -71,7 +72,8 @@ namespace coproBox.Controllers
             {
                 annonce.Image.CopyTo(fileStream);
             }*/
-            dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService);
+            dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService,Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
+
 
             return RedirectToAction("Index");
 
