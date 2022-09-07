@@ -222,7 +222,7 @@ namespace coproBox.Models
                 DateLocation = quittance.DateLocation,
                 Emetteur = quittance.Emetteur,
                 Montant = quittance.Montant,
-                Statut = Statut.Creee
+                StatutQuittance = StatutQuittance.Creee
             };
             _bddContext.Quittances.Add(Quittance);
             _bddContext.SaveChanges();

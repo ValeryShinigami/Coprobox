@@ -22,10 +22,10 @@ namespace coproBox.Models
         [DataType(DataType.Date)]
         public DateTime DateButoir { get; set; }
         public byte[] Fichier { get; set; }
-        public Statut Statut { get; set; }
+        public StatutQuittance StatutQuittance { get; set; }
     }
 
-    public enum Statut
+    public enum StatutQuittance
     {
         Creee,
         Envoyee,

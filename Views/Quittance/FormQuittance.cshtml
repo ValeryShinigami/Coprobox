@@ -1,8 +1,7 @@
 ﻿@model coproBox.Models.Quittance
 @using (Html.BeginForm())
 {
-    <fieldset>
-        <legend>Créer une Quittance : </legend>
+    <div class="form-">
         <div>
             @Html.LabelFor(model => model.Emetteur)
             @Html.TextBoxFor(model => model.Emetteur)
@@ -26,5 +25,5 @@
         <div class="button">
             <input type="submit" value="Créer" />
         </div>
-    </fieldset>
+    </div>
 }
