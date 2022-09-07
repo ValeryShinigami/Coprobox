@@ -210,6 +210,13 @@ a {
     font-size: 30px;
 }
 
+@media screen and (max-width: 563px) {
+    .titreAnnonce {
+        font-size: 15px;
+    }
+
+}
+
 /*************************  partie card debut   ************************************************/
 
 .titreAfficherAnnonce {
@@ -218,6 +225,11 @@ a {
     margin-bottom: 1%;
     font-size: 30px;
     
+}
+@media screen and (max-width: 563px) {
+    .titreAfficherAnnonce {
+        font-size: 15px;
+    }
 }
 .card-title{
     font-weight: bold;
@@ -250,14 +262,27 @@ a {
 
 
 
-.teste{
+.teste {
     position: fixed;
+    z-index: 1;
 }
+
+@media screen and (max-width: 756px)
+{
+    .teste {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+
 .croixAnnonce {
     font-size: 10px;
     font-weight: bold;
     color: #323a7c;
 }
+
+
 
 
 /*************************  CSS VALERY FIN    ************************************************/
@@ -524,4 +549,66 @@ align-items: stretch;
 
 .conteneur .btn {
     margin-left: 35%;
+}
+
+/*********************************************  Dashboard  ************************************************/
+.dash-mod {
+    position: relative;
+    display: flex;
+    padding: 20px;
+}
+/* Slideshow container */
+.dash-cagnottes, .dash-annonces {
+    position: relative;
+    width: 50%;
+}
+
+/* Hide the images by default */
+.dash-cagnotte, .dash-annonces {
+    text-align: center;
+}
+
+.prev-next {
+    margin: 20px 0;
+    display:flex;
+    justify-content:center;
+}
+
+/* Next & previous buttons */
+.dash-prev, .dash-next {
+    position: relative;
+    cursor: pointer;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.dash-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.dash-prev:hover, .dash-next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Number text (1/x etc) */
+.dash-mod .dash-numbertext {
+    color: dimgrey;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: relative;
+    top: 0;
+}
+
+.dash-mod .active {
+    background-color: #717171;
 }

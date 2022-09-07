@@ -51,7 +51,7 @@
                         @Html.EditorFor(model => model.DateDebut, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                     </div>
                     <div class="col-sm-4">
-                        @Html.ValidationMessageFor(model => model.DateDebut)
+                       @* @Html.ValidationMessageFor(model => model.DateDebut)*@
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@
                         @Html.EditorFor(model => model.DateFin, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                     </div>
                     <div class="col-sm-4">
-                        @Html.ValidationMessageFor(model => model.DateFin)
+                        @* @Html.ValidationMessageFor(model => model.DateFin)*@
                     </div>
                 </div>
 
@@ -71,17 +71,17 @@
                         @Html.TextBoxFor(model => model.TauxHoraire, new { @class = "form-control", placeholder = "en € / h" })
                     </div>
                     <div class="col-sm-4">
-                        @Html.ValidationMessageFor(model => model.TauxHoraire)
+                        @* @Html.ValidationMessageFor(model => model.TauxHoraire)*@
                     </div>
                 </div>
 
-                @* AJOUT D'UNE IMAGE
-            <div class="row mb-3">
-            <label for="file" class="labelAnnonce col-sm-2 col-form-label">Ajouter une Photo</label>
-            <div class="date col-sm-10">
-            <input type="file" id="file" name="file" multiple>
-            </div>
-            </div>*@
+                <div class="row mb-3">
+                    @Html.HiddenFor(model=>model.ImagePath)
+                    @Html.LabelFor(model => model.Image, new { id = "imageLabel", @style = "text-align:center;" })
+                         <div class="col-sm-6">
+                             @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })                        
+                        </div>           
+                </div>
 
                 <div class="row mb-3">
                     @Html.LabelFor(model => model.Tarif,  new { @class = "labelAnnonce col-sm-2 col-form-label" })

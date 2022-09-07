@@ -107,13 +107,13 @@ namespace coproBox.Models
         }
 
         // ANNONCE DEBUT
-        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, int id = 0)
+        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, int id = 0)
         {
-            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService };
-            if (id != 0)
-            {
-                annonceToAdd.Id = id;
-            }
+            Utilisateur utilisateur = ObtenirUtilisateur(id);
+
+            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle, Compte = utilisateur.Compte};
+
+           
             this._bddContext.Annonces.Add(annonceToAdd);
             this._bddContext.SaveChanges();
         }
@@ -150,7 +150,7 @@ namespace coproBox.Models
             }
         }
 
-
+       
 
         //ANNONCE FIN 
 
@@ -222,7 +222,7 @@ namespace coproBox.Models
                 DateLocation = quittance.DateLocation,
                 Emetteur = quittance.Emetteur,
                 Montant = quittance.Montant,
-                Statut = Statut.Creee
+                StatutQuittance = StatutQuittance.Creee
             };
             _bddContext.Quittances.Add(Quittance);
             _bddContext.SaveChanges();

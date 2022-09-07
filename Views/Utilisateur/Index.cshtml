@@ -1,10 +1,14 @@
-﻿@model List<coproBox.Models.Utilisateur>
-@{
+﻿@{
     Layout = "_Layout";
-    ViewBag.Title = "Utilisateur";
+    ViewBag.Title = "Tableau de Bord";
 }
 
+@Html.Partial("DashboardModerateur")
 
+
+
+
+@*
 <div class="user-index-logo">
     <div class="user-index-log">
         <a href="/utilisateur/CreerUtilisateur"><img id="logo" src="../Image/logoA.png" width="120" height="120" /></a>
@@ -21,4 +25,4 @@
         <p>Modifier un utilisateur</p>
     </div>
 </div>
-
+*@

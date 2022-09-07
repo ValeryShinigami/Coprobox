@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using coproBox.Models;
+using coproBox.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coproBox.Controllers
@@ -20,7 +21,12 @@ namespace coproBox.Controllers
     
         public IActionResult Index()
         {
-            return View();
+            DashboardModerateurViewModel dashboardModerateurViewModel = new DashboardModerateurViewModel()
+            {
+                Annonces = dal.ObtientToutesLesAnnonces(),
+                Cagnottes = dal.ObtientToutesLesCagnottes()
+            };
+            return View(dashboardModerateurViewModel);
         }
 
         public IActionResult ListeUtilisateur()

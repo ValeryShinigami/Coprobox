@@ -1,0 +1,73 @@
+﻿@model coproBox.ViewModels.DashboardModerateurViewModel
+<div class="dash-mod">
+    <div class="dash-cagnottes">
+        @{ int i = 1, nbrCagnottes = Model.Cagnottes.Count(); }
+        @foreach (var cagnotte in Model.Cagnottes)
+        {
+            <div class="dash-cagnotte">
+                <div class="dash-numbertext">@i / @nbrCagnottes</div>
+                <h2>@cagnotte.Titre</h2>
+                <div>@cagnotte.Description</div>
+                <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
+            </div>
+
+            i++;
+        }
+        <!-- Next and previous buttons -->
+        <div class="prev-next">
+            <a class="dash-prev" onclick="plusSlides('dash-cagnotte',-1)">&#10094;</a>
+            <a class="dash-next" onclick="plusSlides('dash-cagnotte',1)">&#10095;</a>
+        </div>
+    </div>
+    <div class="dash-annonces">
+        @{ int j = 1, nbrAnnonces = Model.Annonces.Count(); }
+        @foreach (var annonce in Model.Annonces)
+        {
+            <div class="dash-annonce">
+                <div class="dash-numbertext">@j / @nbrAnnonces</div>
+                <h2>@annonce.Titre</h2>
+                <div>@annonce.Description</div>
+            </div>
+
+            j++;
+        }
+        <!-- Next and previous buttons -->
+        <div class="prev-next">
+            <a class="dash-prev" onclick="plusSlides('dash-annonce',-1)">&#10094;</a>
+            <a class="dash-next" onclick="plusSlides('dash-annonce',1)">&#10095;</a>
+        </div>
+    </div>
+</div>
+<script>
+    let slideIndexAnnonce = 1, slideIndexCagnotte = 1;
+    showSlides("dash-cagnotte", slideIndexAnnonce);
+    showSlides("dash-annonce", slideIndexCagnotte);
+
+    // Next/previous controls
+    function plusSlides(classe, n) {
+        showSlides(classe, classe == "dash-cagnotte" ? slideIndexCagnotte += n : slideIndexAnnonce += n);
+    }
+
+    function showSlides(classe, n) {
+        let i;
+        let slides = document.getElementsByClassName(classe.trim());
+        if (classe == "dash-cagnotte") { 
+            if (n > slides.length) slideIndexCagnotte = 1;
+            if (n < 1) slideIndexCagnotte = slides.length;
+            }
+        
+        if (classe == "dash-annonce") {
+            if (n > slides.length) slideIndexAnnonce = 1;
+            if (n < 1) slideIndexAnnonce = slides.length;
+        }
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        if (classe == "dash-cagnotte")
+            slides[slideIndexCagnotte - 1].style.display = "block";
+        if (classe == "dash-annonce") 
+            slides[slideIndexAnnonce - 1].style.display = "block"; 
+    }
+</script>
