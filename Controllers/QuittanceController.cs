@@ -23,7 +23,7 @@ namespace coproBox.Controllers
         {
             if (!ModelState.IsValid)
                 return View(quittance);
-            quittance.Statut = Statut.Creee;
+            quittance.StatutQuittance = StatutQuittance.Creee;
             dal.CreerQuittance(quittance);
             return RedirectToAction("Index");
         }

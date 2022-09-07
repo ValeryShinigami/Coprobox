@@ -236,7 +236,7 @@ namespace coproBox.Models
                     Emetteur = "Proprio",
                     LocataireId = 1,
                     Montant = 999,
-                    Statut = Statut.Payee
+                    StatutQuittance = StatutQuittance.Payee
                 }
                 );
             this.SaveChanges();
