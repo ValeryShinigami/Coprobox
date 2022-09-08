@@ -242,36 +242,19 @@ namespace coproBox.Models
             }
         }
 
-        /*  // AUTHENTIFICATION
-
-
-
-          public int AjouterUtilisateur(string nom, string password)
-          {
-              throw new NotImplementedException();
-          }
-        */
-          private string EncodeMD5(string motDePasse)
+        // AUTHENTIFICATION
+        private string EncodeMD5(string motDePasse)
           {
               string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
               return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
           }
 
+        // DASHBOARD
+        public List<Paiement> ObtientTousSesPaiements(int UserId)
+        {
+            return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
+        }
 
-        /*  public Utilisateur Authentifier(string nom, string password)
-          {
-
-          }
-
-          public Utilisateur ObtenirUtilisateur(int id)
-          {
-
-          }
-
-          public Utilisateur ObtenirUtilisateur(string idStr)
-          {
-
-          }*/
 
 
 
