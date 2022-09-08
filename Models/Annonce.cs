@@ -15,15 +15,18 @@ namespace coproBox.Models
 
         [MaxLength(200)]
         [Required(ErrorMessage = "La description doit être rempli !")]
-        public string Description { get; set; }   
+        public string Description { get; set; }
+        [Display(Name = "Taux Horaire")]
         public string TauxHoraire { get; set; }
 
         [Required(ErrorMessage = "Merci d'indiquer un prix valide")]
         public int Tarif { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name = "Date Début")]
         public DateTime DateDebut { get; set; }
 
+        [Display(Name = "Date Fin")]
         [DataType(DataType.Date)]
         public DateTime DateFin { get; set; }
 
