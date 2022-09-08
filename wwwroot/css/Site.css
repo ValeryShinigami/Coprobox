@@ -456,14 +456,14 @@ justify-content:space-around;
         flex-direction: column;
         align-items:stretch;
         width: 100vw;
-      
     }
+ 
     .user-section {
         display:flex;
         justify-content:center;
     }
     .user-nom {
-        margin-top: 35px;
+        margin-bottom: 20px;
         margin-right:-4px;
     }
 
