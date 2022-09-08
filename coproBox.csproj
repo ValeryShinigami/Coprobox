@@ -32,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Views\Utilisateur\" />
     <Folder Include="Views\Compte\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
