@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
+
 namespace coproBox.Models
 {
     public class Utilisateur
@@ -23,8 +27,15 @@ namespace coproBox.Models
         public int? ProfilId { get; set; }
         public virtual Profil Profil { get; set; }
 
+        public string ImagePath { get; set; }
+        [NotMapped]
+
+        public IFormFile Image { get; set; }
+       
 
         //doubler les fk
     }
+
+   
 }
 

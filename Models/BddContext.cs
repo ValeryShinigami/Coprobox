@@ -97,7 +97,8 @@ namespace coproBox.Models
                     Id = 1,
                     CompteId = 1,
                     AdresseId = 1,
-                    InfosPersonnelleId = 1
+                    InfosPersonnelleId = 1,
+                   
                 },
 
                 new Utilisateur
