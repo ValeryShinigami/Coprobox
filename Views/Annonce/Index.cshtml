@@ -1,5 +1,6 @@
 ﻿@model List<coproBox.Models.Annonce>
 @using coproBox.Models
+
 @{
     Layout = "_Layout";
     ViewBag.Title = "Index";
@@ -97,10 +98,13 @@
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-												Etes vous certain de vouloir supprimer vôtre annonce
+												Êtes vous certain de vouloir supprimer vôtre annonce
 											</div>
 											<div class="modal-footer">
-												<a href=@deletelink class="btnSupprimer card-link">Supprimer</a>
+												
+												
+													<a href=@deletelink class="btnSupprimer card-link">Supprimer</a>
+												
 											</div>
 										</div>
 									</div>
@@ -120,3 +124,6 @@
 			</div>
 
 </div>
+
+
+						

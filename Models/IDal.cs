@@ -40,7 +40,8 @@ namespace coproBox.Models
         public int CreerQuittance(Quittance quittance);
         public void ModifierQuittance(Quittance Quittance);
 
-
+        // Dashboard
+        public List<Paiement> ObtientTousSesPaiements(int UserId);
         /* //Anthentification
          int AjouterUtilisateur(string nom, string password);
          Utilisateur Authentifier(string nom, string password);

@@ -28,7 +28,11 @@ namespace coproBox.Models
 
         public Role Role { get; set; }
 
-        //doubler les fk
+        public string ImagePath { get; set; }
+        [NotMapped]
+
+        public IFormFile Image { get; set; }
+
     }
 
     public enum Role // avec "enum", chaque élément sera associé à un entier...
@@ -38,5 +42,6 @@ namespace coproBox.Models
         [Display(Name = "Modérateur")]
         Moderateur
     }
+
 }
 

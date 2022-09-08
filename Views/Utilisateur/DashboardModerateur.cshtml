@@ -1,7 +1,7 @@
-﻿@model coproBox.ViewModels.DashboardModerateurViewModel
-<div class="dash-mod">
+﻿<div class="dash-mod">
     <div class="dash-cagnottes">
-        @{ int i = 1, nbrCagnottes = Model.Cagnottes.Count(); }
+        <h2>Cagnottes en cours</h2>
+        @{ int i = 1, nbrCagnottes = Model.Cagnottes.Count; }
         @foreach (var cagnotte in Model.Cagnottes)
         {
             <div class="dash-cagnotte">
@@ -20,13 +20,17 @@
         </div>
     </div>
     <div class="dash-annonces">
-        @{ int j = 1, nbrAnnonces = Model.Annonces.Count(); }
+        <h2>Annonces à vérifier</h2>
+        @{ int j = 1, nbrAnnonces = Model.Annonces.Count; }
         @foreach (var annonce in Model.Annonces)
         {
             <div class="dash-annonce">
                 <div class="dash-numbertext">@j / @nbrAnnonces</div>
                 <h2>@annonce.Titre</h2>
+                @*Ajout image pour tester Valéry*@
+                <img src="@annonce.ImagePath" class="img-thumbnail" style="width:200px;  height:200px" alt="image annonce">
                 <div>@annonce.Description</div>
+                
             </div>
 
             j++;

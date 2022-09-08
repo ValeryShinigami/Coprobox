@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace coproBox.Models
@@ -32,7 +33,6 @@ namespace coproBox.Models
             //return _bddContext.Utilisateurs.Include(u=> u.Compte).Include.(u=>u.Adresse).ToList();
             // .Include permet de créer une jointure... et d'afficher ou modifier des clés étrangères.
         }
-
 
         /*************************** Créer utilisateur*******************/
         public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role)
@@ -253,36 +253,19 @@ namespace coproBox.Models
             }
         }
 
-        /*  // AUTHENTIFICATION
-
-
-
-          public int AjouterUtilisateur(string nom, string password)
-          {
-              throw new NotImplementedException();
-          }
-        */
-          private string EncodeMD5(string motDePasse)
+        // AUTHENTIFICATION
+        private string EncodeMD5(string motDePasse)
           {
               string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
               return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
           }
 
+        // DASHBOARD
+        public List<Paiement> ObtientTousSesPaiements(int UserId)
+        {
+            return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
+        }
 
-        /*  public Utilisateur Authentifier(string nom, string password)
-          {
-
-          }
-
-          public Utilisateur ObtenirUtilisateur(int id)
-          {
-
-          }
-
-          public Utilisateur ObtenirUtilisateur(string idStr)
-          {
-
-          }*/
 
 
 

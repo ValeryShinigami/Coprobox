@@ -1,30 +1,37 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coproBox.Controllers
 {
     public class UtilisateurController : Controller
     {
+     
+        private IWebHostEnvironment _webEnv;
 
 
         private IDal dal;
 
-        public UtilisateurController()
+        public UtilisateurController(IWebHostEnvironment environment)
         {
+            _webEnv = environment;
             this.dal = new Dal();
         }
     
         public IActionResult Index()
         {
-            DashboardModerateurViewModel dashboardModerateurViewModel = new DashboardModerateurViewModel()
+            DashboardViewModel dashboardModerateurViewModel = new DashboardViewModel()
             {
+                Utilisateurs = dal.ObtientTousLesUtilisateurs(),
                 Annonces = dal.ObtientToutesLesAnnonces(),
-                Cagnottes = dal.ObtientToutesLesCagnottes()
+                Cagnottes = dal.ObtientToutesLesCagnottes(),
+                //Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
             };
             return View(dashboardModerateurViewModel);
         }
@@ -53,6 +60,12 @@ namespace coproBox.Controllers
             //if (!ModelState.IsValid)
             //    return View(utilisateur);
 
+            string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
+            string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
+            using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                utilisateur.Image.CopyTo(fileStream);
+            }
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
                     ModelState.AddModelError("email", "Cet email est déjà enregistré");
