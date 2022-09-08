@@ -3,7 +3,7 @@
     Layout = "_Layout";
 }
 <div class="user-section">Modifier un utilisateur</div>
-<form class="row g-3 mx-auto" style="width:900px" method="post">
+<form class="row g-3 mx-auto  user-edit-form" style="width:900px" method="post">
 
     <div class="user-formulaire">
         <div class="row user-info-perso">
@@ -32,10 +32,8 @@
         </div>
     </div>
 
-</form>
 <div class="user-section">Vos Infos contacts</div>
 
-<form class="row g-3 mx-auto" style="width:900px" method="post">
     <div class="user-formulaire">
         <!-- Email et Date de naissance -1 -->
         <div class="row user-info-perso">
@@ -63,11 +61,9 @@
             </div>
         </div>
     </div>
-</form>
 
 <div class="user-section">Votre Adresse</div>
 
-<form class="row g-3 mx-auto" style="width:900px" method="post">
     <div class="user-formulaire">
         <!-- Adresse -1 -->
         <div class="row user-info-perso">
@@ -126,47 +122,41 @@
             </div>
         </div>
     </div>
-</form>
 
     <div class="user-section">Informations complémentaires</div>
 
-<form class="row g-3 mx-auto" style="width:900px" method="post">
-    <div class="user-formulaire">
-        <div class="row user-info-perso">
-            <div class="user-data">
-                @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
-                <div class="user-nom">
+           <div class="user-formulaire">
+            <div class="row user-info-perso">
+                <div class="user-data">
+                    @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
+                    <div class="user-nom">
 
-                    <span class="input-group-text ">
-                        <img src="~/Image/user-mdp.png" width="23" height="23" />
-                    </span>
-                    @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                        <span class="input-group-text ">
+                            <img src="~/Image/user-mdp.png" width="23" height="23" />
+                        </span>
+                        @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(model => model.Compte.motDePasse)
+                    </div>
                 </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.Compte.motDePasse)
-                </div>
-            </div>
-            <div class="user-data">
-                @Html.LabelFor(model => model.InfosContact.telephone, new { @class = "user-label-form" })
-                <div class="user-nom">
-                    <span class="input-group-text ">
-                        <img src="~/Image/user-phone.png" width="23" height="23" />
-                    </span>
-                    @Html.TextBoxFor(model => model.InfosContact.telephone, new { @class = "user-input", placeholder = "Téléphone" })
-                </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.InfosContact.telephone)
+                <div class="user-data">
+                    @Html.LabelFor(model => model.InfosContact.telephone, new { @class = "user-label-form" })
+                    <div class="user-nom">
+                        <span class="input-group-text ">
+                            <img src="~/Image/user-phone.png" width="23" height="23" />
+                        </span>
+                        @Html.TextBoxFor(model => model.InfosContact.telephone, new { @class = "user-input", placeholder = "Téléphone" })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(model => model.InfosContact.telephone)
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
 
+        <div class="user-edit-btn">
+            <button class="btn btnCard-user" type="submit">Valider</button>
+        </div>
 
-    <div class="col-12 my-4">
-        <button class="btn btn-success" type="submit">Valider</button>
-    </div>
-    </div>
-
-</form>
-
+    </form>

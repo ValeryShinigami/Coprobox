@@ -197,7 +197,7 @@ a {
     filter: drop-shadow(3px 3px 3px #126e63);
 }
 
-    .btnAnnonce:hover, .btnCard:hover {
+    .btnAnnonce:hover, .btnCard:hover, .btnCard-user:hover {
         background-color: #F5914A;
         border-color: #F5914A;
         filter: drop-shadow(3px 3px 3px #B0774E);
@@ -447,7 +447,16 @@ justify-content:space-around;
     border-color: #41c070;
     filter: drop-shadow(3px 3px 3px #126e63);
     width: 200px;
+}
 
+.user-create-form, .user-edit-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.user-edit-btn {
+    display:flex;
+    justify-content:center;
 }
 
 @media screen and (max-width:884px) {
@@ -471,8 +480,12 @@ justify-content:space-around;
         display:flex;
         flex-direction:column;
         height : 150px;
-        
     }
+
+    .user-section {
+
+    }
+
 }
 
 /*********************************************  Quittance  ************************************************/
@@ -525,7 +538,7 @@ justify-content:space-around;
     border: 2px solid black;
     height: 100px;
     width: 100px;
-    background-image: url('../image/logo.png');
+    background-image: url('../image/logo2.png');
     background-repeat: no-repeat;
     background-size: contain;
 }

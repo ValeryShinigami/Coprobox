@@ -5,7 +5,7 @@
     ViewBag.Title = "Création compte utilisateur";
 }
 
-<form class="row g-3 mx-auto" style="width:900px" method="post">
+<form class="row g-3 mx-auto user-create-form" style="width:900px" method="post">
     <div class="user-formulaire">
         <div class="row user-info-perso">
             <div class="user-data">
@@ -31,32 +31,33 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Email et Mot de passe -1 -->
-    <div class="row user-info-perso">
-        <div class="user-data">
-            @Html.LabelFor(model => model.Compte.email, new { @class = "user-label-form" })
-            <div class="user-nom">
-                <span class="input-group-text ">
-                    <img src="~/Image/enveloppe-user.png" width="23" height="23" />
-                </span>
-                @Html.TextBoxFor(model => model.Compte.email, new { @class = "user-input", placeholder = "email" })
+
+        <!-- Email et Mot de passe -1 -->
+        <div class="row user-info-perso">
+            <div class="user-data">
+                @Html.LabelFor(model => model.Compte.email, new { @class = "user-label-form" })
+                <div class="user-nom">
+                    <span class="input-group-text ">
+                        <img src="~/Image/enveloppe-user.png" width="23" height="23" />
+                    </span>
+                    @Html.TextBoxFor(model => model.Compte.email, new { @class = "user-input", placeholder = "email" })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(model => model.Compte.email)
+                </div>
             </div>
-            <div>
-                @Html.ValidationMessageFor(model => model.Compte.email)
-            </div>
-        </div>
-        <div class="user-data">
-            @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
-            <div class="user-nom">
-                <span class="input-group-text ">
-                    <img src="~/Image/user-mdp.png" width="23" height="23" />
-                </span>
-                @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
-            </div>
-            <div>
-                @Html.ValidationMessageFor(model => model.Compte.motDePasse)
+            <div class="user-data">
+                @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
+                <div class="user-nom">
+                    <span class="input-group-text ">
+                        <img src="~/Image/user-mdp.png" width="23" height="23" />
+                    </span>
+                    @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(model => model.Compte.motDePasse)
+                </div>
             </div>
         </div>
     </div>
