@@ -570,18 +570,24 @@ justify-content:space-around;
 }
 
 /*********************************************  Dashboard  ************************************************/
+/* Admin */
+.dash-usrlist{
+    overflow: scroll;
+    height: 80%;
+}
+
+/* Moderateur*/
 .dash-mod {
     position: relative;
     display: flex;
     padding: 20px;
 }
-/* Slideshow container */
+
 .dash-cagnottes, .dash-annonces {
     position: relative;
     width: 50%;
 }
 
-/* Hide the images by default */
 .dash-cagnotte, .dash-annonces {
     text-align: center;
 }
@@ -592,7 +598,6 @@ justify-content:space-around;
     justify-content:center;
 }
 
-/* Next & previous buttons */
 .dash-prev, .dash-next {
     position: relative;
     cursor: pointer;
@@ -607,18 +612,15 @@ justify-content:space-around;
     user-select: none;
 }
 
-/* Position the "next button" to the right */
 .dash-next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .dash-prev:hover, .dash-next:hover {
     background-color: rgba(0,0,0,0.8);
 }
 
-/* Number text (1/x etc) */
 .dash-mod .dash-numbertext {
     color: dimgrey;
     font-size: 12px;

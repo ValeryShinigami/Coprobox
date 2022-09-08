@@ -21,8 +21,9 @@ namespace coproBox.Controllers
     
         public IActionResult Index()
         {
-            DashboardModerateurViewModel dashboardModerateurViewModel = new DashboardModerateurViewModel()
+            DashboardViewModel dashboardModerateurViewModel = new DashboardViewModel()
             {
+                Utilisateurs = dal.ObtientTousLesUtilisateurs(),
                 Annonces = dal.ObtientToutesLesAnnonces(),
                 Cagnottes = dal.ObtientToutesLesCagnottes()
             };

@@ -1,10 +1,11 @@
-﻿@{
+﻿@model coproBox.ViewModels.DashboardViewModel
+@{
     Layout = "_Layout";
     ViewBag.Title = "Tableau de Bord";
 }
-
+<h1 style="text-align:center;">Tableau de Bord</h1>
+@Html.Partial("DashboardAdmin")
 @Html.Partial("DashboardModerateur")
-
 
 
 
