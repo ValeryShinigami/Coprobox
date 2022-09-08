@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace coproBox.Models
@@ -41,10 +42,9 @@ namespace coproBox.Models
             InfosContact infosContact = new InfosContact();
             Profil profil = new Profil();
             Notification notification = new Notification();
-
-
+            
               Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse= adresse, InfosContact = infosContact, Profil = profil,
-              Notification = notification}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+              Notification = notification,}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
               _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
               return utilisateur.Id;

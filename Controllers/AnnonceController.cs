@@ -8,8 +8,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using PagedList;
 
 
 namespace coproBox.Controllers
@@ -27,6 +29,7 @@ namespace coproBox.Controllers
         public IActionResult Index()
 
         {
+          
             List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
             return View(listeDesAnnonces);
         }
