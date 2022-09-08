@@ -42,6 +42,12 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
+        //public IActionResult ListeRole()
+        //{
+        //    List<Role> listeDesRoles = dal.ObtientTousLesRoles();
+        //    return View(listeDesRoles);
+        //}
+
         //**********************************$CREER UTILISATEUR **************************
         public IActionResult CreerUtilisateur()
         {
@@ -49,10 +55,10 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreerUtilisateur(Utilisateur utilisateur)
+        public IActionResult CreerUtilisateur(Utilisateur utilisateur, bool Moderateur)
         {
-            if (!ModelState.IsValid)
-                return View(utilisateur);
+            //if (!ModelState.IsValid)
+            //    return View(utilisateur);
 
             string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
             string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
@@ -65,8 +71,16 @@ namespace coproBox.Controllers
                     ModelState.AddModelError("email", "Cet email est déjà enregistré");
                     return View(utilisateur);
                 }
-            dal.CreerUtilisateur(utilisateur);
+            if (Moderateur)
+            {
+                utilisateur.Role = Role.Moderateur;
+            }
+
+            dal.CreerUtilisateur(
+                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.motDePasse, utilisateur.Compte.email, utilisateur.Role);
             return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
+
+
         }
 
         //MODIFIER UN UTILISATEUR

@@ -10,20 +10,7 @@ namespace coproBox.Models
         [MaxLength(40)]
         [Display(Name = "numéro identifiant")]
         public string numeroIdentifiant { get; set; }
-
-        [MaxLength(20)]
-        public string role { get; set; }
-        /*
-         *public enum Roles
-            {
-                Admin,
-                Moderateur,
-                Basic
-            } 
-         */
-
-
-
+         
         [Required(ErrorMessage = "L'adresse mail doit être précisée.")]
         [MaxLength(50)]
         [Display(Name ="email")]
@@ -43,6 +30,8 @@ namespace coproBox.Models
         public string codeIban { get; set; }
 
         public double montant { get; set; }
+
+        public bool estProprietaire { get; set; }
     }
 }
 

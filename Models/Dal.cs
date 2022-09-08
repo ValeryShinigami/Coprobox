@@ -25,6 +25,7 @@ namespace coproBox.Models
 
 
         //UTILISATEURS
+        //********************** Liste des utilisateurs ******************
         public List<Utilisateur> ObtientTousLesUtilisateurs() // permet de retourner tous les séjours sous forme de liste
         {
             return _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle).Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).ToList();
@@ -33,24 +34,25 @@ namespace coproBox.Models
             // .Include permet de créer une jointure... et d'afficher ou modifier des clés étrangères.
         }
 
-        public int CreerUtilisateur(Utilisateur utilisateur)
+        /*************************** Créer utilisateur*******************/
+        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role)
         {
-            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = utilisateur.InfosPersonnelle.Nom, Prenom = utilisateur.InfosPersonnelle.Prenom };
-            string password = EncodeMD5(utilisateur.Compte.motDePasse);
-            Compte compte = new Compte { email = utilisateur.Compte.email, motDePasse = password};
-            Adresse adresse = new Adresse();
-            InfosContact infosContact = new InfosContact();
-            Profil profil = new Profil();
-            Notification notification = new Notification();
-            
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse= adresse, InfosContact = infosContact, Profil = profil,
-              Notification = notification,}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+            InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
+            string password = EncodeMD5(motDePasse);
+            Compte compte = new Compte { email = email, motDePasse = password};
+            //Adresse adresse = new Adresse();
+            //InfosContact infosContact = new InfosContact();
+            //Profil profil = new Profil();
+            //Notification notification = new Notification();
+         
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, 
+             Role = role}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
               _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
-              return utilisateur.Id;
+              return Utilisateur.Id;
           }
 
-
+        /*************************** MODIFIER utilisateur*******************/
         public void ModifierUtilisateur(Utilisateur utilisateur)
         {
             Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle)
@@ -72,8 +74,8 @@ namespace coproBox.Models
                     Utilisateur.Adresse.Ville = utilisateur.Adresse.Ville;
                 if(utilisateur.Compte.numeroIdentifiant != null)
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
-                if(utilisateur.Compte.role != null)
-                    Utilisateur.Compte.role = utilisateur.Compte.role;
+                //if(utilisateur.Role!= null)
+                //    Utilisateur.Role  = utilisateur.Role ;
                 Utilisateur.Compte.motDePasse = utilisateur.Compte.motDePasse;
 
                 Utilisateur.Compte.email = utilisateur.Compte.email;
@@ -84,6 +86,15 @@ namespace coproBox.Models
             }
         }
 
+        /*************************** SUPPRIMER utilisateur*******************/
+        public void SupprimerUtilisateur(int id)
+        {
+            Utilisateur userDeleted = this._bddContext.Utilisateurs.Find(id);
+            this._bddContext.Utilisateurs.Remove(userDeleted);
+            this._bddContext.SaveChanges();
+        }
+
+        /*************************** AUTHENTIFICATION utilisateur*******************/
         public Utilisateur Authentifier(string email, string motdepasse)
         {
             string motDePasse = /*EncodeMD5(*/motdepasse/*)*/;
@@ -263,7 +274,8 @@ namespace coproBox.Models
         {
             _bddContext.Dispose();
         }
-              
+
+        
     }
 }
 
