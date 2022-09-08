@@ -24,7 +24,6 @@ header {
     text-decoration: none;
     background-color: transparent;
     color: #323A7C;
-    
 }
 
 .nav-link {
@@ -214,7 +213,6 @@ a {
     .titreAnnonce {
         font-size: 15px;
     }
-
 }
 
 /*************************  partie card debut   ************************************************/
@@ -252,9 +250,9 @@ a {
     color: lightskyblue;
 }
 
-.btnSupprimer:hover {
-    color: red;
-}
+    .btnSupprimer:hover {
+        color: red;
+    }
 
 .navAnnonce{
     font-size: 1em;
@@ -353,9 +351,9 @@ a {
 }
 
 .user-label {
-width : 30%;
-text-align: end;
-margin-bottom : 15px;
+    width : 30%;
+    text-align: end;
+    margin-bottom : 15px;
 }
 
 .user-categorie {
@@ -363,9 +361,10 @@ margin-bottom : 15px;
 }
 
 .user-list {
-margin-right : 80px;
-margin-left : 80px;
-margin-top : 80px;
+    margin-right : 80px;
+    margin-left : 80px;
+    margin-top : 80px;
+    background-color:#4DC7E4;
 }
 
 .user-section {
@@ -387,20 +386,20 @@ margin-top : 80px;
 }
 
 .user-index-section {
-display : inline-flex;
+    display : inline-flex;
 }
 
 .form-row {
-display : flex;
-flex-wrap : wrap;
-margin-right: -5px;
-margin-left: -5px;
+    display : flex;
+    flex-wrap : wrap;
+    margin-right: -5px;
+    margin-left: -5px;
 }
 
 .user-info-perso {
-display: flex;
-justify-content : space-between;
-margin-bottom: 20px;
+    display: flex;
+    justify-content : space-between;
+    margin-bottom: 20px;
 }
 
 .user-nom {
@@ -421,10 +420,10 @@ margin-bottom: 20px;
 }
 
 .user-data {
-width:50%;
-display: flex;
-flex-direction:column;
-align-items: stretch;
+    width:50%;
+    display: flex;
+    flex-direction:column;
+    align-items: stretch;
 }
 
 .input-group-text {
@@ -441,7 +440,7 @@ flex-direction: row;
 justify-content:space-around;
 }
 
-.btnCard-user {
+.btnCard-user, .btnCard-user-delete {
     background-color: #41c070;
     color: aliceblue;
     border-color: #41c070;
@@ -456,7 +455,11 @@ justify-content:space-around;
 
 .user-edit-btn {
     display:flex;
-    justify-content:center;
+    justify-content :space-evenly;
+}
+
+.btnCard-user-delete:hover {
+    background-color:red;
 }
 
 @media screen and (max-width:884px) {
@@ -469,21 +472,18 @@ justify-content:space-around;
  
     .user-section {
         display:flex;
-        justify-content:center;
+        justify-content:space-evenly;
     }
     .user-nom {
         margin-bottom: 20px;
         margin-right:-4px;
     }
 
-    .user-create-btn {
+    .user-create-btn, .user-edit-btn {
         display:flex;
         flex-direction:column;
+        justify-content: space-evenly;
         height : 150px;
-    }
-
-    .user-section {
-
     }
 
 }

@@ -11,13 +11,14 @@ namespace coproBox.Models
         // Gestion Utilisateurs
 
         List<Utilisateur> ObtientTousLesUtilisateurs();
-        public int CreerUtilisateur(Utilisateur utilisateur);
+        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role);
         public void ModifierUtilisateur(Utilisateur utilisateur);
         Utilisateur Authentifier(string email, string motdepasse);
         Utilisateur ObtenirUtilisateur(int id);
         Utilisateur ObtenirUtilisateur(string idStr);
-
-       // Gestion Annonces
+        public void SupprimerUtilisateur(int id);
+        
+        // Gestion Annonces
 
         List<Annonce> ObtientToutesLesAnnonces();
         public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, int id = 0);

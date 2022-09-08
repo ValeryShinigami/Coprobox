@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace coproBox.Models
 {
     public class Utilisateur
@@ -23,8 +26,17 @@ namespace coproBox.Models
         public int? ProfilId { get; set; }
         public virtual Profil Profil { get; set; }
 
+        public Role Role { get; set; }
 
         //doubler les fk
+    }
+
+    public enum Role // avec "enum", chaque élément sera associé à un entier...
+    {
+        Utilisateur,
+        Administrateur,
+        [Display(Name = "Modérateur")]
+        Moderateur
     }
 }
 

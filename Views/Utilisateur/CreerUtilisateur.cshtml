@@ -6,6 +6,8 @@
 }
 
 <form class="row g-3 mx-auto user-create-form" style="width:900px" method="post">
+    @using (Html.BeginForm())
+        {
     <div class="user-formulaire">
         <div class="row user-info-perso">
             <div class="user-data">
@@ -30,6 +32,7 @@
                     @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
                 </div>
             </div>
+
         </div>
 
 
@@ -60,15 +63,27 @@
                 </div>
             </div>
         </div>
+        <div class="row user-info-role">
+            <fieldset>
+                <legend class="user-role">Role de l'utilisateur</legend>
+                <div class="user-info-type">
+                         @Html.DropDownListFor(model => model.Role,
+                         Html.GetEnumSelectList<Role>(),
+                         "Sélectionner le Service")
+                  </div>
+            </fieldset>
+            
+        </div>
     </div>
     <div class="user-create-btn">
-        <div class="user-btn">
-            <button class="btn btnCard-user" type="submit">Valider</button>
+            <div class="user-btn">
+                <button class="btn btnCard-user" type="submit">Valider</button>
+            </div>
+            <div class="user-btn">
+                <a class="btn btnCard-user" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
+            </div>
         </div>
-        <div class="user-btn">
-            <a class="btn btnCard-user" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
-        </div>
-    </div>
+        }
 </form>
 
 

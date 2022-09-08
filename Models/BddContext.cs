@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace coproBox.Models
@@ -31,30 +32,29 @@ namespace coproBox.Models
             this.Database.EnsureCreated();
 
             this.Comptes.AddRange(
+                               
                 new Compte
                 {
                     Id = 1,
                     numeroIdentifiant = "1",
-                    role = "modérateur",
                     email = "fouzi_coprobox@gmail.com",
-                    motDePasse="FFFFF",
-                    nombreAnnonce=0,
-                    codeIban="FR76000 0000 000 0000",
-                    montant=0
+                    motDePasse = "FFFFF",
+                    nombreAnnonce = 0,
+                    codeIban = "FR76000 0000 000 0000",
+                    montant = 0
                 },
-            
+
                 new Compte
                 {
                     Id = 2,
                     numeroIdentifiant = "2",
-                    role = "modérateur",
                     email = "valery_coprobox@gmail.com",
                     motDePasse = "VVVVV",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
                     montant = 0
                 }
-            );
+            ); ;
             this.InfosPersonnelles.AddRange(
                 new InfosPersonnelle
                 {
@@ -96,7 +96,8 @@ namespace coproBox.Models
                     Id = 1,
                     CompteId = 1,
                     AdresseId = 1,
-                    InfosPersonnelleId = 1
+                    InfosPersonnelleId = 1,
+                    Role = Role.Administrateur
                 },
 
                 new Utilisateur
@@ -104,7 +105,8 @@ namespace coproBox.Models
                     Id = 2,
                     CompteId = 2,
                     AdresseId = 2,
-                    InfosPersonnelleId = 2
+                    InfosPersonnelleId = 2,
+                    Role = Role.Moderateur
                 }
             );
             this.Annonces.AddRange(
