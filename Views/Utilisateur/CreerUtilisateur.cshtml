@@ -1,17 +1,18 @@
 ﻿@using coproBox.Models
 @model coproBox.Models.Utilisateur
+
 @{
     Layout = "_Layout";
     ViewBag.Title = "Création compte utilisateur";
 }
 
-<form class="row g-3 mx-auto" style="width:900px" method="post">
+<form class="row g-3 mx-auto" style="width:900px" method="post" enctype="multipart/form-data">
     <div class="user-formulaire">
         <div class="row user-info-perso">
             <div class="user-data">
                 <div class="user-nom">
                     <span class="input-group-text ">
-                        <img src="~/Image/user-profil.png" width="23" height="23" />
+                        <img src="~/Image/user-profil.png" width="23" height="23" />                       
                     </span>
                     @Html.TextBoxFor(model => model.InfosPersonnelle.Nom, new { @class = "user-input", placeholder = "Nom" })
                 </div>
@@ -68,6 +69,15 @@
             <a class="btn btnCard-user" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
         </div>
     </div>
+
+   @* teste Valery pour récupérer image profil de l'utilisateur
+       <div class="row mb-3">
+        @Html.HiddenFor(model=>model.ImagePath)
+        @Html.LabelFor(model => model.Image, new { id = "imageLabel", @style = "text-align:center;" })
+        <div class="col-sm-6">
+            @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })
+        </div>
+    </div>*@
 </form>
 
 
