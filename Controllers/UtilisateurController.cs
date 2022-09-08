@@ -31,7 +31,7 @@ namespace coproBox.Controllers
                 Utilisateurs = dal.ObtientTousLesUtilisateurs(),
                 Annonces = dal.ObtientToutesLesAnnonces(),
                 Cagnottes = dal.ObtientToutesLesCagnottes(),
-                Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
+                //Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
             };
             return View(dashboardModerateurViewModel);
         }
