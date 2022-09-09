@@ -39,15 +39,15 @@ namespace coproBox.Models
         {
             InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
             string password = EncodeMD5(motDePasse);
-            Compte compte = new Compte { email = email, motDePasse = password};
+            Compte compte = new Compte { email = email, motDePasse = password, Role=role};
             //Adresse adresse = new Adresse();
             //InfosContact infosContact = new InfosContact();
             //Profil profil = new Profil();
             //Notification notification = new Notification();
          
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, 
-             Role = role}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
-              _bddContext.Utilisateurs.Add(Utilisateur);
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte};
+            // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+            _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
               return Utilisateur.Id;
           }

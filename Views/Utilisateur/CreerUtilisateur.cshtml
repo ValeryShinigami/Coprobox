@@ -64,16 +64,17 @@
                 </div>
             </div>
         </div>
-        <div class="row user-info-role">
-            <fieldset>
-                <legend class="user-role">Role de l'utilisateur</legend>
+        <div class="user-role">
+            <div class="user-info-role">
+                <h8>Role de l'utilisateur</h8>
                 <div class="user-info-type">
-                         @Html.DropDownListFor(model => model.Role,
-                         Html.GetEnumSelectList<Role>(),
-                         "Sélectionner le Service")
-                  </div>
-            </fieldset>
-            
+                    @Html.DropDownListFor(model => model.Compte.Role, Html.GetEnumSelectList<Role>(), "Type d'utilisateur")
+                </div>
+                <h8>Propriétaire ?</h8>
+                <div class="user-info-type">
+                    @Html.CheckBoxFor(model => model.Compte.estProprietaire, new { @class = "user-input"})
+                </div>
+            </div>
         </div>
     </div>
     <div class="user-create-btn">
@@ -87,7 +88,7 @@
 
         }
 
-    </div>
+   
 
    @* teste Valery pour récupérer image profil de l'utilisateur
        <div class="row mb-3">
