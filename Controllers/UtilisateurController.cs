@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
@@ -26,14 +27,17 @@ namespace coproBox.Controllers
     
         public IActionResult Index()
         {
-            DashboardViewModel dashboardModerateurViewModel = new DashboardViewModel()
+            DashboardViewModel dashboardViewModel = new DashboardViewModel()
             {
                 Utilisateurs = dal.ObtientTousLesUtilisateurs(),
-                Annonces = dal.ObtientToutesLesAnnonces(),
-                Cagnottes = dal.ObtientToutesLesCagnottes(),
-                //Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
+                AnnoncesAVerifier = dal.ObtientLesAnnoncesAVerifier(),
+                AnnoncesPerso = dal.ObtientToutesSesAnnonces(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                Cagnottes = dal.ObtientToutesLesCagnottesActives(),
+                Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                Reservations = dal.ObtientToutesSesReservations(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                ParticipationCagnottes = dal.ObtientToutesSesParticipationCagnottes(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
             };
-            return View(dashboardModerateurViewModel);
+            return View(dashboardViewModel);
         }
 
         public IActionResult ListeUtilisateur()

@@ -71,7 +71,7 @@ namespace coproBox.Controllers
 
         public IActionResult InfoCagnotte(int id)
         {
-            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottes().Find(c => c.Id == id);
             if(cagnotte == null)
             {
                 return View("Error");
@@ -82,8 +82,8 @@ namespace coproBox.Controllers
         [HttpPost]
         public IActionResult InfoCagnotte(int id, int Montant)
         {
-            Cagnotte cagnotte = dal.ObtientToutesLesCagnottesActives().Find(c => c.Id == id);
-            if (cagnotte == null)
+            Cagnotte cagnotte = dal.ObtientToutesLesCagnottes().Find(c => c.Id == id);
+            if (Montant <= 0 || cagnotte == null)
             {
                 return View("Error");
             }

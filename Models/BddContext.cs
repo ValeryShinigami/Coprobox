@@ -18,6 +18,7 @@ namespace coproBox.Models
         public DbSet<Quittance> Quittances { get; set; }
         public DbSet<Paiement> Paiements { get; set; }
         public DbSet<ParticipationCagnotte> ParticipationCagnottes { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         // partie ANNONCE
         public DbSet<Annonce> Annonces { get; set; }
@@ -203,7 +204,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/maison.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.Non_Validée
 
                }
            ); 
@@ -221,7 +223,8 @@ namespace coproBox.Models
                     Titre = "Cagnotte 2",
                     Description = "Seconde cagnotte!",
                     SommeObjectif = 350,
-                    SommeActuelle = 100
+                    SommeActuelle = 100,
+                    EcheanceCagnotte = DateTime.MaxValue
                 },
 
                 new Cagnotte
@@ -242,6 +245,14 @@ namespace coproBox.Models
                     LocataireId = 1,
                     Montant = 999,
                     StatutQuittance = StatutQuittance.Payee
+                }
+                );
+            this.ParticipationCagnottes.Add(
+                new ParticipationCagnotte
+                {
+                    CagnotteId = 1,
+                    UtilisateurId = 1,
+                    Montant = 100
                 }
                 );
             this.SaveChanges();

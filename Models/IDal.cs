@@ -42,6 +42,10 @@ namespace coproBox.Models
 
         // Dashboard
         public List<Paiement> ObtientTousSesPaiements(int UserId);
+        public List<Reservation> ObtientToutesSesReservations(int UserId);
+        public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId);
+        public List<Annonce> ObtientToutesSesAnnonces(int UserId);
+        public List<Annonce> ObtientLesAnnoncesAVerifier();
         /* //Anthentification
          int AjouterUtilisateur(string nom, string password);
          Utilisateur Authentifier(string nom, string password);
