@@ -384,11 +384,14 @@ a {
 
 .card__ccv {
     float: left;
-    margin-top: 5px;
+    margin-top: 0px;
     padding: 7px;
     background: #fff;
     color: #111;
     line-height: 1;
+    width: 83px;
+    height: 40px;   
+    
 }
 
 .card--front {
@@ -406,6 +409,11 @@ a {
 .cardInput{
     width: 83px;
     height:30px;
+}
+
+.crypto{
+    width: 60px;
+ 
 }
 /*************************  CSS VALERY FIN    ************************************************/
 /*************************  Cagnotte    ************************************************/
