@@ -9,5 +9,6 @@ namespace coproBox.ViewModels
         public IEnumerable<Cagnotte> Cagnottes { get; set; }
         public IEnumerable<Annonce> Annonces { get; set; }
         public IEnumerable<Paiement> Paiements { get; set; }
+        public IEnumerable<Reservation> Reservations { get; set; }
     }
 }

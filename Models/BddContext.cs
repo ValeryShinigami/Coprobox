@@ -18,6 +18,7 @@ namespace coproBox.Models
         public DbSet<Quittance> Quittances { get; set; }
         public DbSet<Paiement> Paiements { get; set; }
         public DbSet<ParticipationCagnotte> ParticipationCagnottes { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         // partie ANNONCE
         public DbSet<Annonce> Annonces { get; set; }

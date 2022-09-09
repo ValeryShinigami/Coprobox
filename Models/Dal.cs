@@ -266,7 +266,10 @@ namespace coproBox.Models
             return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
         }
 
-
+        public List<Reservation> ObtientToutesSesReservations(int UserId)
+        {
+            return _bddContext.Reservations.Where(r => r.UtilisateurId == UserId).ToList();
+        }
 
 
         //FERMETURE DE LA CONNEXION avec MySQL

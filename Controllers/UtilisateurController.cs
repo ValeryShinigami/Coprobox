@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
@@ -31,7 +32,8 @@ namespace coproBox.Controllers
                 Utilisateurs = dal.ObtientTousLesUtilisateurs(),
                 Annonces = dal.ObtientToutesLesAnnonces(),
                 Cagnottes = dal.ObtientToutesLesCagnottes(),
-                //Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
+                Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                Reservations = dal.ObtientToutesSesReservations(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
             };
             return View(dashboardModerateurViewModel);
         }
