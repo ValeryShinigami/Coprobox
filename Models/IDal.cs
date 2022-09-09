@@ -51,9 +51,11 @@ namespace coproBox.Models
          Utilisateur Authentifier(string nom, string password);
          Utilisateur ObtenirUtilisateur(int id);
          Utilisateur ObtenirUtilisateur(string idStr); */
-            
+
 
         // Paiement
+
+        
     }
 
 }
