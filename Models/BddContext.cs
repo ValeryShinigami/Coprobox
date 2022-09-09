@@ -42,7 +42,8 @@ namespace coproBox.Models
                     motDePasse = "FFFFF",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
-                    montant = 0
+                    montant = 0,
+                    Role = Role.Administrateur
                 },
 
                 new Compte
@@ -53,7 +54,8 @@ namespace coproBox.Models
                     motDePasse = "VVVVV",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
-                    montant = 0
+                    montant = 0,
+                    Role = Role.Moderateur
                 }
             ); ;
             this.InfosPersonnelles.AddRange(
@@ -98,7 +100,7 @@ namespace coproBox.Models
                     CompteId = 1,
                     AdresseId = 1,
                     InfosPersonnelleId = 1,
-                    Role = Role.Administrateur
+                    
                 },
 
                 new Utilisateur
@@ -107,7 +109,7 @@ namespace coproBox.Models
                     CompteId = 2,
                     AdresseId = 2,
                     InfosPersonnelleId = 2,
-                    Role = Role.Moderateur
+                    
                 }
             );
             this.Annonces.AddRange(

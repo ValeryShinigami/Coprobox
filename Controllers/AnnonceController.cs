@@ -11,7 +11,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using PagedList;
+//using PagedList;
 
 
 namespace coproBox.Controllers

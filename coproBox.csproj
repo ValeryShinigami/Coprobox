@@ -17,6 +17,7 @@
     <None Remove="Views\Utilisateur\" />
     <None Remove="Views\Annonce\" />
     <None Remove="ViewModels\" />
+    <None Remove="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Codehaks.Pagination" Version="1.0.0" />
@@ -34,6 +35,7 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="Views\Compte\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
