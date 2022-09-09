@@ -57,10 +57,12 @@ namespace coproBox.Controllers
 
            
         }
-        public IActionResult Reserver()
+       /* public IActionResult Reserver()
         {
-            return View();
-        }
+            List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
+
+            return View(listeDesAnnonces);
+        }*/
 
         public IActionResult CreerAnnonce()
         {

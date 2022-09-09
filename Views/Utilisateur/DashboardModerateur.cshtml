@@ -1,14 +1,29 @@
 ﻿<div class="dash-mod">
     <div class="dash-cagnottes">
-        <h2>Cagnottes en cours</h2>
+        <h3>Cagnottes en cours</h3>
+        <a href="/cagnotte/CreerCagnotte">Nouvelle Cagnotte</a>
         @{ int i = 1, nbrCagnottes = Model.Cagnottes.Count; }
         @foreach (var cagnotte in Model.Cagnottes)
         {
             <div class="dash-cagnotte">
-                <div class="dash-numbertext">@i / @nbrCagnottes</div>
+                <div class="dash-heart">
+                    <div class="heart-container">
+                        <a href="/cagnotte/modifiercagnotte/@cagnotte.Id">
+                            <div class="filling-heart">
+                                <img src="~/image/heartempty2.png" width="300" height="300" />
+                            </div>
+                        </a>
+                        <div class="img-container">
+                            <div class="filling-heart h3art" style="height:@((int)(300*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-300.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
+                                <img src="~/image/heartfull2.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h2>@cagnotte.Titre</h2>
                 <div>@cagnotte.Description</div>
                 <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
+                <div class="dash-numbertext">@i / @nbrCagnottes</div>
             </div>
 
             i++;
@@ -20,17 +35,18 @@
         </div>
     </div>
     <div class="dash-annonces">
-        <h2>Annonces à vérifier</h2>
-        @{ int j = 1, nbrAnnonces = Model.Annonces.Count; }
-        @foreach (var annonce in Model.Annonces)
+        <h3>Annonces à vérifier</h3>
+        @{ int j = 1, nbrAnnonces = Model.AnnoncesAVerifier.Count; }
+        @foreach (var annonce in Model.AnnoncesAVerifier)
         {
             <div class="dash-annonce">
-                <div class="dash-numbertext">@j / @nbrAnnonces</div>
                 <h2>@annonce.Titre</h2>
                 @*Ajout image pour tester Valéry*@
-                <img src="@annonce.ImagePath" class="img-thumbnail" style="width:200px;  height:200px" alt="image annonce">
+                <a href="/annonce/verifierannonce/@annonce.Id">
+                    <img src="@annonce.ImagePath" class="img-thumbnail" style="width:200px;  height:200px" alt="image annonce">
+                </a>
                 <div>@annonce.Description</div>
-                
+                <div class="dash-numbertext">@j / @nbrAnnonces</div>
             </div>
 
             j++;

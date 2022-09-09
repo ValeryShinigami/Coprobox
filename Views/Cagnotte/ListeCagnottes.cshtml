@@ -1,6 +1,8 @@
 ﻿<div class="liste-cagnottes">
     @foreach (var cagnotte in Model)
     {
+        var joursRestants = (cagnotte.EcheanceCagnotte - DateTime.Now).Days;
+
         <div class="cagnotte">
             <div>
                 <div class="heart-container">
@@ -16,7 +18,7 @@
                         </div>
                     }
                     <div class="img-container">
-                        <div class="filling-heart h3art" style="height:@((int)(200*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-200.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
+                        <div class="filling-heart h3art" style="height:@((int)(300*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px; top:@((int)((-300.0)*@cagnotte.SommeActuelle/@cagnotte.SommeObjectif))px;">
                             <img src="~/image/heartfull2.png" />
                         </div>
                     </div>
@@ -25,6 +27,14 @@
             <h2>@cagnotte.Titre</h2>
             <div>@cagnotte.Description</div>
             <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>
+            <div>
+                @if(@joursRestants < 0)
+                {
+                    <p>Cagnotte terminée</p>
+                } else {
+                    <p>@joursRestants jours restants</p>
+                }
+            </div>
         </div>
     }
 </div>
