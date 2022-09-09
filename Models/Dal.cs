@@ -266,7 +266,26 @@ namespace coproBox.Models
             return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
         }
 
+        public List<Reservation> ObtientToutesSesReservations(int UserId)
+        {
+            return _bddContext.Reservations.Where(r => r.UtilisateurId == UserId).ToList();
+        }
 
+        public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId)
+        {
+            return _bddContext.ParticipationCagnottes.Include(pc => pc.Cagnotte).Where(pc => pc.UtilisateurId == UserId).ToList();
+        }
+
+        public List<Annonce> ObtientToutesSesAnnonces(int UserId)
+        {
+            return _bddContext.Annonces.Where(a => a.UtilisateurId == UserId).ToList();
+
+        }
+
+        public List<Annonce> ObtientLesAnnoncesAVerifier()
+        {
+            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Non_Validée).ToList();
+        }
 
 
         //FERMETURE DE LA CONNEXION avec MySQL

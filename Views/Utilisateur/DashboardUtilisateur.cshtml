@@ -1,6 +1,14 @@
 ﻿<div class="dash-usr">
-    <div class="dash-cagnottes">
-        
+    <div class="dash-cagnottes-usr">
+        <h3>Participation aux Cagnottes</h3>
+        @foreach (var participation in Model.ParticipationCagnottes)
+        {
+            <a href="/cagnotte/infocagnotte/@participation.Cagnotte.Id">
+                <div class="dash-particip">
+                    @participation.Cagnotte.Titre : @participation.Montant€
+                </div>
+            </a>
+        }
     </div>
     <div class="dash-annonces">
         <div class="dash-annonces-crees">
@@ -12,5 +20,8 @@
     </div>
     <div class="dash-quittances">
         
+    </div>
+    <div class="dash-paiements">
+
     </div>
 </div>

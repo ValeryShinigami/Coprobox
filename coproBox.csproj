@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Compte\**" />
+    <Content Remove="Views\Compte\**" />
+    <EmbeddedResource Remove="Views\Compte\**" />
+    <None Remove="Views\Compte\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore" />
@@ -33,7 +40,6 @@
   <ItemGroup>
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Views\Compte\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Contact\" />
   </ItemGroup>
