@@ -295,10 +295,6 @@ namespace coproBox.Models
         }
 
         //PAIEMENT
-      
-
-      
-
     }
 }
 

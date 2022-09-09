@@ -55,7 +55,6 @@ namespace coproBox.Models
 
         // Paiement
        
-       
     }
 
 }
