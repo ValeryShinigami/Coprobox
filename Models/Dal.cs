@@ -294,12 +294,7 @@ namespace coproBox.Models
         {
             _bddContext.Dispose();
         }
-
         //PAIEMENT
-      
-
-      
-
     }
 }
 
