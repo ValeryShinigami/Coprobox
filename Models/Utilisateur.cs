@@ -28,10 +28,10 @@ namespace coproBox.Models
 
         public Role Role { get; set; }
 
-        public string ImagePath { get; set; }
-        [NotMapped]
+       // public string ImagePath { get; set; }
+       // [NotMapped]
 
-        public IFormFile Image { get; set; }
+       // public IFormFile Image { get; set; }
 
     }
 
