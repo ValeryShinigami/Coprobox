@@ -50,7 +50,7 @@ namespace coproBox.Models
             
 
         // Paiement
-        public void PaiementAnnonce(Paiement paiement);
+       
     }
 
 }

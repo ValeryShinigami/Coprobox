@@ -276,25 +276,6 @@ namespace coproBox.Models
         }
 
         //PAIEMENT
-        public void PaiementAnnonce(Paiement paiement)
-        {
-            Paiement Paiement = _bddContext.Paiements.Find(paiement.Id);
-
-            if (Paiement != null)
-            {
-                Paiement.Annonce = paiement.Annonce;
-                Paiement.AnnonceId = paiement.AnnonceId;
-                Paiement.Utilisateur = paiement.Utilisateur;
-                paiement.UtilisateurId = paiement.UtilisateurId;
-                paiement.Paye = paiement.Paye;
-
-                _bddContext.SaveChanges();
-            }
-
-         
-        }
-
-
     }
 }
 

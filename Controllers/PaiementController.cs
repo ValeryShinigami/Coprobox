@@ -13,7 +13,7 @@ namespace coproBox.Controllers
             _webEnv = environment;
             this.dal = new Dal();
         }
-        public IActionResult PaiementAnnonce()
+        public IActionResult Index()
         {
             return View();
         }

@@ -384,11 +384,12 @@ a {
 
 .card__ccv {
     float: left;
-    margin-top: 5px;
+    margin-top: 0px;
     padding: 7px;
     background: #fff;
     color: #111;
     line-height: 1;
+    height: 40px;
 }
 
 .card--front {
