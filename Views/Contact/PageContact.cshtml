@@ -1,0 +1,91 @@
+﻿@model coproBox.ViewModels.UtilisateurViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="witdh=device-width,  initial-scale=1.0">
+    <title>Pour nous contacter</title>
+    <link rel="stylesheet" href="Contact.css" />
+</head>
+<body>
+    <div class="contact-body">
+        <div class="contact-title">
+            <h5>Pour rester en contacter</h5>
+        </div>
+        <div class="box">
+            <!--Form-->
+            <div class="contact form">
+                <h6>Envoyer un message</h6>
+                <form>
+                    <div class="formBox">
+                        <div class="row50">
+                            <div class="inputBox">
+                                <span>Prénom</span>
+                                <input type="text" placeholder="Pierre">
+                            </div>
+                            <div class="inputBox">
+                                <span>Nom</span>
+                                <input type="text" placeholder="DUPONT">
+                            </div>
+                        </div>
+                        <div class="row50">
+                            <div class="inputBox">
+                                <span>Email</span>
+                                <input type="text" placeholder="pierre@mail.com">
+                            </div>
+                            <div class="inputBox">
+                                <span>Téléphone</span>
+                                <input type="text" placeholder="+33 01 75 00 00 00">
+                            </div>
+                        </div>
+                        <div class="row100">
+                            <div class="inputBox">
+                                <span>Message</span>
+                                <textarea placeholder="Ecrire ici..."></textarea>
+                            </div>
+                        </div>
+                        <div class="row100">
+                            <div class="inputBox">
+                                <input type="submit" value="Envoyer" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--info Box-->
+            <div class="contact info">
+                <h6>Contact Info</h6>
+                <div class="infoBox">
+                    <div>
+                        <span><img src="~/Image/contact/contact-map.png" width="23" height="23" /></span>
+                        <p>CoproBox, 2 avenue du Maréchal LECLERC, MALAKOFF <br>FRANCE</p>
+                    </div>
+                    <div>
+                        <span><img src="~/Image/enveloppe-user.png" width="23" height="23" /></span>
+                        <a href="mailto:coprobox@gmail.com">coprobox@gmail.com</a>
+                    </div>
+                    <div>
+                        <span><img src="~/Image/user-phone.png" width="23" height="23" /></span>
+                        <a href="mailto:coprobox@gmail.com">+33 01 42 01 00 00</a>
+                    </div>
+                    <!--Réseaux sociaux-->
+                    <ul class="sci">
+                        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <!-- Map-->
+            <div class="contact map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.9623388178607!2d2.307779851338007!3d48.82078001120638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6705724a0712b%3A0xd740b1e6031b4dd2!2sAv.%20du%20Mar%C3%A9chal%20Leclerc%2C%2092240%20Malakoff!5e0!3m2!1sfr!2sfr!4v1662677467701!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

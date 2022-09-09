@@ -486,6 +486,9 @@ justify-content:space-around;
         height : 150px;
     }
 
+    .user-create-btn {
+        padding-top: 30px;
+    }
 }
 
 /*********************************************  Quittance  ************************************************/
@@ -583,6 +586,9 @@ justify-content:space-around;
 }
 
 /*********************************************  Dashboard  ************************************************/
+.dashboard {
+    text-align: center;
+}
 /* Admin */
 .dash-usrlist{
     overflow: scroll;
@@ -594,15 +600,20 @@ justify-content:space-around;
     position: relative;
     display: flex;
     padding: 20px;
+    flex-wrap:wrap;
 }
 
 .dash-cagnottes, .dash-annonces {
     position: relative;
     width: 50%;
+    min-width: 300px;
+    flex-grow: 1;
 }
 
-.dash-cagnotte, .dash-annonces {
-    text-align: center;
+
+.dash-heart{
+    display: flex;
+    justify-content: center;
 }
 
 .prev-next {

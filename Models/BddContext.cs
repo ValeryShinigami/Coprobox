@@ -43,7 +43,8 @@ namespace coproBox.Models
                     motDePasse = "FFFFF",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
-                    montant = 0
+                    montant = 0,
+                    Role = Role.Administrateur
                 },
 
                 new Compte
@@ -54,7 +55,8 @@ namespace coproBox.Models
                     motDePasse = "VVVVV",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
-                    montant = 0
+                    montant = 0,
+                    Role = Role.Moderateur
                 }
             ); ;
             this.InfosPersonnelles.AddRange(
@@ -99,7 +101,7 @@ namespace coproBox.Models
                     CompteId = 1,
                     AdresseId = 1,
                     InfosPersonnelleId = 1,
-                    Role = Role.Administrateur
+                    
                 },
 
                 new Utilisateur
@@ -108,7 +110,7 @@ namespace coproBox.Models
                     CompteId = 2,
                     AdresseId = 2,
                     InfosPersonnelleId = 2,
-                    Role = Role.Moderateur
+                    
                 }
             );
             this.Annonces.AddRange(
@@ -202,7 +204,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/maison.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.Non_Validée
 
                }
            ); 
@@ -220,7 +223,8 @@ namespace coproBox.Models
                     Titre = "Cagnotte 2",
                     Description = "Seconde cagnotte!",
                     SommeObjectif = 350,
-                    SommeActuelle = 100
+                    SommeActuelle = 100,
+                    EcheanceCagnotte = DateTime.MaxValue
                 },
 
                 new Cagnotte
@@ -241,6 +245,14 @@ namespace coproBox.Models
                     LocataireId = 1,
                     Montant = 999,
                     StatutQuittance = StatutQuittance.Payee
+                }
+                );
+            this.ParticipationCagnottes.Add(
+                new ParticipationCagnotte
+                {
+                    CagnotteId = 1,
+                    UtilisateurId = 1,
+                    Montant = 100
                 }
                 );
             this.SaveChanges();

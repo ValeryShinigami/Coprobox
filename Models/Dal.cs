@@ -39,15 +39,15 @@ namespace coproBox.Models
         {
             InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
             string password = EncodeMD5(motDePasse);
-            Compte compte = new Compte { email = email, motDePasse = password};
+            Compte compte = new Compte { email = email, motDePasse = password, Role=role};
             //Adresse adresse = new Adresse();
             //InfosContact infosContact = new InfosContact();
             //Profil profil = new Profil();
             //Notification notification = new Notification();
          
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, 
-             Role = role}; // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
-              _bddContext.Utilisateurs.Add(Utilisateur);
+              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte};
+            // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
+            _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
               return Utilisateur.Id;
           }
@@ -269,6 +269,22 @@ namespace coproBox.Models
         public List<Reservation> ObtientToutesSesReservations(int UserId)
         {
             return _bddContext.Reservations.Where(r => r.UtilisateurId == UserId).ToList();
+        }
+
+        public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId)
+        {
+            return _bddContext.ParticipationCagnottes.Include(pc => pc.Cagnotte).Where(pc => pc.UtilisateurId == UserId).ToList();
+        }
+
+        public List<Annonce> ObtientToutesSesAnnonces(int UserId)
+        {
+            return _bddContext.Annonces.Where(a => a.UtilisateurId == UserId).ToList();
+
+        }
+
+        public List<Annonce> ObtientLesAnnoncesAVerifier()
+        {
+            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Non_Validée).ToList();
         }
 
 

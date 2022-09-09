@@ -32,6 +32,15 @@ namespace coproBox.Models
         public double montant { get; set; }
 
         public bool estProprietaire { get; set; }
+
+        public Role Role { get; set; }
+    }
+    public enum Role // avec "enum", chaque élément sera associé à un entier...
+    {
+        Utilisateur,
+        Administrateur,
+        [Display(Name = "Modérateur")]
+        Moderateur
     }
 }
 

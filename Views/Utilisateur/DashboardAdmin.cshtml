@@ -1,20 +1,20 @@
 ﻿<div class="dash-adm">
-    <h2>Comptes utilisateur</h2>
+    <h3>Comptes utilisateur</h3>
     <div class="dash-usrlist">
         <table class="table table-info table-striped table-hover">
             <tr>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>adresse mail</th>
-                <th>role</th>
                 <th>Propriétaire</th>
+                <th>Role</th>
                 <th>Modifer</th>
             </tr>
             @foreach (var utilisateur in Model.Utilisateurs)
             {
                 <tr>
-                    <td class="table-info user-list">@utilisateur.InfosPersonnelle.Prenom</td>
-                    <td>@utilisateur.InfosPersonnelle.Nom</td>
+                    <td class="table-info user-list">@utilisateur.InfosPersonnelle.Nom</td>
+                    <td>@utilisateur.InfosPersonnelle.Prenom</td>
                     <td class="table-info">@utilisateur.Compte.email</td>
                     <td>@utilisateur.Compte.Role</td>
                     <td>@utilisateur.Compte.estProprietaire</td>

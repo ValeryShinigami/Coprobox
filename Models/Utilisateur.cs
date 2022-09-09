@@ -28,22 +28,14 @@ namespace coproBox.Models
         public int? ProfilId { get; set; }
         public virtual Profil Profil { get; set; }
 
-        public Role Role { get; set; }
-
         public string ImagePath { get; set; }
-        [NotMapped]
+        //[NotMapped]
 
-        public IFormFile Image { get; set; }
+        //public IFormFile Image { get; set; }
 
     }
 
-    public enum Role // avec "enum", chaque élément sera associé à un entier...
-    {
-        Utilisateur,
-        Administrateur,
-        [Display(Name = "Modérateur")]
-        Moderateur
-    }
+    
 
 }
 
