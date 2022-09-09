@@ -726,14 +726,15 @@ justify-content:space-around;
 }
 
 /* Moderateur*/
-.dash-mod {
+.dash-mod, .dash-usr {
+    margin-top: 20px;
     position: relative;
     display: flex;
     padding: 20px;
     flex-wrap:wrap;
 }
 
-.dash-cagnottes, .dash-annonces {
+.dash-cagnottes, .dash-annonces, .dash-usr-content {
     position: relative;
     width: 50%;
     min-width: 300px;
@@ -786,3 +787,5 @@ justify-content:space-around;
 .dash-mod .active {
     background-color: #717171;
 }
+
+/* User */
