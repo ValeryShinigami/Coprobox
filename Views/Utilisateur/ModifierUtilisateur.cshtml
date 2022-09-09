@@ -134,7 +134,7 @@
                         <span class="input-group-text ">
                             <img src="~/Image/user-mdp.png" width="23" height="23" />
                         </span>
-                        @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                        @Html.PasswordFor(model => model.Compte.motDePasse, new { @class = "user-input" })
                     </div>
                     <div>
                         @Html.ValidationMessageFor(model => model.Compte.motDePasse)

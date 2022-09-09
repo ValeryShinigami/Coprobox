@@ -32,8 +32,6 @@ namespace coproBox.Models
         //[NotMapped]
 
         //public IFormFile Image { get; set; }
-
-    }   
-
+    }  
 }
 

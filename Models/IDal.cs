@@ -11,7 +11,7 @@ namespace coproBox.Models
         // Gestion Utilisateurs
 
         List<Utilisateur> ObtientTousLesUtilisateurs();
-        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role);
+        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role, bool estProprietaire);
         public void ModifierUtilisateur(Utilisateur utilisateur);
         Utilisateur Authentifier(string email, string motdepasse);
         Utilisateur ObtenirUtilisateur(int id);
@@ -54,7 +54,6 @@ namespace coproBox.Models
             
 
         // Paiement
-       
     }
 
 }
