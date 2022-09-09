@@ -35,17 +35,17 @@ namespace coproBox.Models
         }
 
         /*************************** Créer utilisateur*******************/
-        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role)
+        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role, bool estProprietaire)
         {
             InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
             string password = EncodeMD5(motDePasse);
-            Compte compte = new Compte { email = email, motDePasse = password, Role=role};
-            //Adresse adresse = new Adresse();
-            //InfosContact infosContact = new InfosContact();
-            //Profil profil = new Profil();
-            //Notification notification = new Notification();
-         
-              Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte};
+            Compte compte = new Compte { email = email, motDePasse = password, Role=role, estProprietaire = estProprietaire};
+            Adresse adresse = new Adresse();
+            InfosContact infosContact = new InfosContact();
+            Profil profil = new Profil();
+            Notification notification = new Notification();
+
+            Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse = adresse, InfosContact = infosContact, Profil = profil, Notification = notification};
             // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
             _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
@@ -76,9 +76,10 @@ namespace coproBox.Models
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
                 //if(utilisateur.Role!= null)
                 //    Utilisateur.Role  = utilisateur.Role ;
-                Utilisateur.Compte.motDePasse = utilisateur.Compte.motDePasse;
+                Utilisateur.Compte.motDePasse = EncodeMD5(utilisateur.Compte.motDePasse);
+                //if  (utilisateur.Compte.motDePasse != null && EncodeMD5(utilisateur.Compte.motDePasse)!= Utilisateur.Compte.motDePasse)
 
-                Utilisateur.Compte.email = utilisateur.Compte.email;
+                    Utilisateur.Compte.email = utilisateur.Compte.email;
                 if (utilisateur.InfosContact.telephone != null)
                     Utilisateur.InfosContact.telephone = utilisateur.InfosContact.telephone;
 
@@ -266,7 +267,26 @@ namespace coproBox.Models
             return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
         }
 
+        public List<Reservation> ObtientToutesSesReservations(int UserId)
+        {
+            return _bddContext.Reservations.Where(r => r.UtilisateurId == UserId).ToList();
+        }
 
+        public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId)
+        {
+            return _bddContext.ParticipationCagnottes.Include(pc => pc.Cagnotte).Where(pc => pc.UtilisateurId == UserId).ToList();
+        }
+
+        public List<Annonce> ObtientToutesSesAnnonces(int UserId)
+        {
+            return _bddContext.Annonces.Where(a => a.UtilisateurId == UserId).ToList();
+
+        }
+
+        public List<Annonce> ObtientLesAnnoncesAVerifier()
+        {
+            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Non_Validée).ToList();
+        }
 
 
         //FERMETURE DE LA CONNEXION avec MySQL
@@ -274,7 +294,6 @@ namespace coproBox.Models
         {
             _bddContext.Dispose();
         }
-
         //PAIEMENT
     }
 }

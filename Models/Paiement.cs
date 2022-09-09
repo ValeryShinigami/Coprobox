@@ -12,6 +12,18 @@ namespace coproBox.Models
         public bool EstLoyer { get; set; }
         [DisplayName("Payé")]
         public bool Paye { get; set; }
+
+        public StatutPaiement StatutPaiement { get; set; }
     }
+   
+
+
+            public enum StatutPaiement
+            {
+                 Creee,
+                 Envoyee,
+                 Payee,
+                 EnLigne
+               }
 
 }

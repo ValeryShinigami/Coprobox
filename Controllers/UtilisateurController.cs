@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
@@ -26,14 +27,17 @@ namespace coproBox.Controllers
     
         public IActionResult Index()
         {
-            DashboardViewModel dashboardModerateurViewModel = new DashboardViewModel()
+            DashboardViewModel dashboardViewModel = new DashboardViewModel()
             {
                 Utilisateurs = dal.ObtientTousLesUtilisateurs(),
-                Annonces = dal.ObtientToutesLesAnnonces(),
-                Cagnottes = dal.ObtientToutesLesCagnottes(),
-                //Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.Identity.Name))
+                AnnoncesAVerifier = dal.ObtientLesAnnoncesAVerifier(),
+                AnnoncesPerso = dal.ObtientToutesSesAnnonces(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                Cagnottes = dal.ObtientToutesLesCagnottesActives(),
+                Paiements = dal.ObtientTousSesPaiements(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                Reservations = dal.ObtientToutesSesReservations(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))),
+                ParticipationCagnottes = dal.ObtientToutesSesParticipationCagnottes(Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)))
             };
-            return View(dashboardModerateurViewModel);
+            return View(dashboardViewModel);
         }
 
         public IActionResult ListeUtilisateur()
@@ -55,36 +59,27 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreerUtilisateur(Utilisateur utilisateur, bool Moderateur, bool Proprietaire)
+        public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
-            //if (!ModelState.IsValid)
-            //    return View(utilisateur);
+            if (!ModelState.IsValid)
+                return View(utilisateur);
 
-
-         //   string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
-         //   string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
-          //  using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-          //  {
-         //       utilisateur.Image.CopyTo(fileStream);
-          //  }
-
+            //string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
+            //string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
+            //using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+            //{
+            //    utilisateur.Image.CopyTo(fileStream);
+            //}
+            
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
                     ModelState.AddModelError("email", "Cet email est déjà enregistré");
                     return View(utilisateur);
                 }
-            if (Moderateur)
-            {
-                utilisateur.Compte.Role = Role.Moderateur;
-            }
-
-            if (Proprietaire)
-            {
-                utilisateur.Compte.estProprietaire = true;
-            }
-            dal.CreerUtilisateur(
-                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.motDePasse, utilisateur.Compte.email, utilisateur.Compte.Role);
-            return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
+          
+                dal.CreerUtilisateur(
+                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.email, utilisateur.Compte.motDePasse, utilisateur.Compte.Role, utilisateur.Compte.estProprietaire );
+                return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
 
         }
 

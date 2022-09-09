@@ -11,7 +11,7 @@ namespace coproBox.Models
         // Gestion Utilisateurs
 
         List<Utilisateur> ObtientTousLesUtilisateurs();
-        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role);
+        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role, bool estProprietaire);
         public void ModifierUtilisateur(Utilisateur utilisateur);
         Utilisateur Authentifier(string email, string motdepasse);
         Utilisateur ObtenirUtilisateur(int id);
@@ -42,6 +42,10 @@ namespace coproBox.Models
 
         // Dashboard
         public List<Paiement> ObtientTousSesPaiements(int UserId);
+        public List<Reservation> ObtientToutesSesReservations(int UserId);
+        public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId);
+        public List<Annonce> ObtientToutesSesAnnonces(int UserId);
+        public List<Annonce> ObtientLesAnnoncesAVerifier();
         /* //Anthentification
          int AjouterUtilisateur(string nom, string password);
          Utilisateur Authentifier(string nom, string password);
@@ -50,7 +54,7 @@ namespace coproBox.Models
             
 
         // Paiement
-       
+
     }
 
 }
