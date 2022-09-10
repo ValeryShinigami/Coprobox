@@ -43,6 +43,8 @@ namespace coproBox.Controllers
                         new Claim(ClaimTypes.Name, infosPerso.Prenom),
                         new Claim(ClaimTypes.NameIdentifier, utilisateur.Id.ToString()),
                         new Claim(ClaimTypes.Role, utilisateur.Compte.Role.ToString()),
+                        new Claim(type: "estProprietaire", value: utilisateur.Compte.estProprietaire.ToString().ToLower()
+                                , valueType: ClaimValueTypes.Boolean)
                     };
 
                     var ClaimIdentity = new ClaimsIdentity(userClaims, "User Identity");

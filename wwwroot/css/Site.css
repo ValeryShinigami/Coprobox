@@ -729,22 +729,47 @@ justify-content:space-around;
 
 /* Moderateur*/
 .dash-mod, .dash-usr {
-    margin-top: 20px;
     position: relative;
     display: flex;
-    padding: 20px;
     flex-wrap:wrap;
 }
 
 .dash-cagnottes, .dash-annonces, .dash-usr-content {
+    padding: 10px 0;
     position: relative;
     width: 50%;
     min-width: 300px;
+    min-height: 200px;
     flex-grow: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
+.dash-cagnottes {
+    border: dashed 5px yellow;
+}
 
-.dash-heart{
+.dash-annonces {
+    background-color: brown;
+    color: white;
+}
+
+.dash-cagnottes-usr {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.dash-annonces-usr {
+    background-color: maroon;
+    color: white;
+}
+
+.dash-reservations {
+    background-color: darkolivegreen;
+    color: white;
+}
+
+.dash-heart {
     display: flex;
     justify-content: center;
 }
@@ -779,7 +804,6 @@ justify-content:space-around;
 }
 
 .dash-mod .dash-numbertext {
-    color: dimgrey;
     font-size: 12px;
     padding: 8px 12px;
     position: relative;
