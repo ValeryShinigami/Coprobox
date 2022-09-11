@@ -32,10 +32,10 @@ namespace coproBox.Controllers
 
         {
            
-            MailMessage message = new MailMessage("contact.coprobox@gmail.com", "myriam.sorhaindo@gmail.com"); //DE c'est le 1er paramètre
+            MailMessage message = new MailMessage("contact.coprobox@gmail.com", "contact.coprobox@gmail.com"); //DE c'est le 1er paramètre
 
             message.Subject = model.Sujet;
-            message.Body = model.Body+"\n"+model.De;
+            message.Body = model.Body+"\n Mail envoyé par : "+model.De;
             message.IsBodyHtml = false;
 
             SmtpClient smtp = new SmtpClient();

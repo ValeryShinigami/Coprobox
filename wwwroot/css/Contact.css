@@ -7,25 +7,122 @@
 
 body {
     background: linear-gradient(90deg, #323A7C 0%, #323A7C 30%, #4DC7E4 30%, #4DC7E4 100% );
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/*HEADER - */
+header {
+    background-color: #F4F4F4;
+    height: 76px;
+    margin: 0;
+    padding: 0;
+}
+.nav-link,
+.navbar-brand {
+    cursor: pointer;
+    transition: .3s all ease;
+    text-decoration: none;
+    background-color: transparent;
+    color: #323A7C;
 }
 
+.nav-link {
+    margin-right: 1em !important;
+    font-size: 1.4em;
+}
+
+    .nav-link:hover {
+        color: #4DC7E4;
+    }
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.header-pic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .header-pic svg {
+        width: 15px;
+    }
+
+.profil-image {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-image: url("/Image/profil.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fake-pic:hover {
+    cursor: crosshair;
+}
+
+#bande {
+    width: 100%
+}
+
+/*FOOTER*/
+footer {
+    background-color: #323A7C;
+    width: 100%;
+}
+.bas-2, .base {
+    color: #4DC7E4;
+}
+li {
+    font-size: 0.8em;
+}
+li a {
+    transition: .3s all ease;
+    text-decoration: none;
+    background-color: transparent;
+    color: #4DC7E4;
+    cursor: pointer;
+    padding: 0px 0px 2px;
+}
+.list-style {
+    list-style: none;
+    padding-left: 0;
+}
+.text {
+    text-align: center;
+}
+.bas-2 {
+    display: flex;
+}
+.base {
+    display: flex;
+    justify-content: flex-end;
+}
+@media all and (max-width:745px) {
+    .bas-2 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+/*BODY*/
 .contact-body {
     position: relative;
     width: 100%;
     padding: 40px 100px;
 }
 
-    .contact-body .contact-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2em;
-    }
+.contact-body .contact-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em
+}
 
-        .contact-body .contact-title h5 {
-            color: #f4f4f4;
-            font-weight: 500;
-        }
+.contact-body .contact-title h5 {
+    color: #f4f4f4;
+    font-weight: 500;
+}
 
 .form {
     grid-area: form;
@@ -69,10 +166,10 @@ body {
     width: 100%;
 }
 
-    .formBox .row50 {
-        display: flex;
-        gap: 20px;
-    }
+.formBox .row50 {
+    display: flex;
+    gap: 20px;
+}
 
 .inputBox {
     display: flex;
@@ -129,39 +226,39 @@ body {
     background: #323A7C
 }
 
-    .info h6 {
-        color: #F4F4F4;
-    }
+.info h6 {
+   color: #F4F4F4;
+}
 
-    .info .infoBox div {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+.info .infoBox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
-        .info .infoBox div span {
-            min-width: 40px;
-            height: 40px;
-            color: #f4f4f4;
-            background: #4DC7E4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
+.info .infoBox div span {
+    min-width: 40px;
+    height: 40px;
+    color: #f4f4f4;
+    background: #fcfdff45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 50%;
+    margin-right: 15px;
+}
 
-        .info .infoBox div p {
-            color: #f4f4f4;
-            font-size: 1.1em;
-        }
+.info .infoBox div p {
+    color: #f4f4f4;
+    font-size: 1em;
+}
 
-        .info .infoBox div a {
-            color: #f4f4f4;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
+.info .infoBox div a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 1em;
+}
 
 .sci {
     margin-top: 40px;
@@ -187,10 +284,10 @@ body {
     padding: 0;
 }
 
-    .map iframe {
-        width: 100%;
-        height: 100%;
-    }
+.map iframe {
+    width: 100%;
+    height: 100%;
+}
 /*Design Responsive*/
 @media(max-width: 800px) {
     body {

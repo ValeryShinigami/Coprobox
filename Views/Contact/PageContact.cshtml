@@ -1,6 +1,10 @@
 ﻿@using coproBox.Models
 @model coproBox.Models.Gmail
 
+@{
+    ViewBag.Title = "Nous contacter";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +16,46 @@
 
 </head>
 <body>
+    <header class="container-fluid">
+        <nav class="navbar navbar-expand-md">
+            <a href="/"><img id="logo" src="~/Image/logo1.png" width="60" height="60" /></a>
+            <button class="navbar-toggler" style="background-color:#e3f2fd;" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="margin-left: 5px">Bonjour @User.Identity.Name</div>
+
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/annonce/">Annonces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cagnotte/">Cagnottes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/PageContact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-pic">
+                <div class="profil-image">
+                </div>
+                <div>
+                    <svg viewBox="0 0 16 16"><path d="M8 12L2 6h12z"></path></svg>
+                </div>
+            </div>
+        </nav>
+
+    </header>
     <div class="contact-body">
 
         @using (Html.BeginForm("PageContact", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" })) //1. nom du titre de la page, 2, nom du controller,
-                    {
+        {
             <div class="contact-title">
-                <h5>Pour rester en contacter</h5>
+                <h5>Pour rester en contact</h5>
             </div>
             <div class="box">
                 <!--Form-->
@@ -48,7 +86,7 @@
                             <div class="row100">
                                 <div class="inputBox">
                                     <span>Message</span>
-                                    @Html.TextAreaFor(model => model.Body, new { row="15", cols="25"})
+                                    @Html.TextAreaFor(model => model.Body, new { row = "15", cols = "25" })
                                 </div>
                             </div>
                             <div class="row100">
@@ -62,11 +100,11 @@
                 </div>
                 <!--info Box-->
                 <div class="contact info">
-                    <h6>Contact Info</h6>
+                    <h6>CoproBox</h6>
                     <div class="infoBox">
                         <div>
                             <span><img src="~/Image/contact/contact-map.png" width="23" height="23" /></span>
-                            <p>CoproBox, 2 avenue du Maréchal LECLERC, MALAKOFF <br>FRANCE</p>
+                            <p>2, avenue du Maréchal LECLERC,<br> MALAKOFF FRANCE</p>
                         </div>
                         <div>
                             <span><img src="~/Image/enveloppe-user.png" width="23" height="23" /></span>
@@ -93,7 +131,57 @@
             </div>
         }
     </div>
+    <footer class="footer-10 mt-auto">
+        <div class="row w-100">
+            <div class="separation"></div>
+        </div>
+        <div class="row no-gutters ">
+            <div class="bas-2">
+                <div class="col-md-4 mb-md-0 mb-3 d-flex">
+                    <div class="col-md-4 w-100 py-3">
+                        <div class="bas w-100 text-center">
+                            <h6 class="partie">A propos</h6>
+                        </div>
+                        <div class="text">
+                            <ul class="list-style">
+                                <li>Notre histoire</li>
+                                <li>Notre équipe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-md-0 mb-3 d-flex">
+                    <div class="col-md-4 w-100 py-3">
+                        <div class="bas w-100 text-center">
+                            <h6 class="partie">L'entreprise</h6>
+                        </div>
+                        <div class="text">
+                            <ul class="list-style">
+                                <li>Contacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-md-0 mb-3 d-flex">
+                    <div class="col-md-4 w-100 py-3">
+                        <div class="bas w-100 text-center">
+                            <h6 class="partie">Ressources</h6>
+                        </div>
+                        <div class="text">
+                            <ul class="list-style">
+                                <li><a href="" class="d-block">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="base">
+                <p>Copyright © Team Coprobox</p>
+            </div>
+        </div>
+    </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

@@ -3,14 +3,12 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height:100%
 }
-
 header {
     background-color: #F4F4F4;
     height:76px;
     margin : 0;
     padding:0;
 }
-
 #center {
     display: flex;
     justify-content: flex-end;
@@ -461,13 +459,12 @@ a {
 }
 
 /*********************************************  Utilisateur  ************************************************/
-.user-index-logo {
-    display: flex;
-    align-items:center;
-    justify-content : center;
-    margin: 15px;
+
+.body-create {
+    background: linear-gradient(90deg, #323A7C 0%, #323A7C 30%, #4DC7E4 30%, #4DC7E4 100% );
 }
-.user-index-log {
+
+.user-index-log{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -593,6 +590,26 @@ justify-content:space-around;
 .btnCard-user-delete:hover {
     background-color:red;
 }
+/*CréerUtilisateur*/
+.body-info-create {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body-create {
+    position: relative;
+    width: 100%;
+    padding: 40px 100px;
+}
+.info-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#F4F4F4;
+}
+.body-create {
+    padding:40px 100px;
+}
 
 @media screen and (max-width:884px) {
     .user-info-perso, .user-data {
@@ -601,25 +618,42 @@ justify-content:space-around;
         align-items:stretch;
         width: 100vw;
     }
- 
+    .user-info-perso {
+        margin-left:5px;
+    }
     .user-section {
         display:flex;
         justify-content:space-evenly;
+        color:#F4F4F4;
+        background:#41C070;
     }
     .user-nom {
         margin-bottom: 20px;
         margin-right:-4px;
     }
-
+    .info-body {
+        background: transparent;
+    }
     .user-create-btn, .user-edit-btn {
         display:flex;
         flex-direction:column;
         justify-content: space-evenly;
+        align-items: center;
         height : 150px;
     }
-
+    .user-role {
+        display:flex;
+        justify-content: space-around;
+    }
+    .user-info-role {
+        display: flex;
+        flex-direction: column;
+    }
     .user-create-btn {
         padding-top: 30px;
+    }
+    .user-label-form {
+        color:#4DC7E4;
     }
 }
 
