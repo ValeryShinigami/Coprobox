@@ -40,7 +40,16 @@
     </div>
     @*<div class="dash-quittances dash-usr-content">
     </div>*@
-    @*<div class="dash-paiements dash-usr-content">
-
-    </div>*@
+    <div class="dash-paiements dash-usr-content">
+        <div class="dash-paiements-ann">
+            <h3 class="mb-3">Mes Paiements</h3>
+            @foreach (var paiement in Model.Paiements)
+            {
+                <div class="dash-paiement">
+                    <h5>@paiement.Annonce.Titre</h5>
+                    <div>@paiement.Annonce.Description</div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
