@@ -7,7 +7,7 @@
         @{ int i = 1, nbrCagnottes = Model.Cagnottes.Count; }
         @foreach (var cagnotte in Model.Cagnottes)
         {
-            <div class="dash-cagnotte border-top border-warning">
+            <div class="dash-cagnotte border-top">
                 <h4 class="mt-2">@cagnotte.Titre</h4>
                 <div>@cagnotte.Description</div>
                 <div>@cagnotte.SommeActuelle€ / @cagnotte.SommeObjectif€</div>

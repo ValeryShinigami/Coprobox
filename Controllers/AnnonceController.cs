@@ -82,7 +82,7 @@ namespace coproBox.Controllers
              {
                  annonce.Image.CopyTo(fileStream);
              }
-            
+            annonce.StatutAnnonce = StatutAnnonce.Attente;
             dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, "/Image/" + annonce.Image.FileName, Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
 
 
@@ -111,7 +111,7 @@ namespace coproBox.Controllers
         {
             if (!ModelState.IsValid)
                 return View(annonce);
-
+            annonce.StatutAnnonce = StatutAnnonce.Attente;
             if (annonce.Image != null)
             {
                 if (annonce.Image.Length != 0)
@@ -143,6 +143,40 @@ namespace coproBox.Controllers
         {
             dal.SupprimerAnnonce(id);
             return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult VerifierAnnonce(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+            return View(annonce);
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult Valider(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+            annonce.StatutAnnonce = StatutAnnonce.EnLigne;
+            dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath);
+            return RedirectToAction("Index", "Utilisateur");
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult Refuser(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+            annonce.StatutAnnonce = StatutAnnonce.Non_Validée;
+            dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath);
+            return RedirectToAction("Index", "Utilisateur");
         }
     }
 }

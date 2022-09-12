@@ -6,11 +6,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coproBox.Controllers
 {
+    [Authorize]
     public class UtilisateurController : Controller
     {
      
