@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Http;
@@ -87,7 +88,16 @@ namespace coproBox.Models
             }
         }
 
-        /*************************** SUPPRIMER utilisateur*******************/
+        /*************************** MODIFIER mot de passe **************************/
+
+        public void ModifierMotDePasse(int id, string motDePasse)
+        {
+            Utilisateur utilisateur = this._bddContext.Utilisateurs.Find(id);
+            utilisateur.Compte.motDePasse = EncodeMD5(motDePasse);
+            _bddContext.SaveChanges();
+        }
+
+        /*************************** SUPPRIMER utilisateur**************************/
         public void SupprimerUtilisateur(int id)
         {
             Utilisateur userDeleted = this._bddContext.Utilisateurs.Find(id);
@@ -268,7 +278,7 @@ namespace coproBox.Models
         }
 
         // AUTHENTIFICATION
-        private string EncodeMD5(string motDePasse)
+        public string EncodeMD5(string motDePasse)
           {
               string motDePasseSel = "ChoixResto" + motDePasse + "ASP.NET MVC";
               return BitConverter.ToString(new MD5CryptoServiceProvider().ComputeHash(ASCIIEncoding.Default.GetBytes(motDePasseSel)));
@@ -307,8 +317,12 @@ namespace coproBox.Models
         {
             _bddContext.Dispose();
         }
-        //PAIEMENT
+
       
+
+
+        //PAIEMENT
+
     }
 }
 

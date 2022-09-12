@@ -111,6 +111,24 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET
+        public IActionResult ModifierMotDePasse(int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ModifierMotDePasse(int id, string Oldpwd, string Newpwd)
+        {
+            Utilisateur utilisateur = dal.ObtenirUtilisateur(id);
+            if (dal.EncodeMD5(Oldpwd) == utilisateur.Compte.motDePasse)
+            {
+                utilisateur.Compte.motDePasse = dal.EncodeMD5(Newpwd);
+            }
+            dal.ModifierUtilisateur(utilisateur);
+            return RedirectToAction("Index");
+        }
+
     }
 
 }
