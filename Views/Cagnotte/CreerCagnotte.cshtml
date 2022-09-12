@@ -10,17 +10,24 @@
             <form class="row g-3 mx-auto user-create-form" method="post">
                 @using (Html.BeginForm())
                 {
-                    <fieldset>
-                        <legend>Créer une Cagnotte : </legend>
-                        <div>
-                            @Html.LabelFor(model => model.Titre, new { @class = "user-label-form" })
-                            @Html.TextBoxFor(model => model.Titre, new { @class = "user-input", placeholder = "Titre"})
-                            @Html.ValidationMessageFor(model => model.Titre)
+                    <div class="user-formulaire">
+                        <div class="user-data">
+                            <div>
+                                @Html.LabelFor(model => model.Titre, new { @class = "form-label" })
+                                <div class="user-nom">
+                                    @Html.TextBoxFor(model => model.Titre, new { @class = "form-control", placeholder = "Titre"})
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Titre)
+                            </div>
                         </div>
-                        <div>
-                            @Html.LabelFor(model => model.Description, new { @class = "user-label-form" })
-                            @Html.TextAreaFor(model => model.Description, new { @class = "user-input", htmlAttributes = new { rows = 7, cols = 20 } })
-                            @Html.ValidationMessageFor(model => model.Description)
+                        <div class="user-data">
+                            <div>
+                                @Html.LabelFor(model => model.Description, new { @class = "user-label-form" })
+                                <div class="user-nom">
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "user-input", htmlAttributes = new { rows = 7, cols = 200 } })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Description)
+                            </div>
                         </div>
                         <div>
                             @Html.LabelFor(model => model.SommeObjectif, new { @class = "user-label-form" })
@@ -35,7 +42,7 @@
                         <div class="button">
                             <input type="submit" value="Créer" />
                         </div>
-                    </fieldset>
+                    </div>
                 }
             </form>
         </div>
