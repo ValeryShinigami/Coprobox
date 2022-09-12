@@ -13,14 +13,14 @@
             </tr>
             @foreach (var utilisateur in Model.Utilisateurs)
             {
-                <tr>
-                    <td class="table-info user-list">@utilisateur.InfosPersonnelle.Nom</td>
-                    <td>@utilisateur.InfosPersonnelle.Prenom</td>
-                    <td class="table-info">@utilisateur.Compte.email</td>
-                    <td>@utilisateur.Compte.Role</td>
-                    <td>@utilisateur.Compte.estProprietaire</td>
-                    <td class="table-info"><a href="utilisateur/modifierutilisateur/@utilisateur.Id">Edit</a></td>
-                </tr>
+        <tr>
+            <td class="table-info user-list">@utilisateur.InfosPersonnelle.Nom</td>
+            <td>@utilisateur.InfosPersonnelle.Prenom</td>
+            <td class="table-info">@utilisateur.Compte.email</td>
+            <td>@utilisateur.Compte.estProprietaire</td>
+            <td>@utilisateur.Compte.Role</td>
+            <td class="table-info"><a href="utilisateur/modifierutilisateur/@utilisateur.Id">Edit</a></td>
+        </tr>
             }
         </table>
     </div>

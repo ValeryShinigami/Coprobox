@@ -16,6 +16,7 @@ namespace coproBox.Models
         Utilisateur Authentifier(string email, string motdepasse);
         Utilisateur ObtenirUtilisateur(int id);
         Utilisateur ObtenirUtilisateur(string idStr);
+        public void ModifierMotDePasse(int id, string motDePasse);
         public void SupprimerUtilisateur(int id);
         
         // Gestion Annonces
@@ -46,7 +47,10 @@ namespace coproBox.Models
         public List<ParticipationCagnotte> ObtientToutesSesParticipationCagnottes(int UserId);
         public List<Annonce> ObtientToutesSesAnnonces(int UserId);
         public List<Annonce> ObtientLesAnnoncesAVerifier();
+        public string EncodeMD5(string motDePasse);
         /* //Anthentification
+         * 
+         *
          int AjouterUtilisateur(string nom, string password);
          Utilisateur Authentifier(string nom, string password);
          Utilisateur ObtenirUtilisateur(int id);
@@ -55,7 +59,7 @@ namespace coproBox.Models
 
         // Paiement
 
-        
+
     }
 
 }

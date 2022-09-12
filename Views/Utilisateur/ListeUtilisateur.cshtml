@@ -10,18 +10,20 @@
             <th>Nom</th>
             <th>Prenom</th>
             <th>adresse mail</th>
-            <th>role</th>
-            <th>nombre d'annonce</th>
+            <th>Propriétaire</th>
+            <th>Role</th>
+            <th>Modifer</th>
         </tr>
         @foreach (var utilisateur in Model)
         {
-            <tr>
-                <td class="table-info user-list">@utilisateur.InfosPersonnelle.Prenom</td>
-                <td>@utilisateur.InfosPersonnelle.Nom</td>
-                <td class="table-info">@utilisateur.Compte.email</td>
-                <td>@utilisateur.Compte.Role </td>
-                <td class="table-info">@utilisateur.Compte.nombreAnnonce</td>
-            </tr>
+    <tr>
+        <td class="table-info user-list">@utilisateur.InfosPersonnelle.Nom</td>
+        <td>@utilisateur.InfosPersonnelle.Prenom</td>
+        <td class="table-info">@utilisateur.Compte.email</td>
+        <td>@utilisateur.Compte.estProprietaire</td>
+        <td>@utilisateur.Compte.Role</td>
+        @* <td class="table-info"><a href="utilisateur/modifierutilisateur/@utilisateur.Id">Edit</a></td> *@
+    </tr>
         }
     </table>
 </div>
