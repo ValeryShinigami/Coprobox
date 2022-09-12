@@ -1,6 +1,7 @@
 ﻿using coproBox.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace coproBox.Controllers
 {
@@ -15,11 +16,10 @@ namespace coproBox.Controllers
         }
         public IActionResult Index()
         {
+            
             return View();
         }
 
-        
 
-     
     }
 }

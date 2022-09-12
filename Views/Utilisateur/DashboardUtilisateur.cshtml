@@ -1,5 +1,5 @@
 ﻿<div class="dash-usr">
-    <div class="dash-cagnottes-usr">
+    <div class="dash-cagnottes-usr dash-usr-content">
         <h3>Participation aux Cagnottes</h3>
         @foreach (var participation in Model.ParticipationCagnottes)
         {
@@ -10,18 +10,37 @@
             </a>
         }
     </div>
-    <div class="dash-annonces">
-        <div class="dash-annonces-crees">
-
+    <div class="dash-annonces-usr dash-usr-content">
+        <div class="dash-annonces-perso">
+            <h3>Mes Annonces</h3>
+            @foreach (var annonce in Model.AnnoncesPerso)
+            {
+                <a href="/annonce/infoannonce/@annonce.Id">
+                    <div class="dash-usr-annonce">
+                        <h5>@annonce.Titre</h5>
+                        <div>@annonce.Description</div>
+                    </div>
+                </a>
+            }
         </div>
+    </div>
+    <div class="dash-reservations dash-usr-content">
         <div class="dash-annonces-reservees">
-        
+            <h3>Mes Réservations</h3>
+            @foreach (var reservation in Model.Reservations)
+            {
+                <a href="/annonce/infoannonce/@reservation.Id">
+                    <div class="dash-reservation">
+                        <h5>@reservation.Annonce.Titre</h5>
+                        <div>@reservation.Annonce.Description</div>
+                    </div>
+                </a>
+            }
         </div>
     </div>
-    <div class="dash-quittances">
-        
-    </div>
-    <div class="dash-paiements">
+    @*<div class="dash-quittances dash-usr-content">
+    </div>*@
+    <div class="dash-paiements dash-usr-content">
 
     </div>
 </div>

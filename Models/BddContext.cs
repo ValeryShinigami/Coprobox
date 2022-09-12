@@ -255,6 +255,12 @@ namespace coproBox.Models
                     Montant = 100
                 }
                 );
+            this.Reservations.Add(
+                new Reservation
+                {
+                    AnnonceId = 1,
+                    UtilisateurId = 1
+                });
             this.SaveChanges();
         }
     }
