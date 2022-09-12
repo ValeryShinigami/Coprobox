@@ -12,33 +12,25 @@
 <body>
     <div class="conteneur">
         <div class="row">
-            <div class="box1 border border-secondary col-md-6">
+            <div class="box1 border border-secondary index-residence col-md-6">
+                <div class="box1-residence">
+                    <h4 class="titreResidence">residence</h4>
+                    <h2 class="titreResidence">les pommiers</h2>
+                </div>
             </div>
             <div class="box2 border border-secondary col-md-6">
-                <h3 class="titreResidence">
-                    residence les pommiers
-                </h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="box3 border border-secondary col-md-6">
-                <div class="logoTitre">
-                    <div class="titreCopro">Copro</div>
-                    <div class="titreBox">BOX</div>
-                </div>
-                <div class="Logo"></div>
-            </div>
-            <div class="box4 border border-secondary col-md-6">
                 <form role="form" method="post">
-                    <legend>Connexion</legend>
+                    <h5>Page d'authentification</h5>
 
                     <div class="form-group mb-4">
-                        <div class="row g-3 align-items-center justify-content-center">
-                            <div class="col-auto">
-                                @Html.LabelFor(m => m.Utilisateur.Compte.email, new { @class = "col-form-label"})
+                        <div class="row g-3 align-items-center justify-content-center d-flex">
+                            <div class="col-auto d-flex index-mail">
+                                <span class="input-group-text ">
+                                    <img src="~/Image/user-profil.png" width="20" height="23" />
+                                </span>
+                                @Html.EditorFor(m => m.Utilisateur.Compte.email, new { @class = "form-control", htmlAttributes = new { type = "email", id = "email", placeholder = "Votre adresse mail" } })
                             </div>
-                            <div class="identifiant col-md-6">
-                                @Html.EditorFor(m => m.Utilisateur.Compte.email, new { @class = "form-control", htmlAttributes = new { type = "email", id = "email", placeholder="Entrer votre adresse mail"}})
+                            <div>
                                 @Html.ValidationMessageFor(m => m.Utilisateur.Compte.email)
                             </div>
                         </div>
@@ -46,20 +38,30 @@
 
                     <div class="form-group">
                         <div class="row g-3 align-items-center justify-content-center">
-                            <div class="col-auto">
-                                @Html.LabelFor(m => m.Utilisateur.Compte.motDePasse, new { @class = "col-form-label"})
+                            <div class="col-auto d-flex index-mdp">
+                                <span class="input-group-text ">
+                                    <img src="~/Image/user-mdp.png" width="20" height="23" />
+                                </span>
+                                @Html.EditorFor(m => m.Utilisateur.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password", id = "inputPassword6", placeholder = "mot de passe" } })
+                                
                             </div>
-                            <div class="col-md-6">
-                                @Html.EditorFor(m => m.Utilisateur.Compte.motDePasse, new { @class = "form-control", htmlAttributes = new { type = "password", id = "inputPassword6", placeholder = "Entrer le mot de passe" } })
+                            <div>
                                 @Html.ValidationMessageFor(m => m.Utilisateur.Compte.motDePasse)
                             </div>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary mt-5 mb-3">
-                        Valider
-                    </button>
+                    <div class="user-index-btn">
+                        <button type="submit" class="btn btnCard-index mb-1 d-flex" >Valider</button>
+                    </div>
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="box3 border border-secondary col-md-6">
+                <div class="Logo"></div>
+            </div>
+            <div class="box4 border border-secondary col-md-6">
+                
             </div>
         </div>
     </div>

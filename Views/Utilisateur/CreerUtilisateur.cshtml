@@ -6,99 +6,107 @@
     ViewBag.Title = "Création compte utilisateur";
 }
 
-<form class="row g-3 mx-auto user-create-form" style="width:900px" method="post" enctype="multipart/form-data">
-    @using (Html.BeginForm())
-        {
-    <div class="user-formulaire">
-        <div class="row user-info-perso">
-            <div class="user-data">
-                <div class="user-nom">
-                    <span class="input-group-text ">
-                        <img src="~/Image/user-profil.png" width="23" height="23" />                       
-                    </span>
-                    @Html.TextBoxFor(model => model.InfosPersonnelle.Nom, new { @class = "user-input", placeholder = "Nom" })
-                </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
-                </div>
-            </div>
-            <div class="user-data">
-                <div class="user-nom">
-                    <span class="input-group-text ">
-                        <img src="~/Image/user-profil.png" width="23" height="23" />
-                    </span>
-                    @Html.TextBoxFor(model => model.InfosPersonnelle.Prenom, new { @class = "user-input", placeholder = "Prenom" })
-                </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
-                </div>
-            </div>
+<div class="animate__animated animate__backInDown titreAnnonce">Creer un utilisateur</div>
 
-        </div>
+<div class="body-info-create">
+    <div class="body-create">
+        <div class="info-body">
+            <form class="row g-3 mx-auto user-create-form" style="width:900px" method="post" enctype="multipart/form-data">
+                @using (Html.BeginForm())
+                {
+                    <div class="user-formulaire">
+                        <div class="row user-info-perso">
+                            <div class="user-data">
+                                <div class="user-nom">
+                                    <span class="input-group-text ">
+                                        <img src="~/Image/user-profil.png" width="23" height="23" />
+                                    </span>
+                                    @Html.TextBoxFor(model => model.InfosPersonnelle.Nom, new { @class = "user-input", placeholder = "Nom" })
+                                </div>
+                                <div>
+                                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Nom)
+                                </div>
+                            </div>
+                            <div class="user-data">
+                                <div class="user-nom">
+                                    <span class="input-group-text ">
+                                        <img src="~/Image/user-profil.png" width="23" height="23" />
+                                    </span>
+                                    @Html.TextBoxFor(model => model.InfosPersonnelle.Prenom, new { @class = "user-input", placeholder = "Prenom" })
+                                </div>
+                                <div>
+                                    @Html.ValidationMessageFor(model => model.InfosPersonnelle.Prenom)
+                                </div>
+                            </div>
+
+                        </div>
 
 
-        <!-- Email et Mot de passe -1 -->
-        <div class="row user-info-perso">
-            <div class="user-data">
-                @Html.LabelFor(model => model.Compte.email, new { @class = "user-label-form" })
-                <div class="user-nom">
-                    <span class="input-group-text ">
-                        <img src="~/Image/enveloppe-user.png" width="23" height="23" />
-                    </span>
-                    @Html.TextBoxFor(model => model.Compte.email, new { @class = "user-input", placeholder = "email" })
-                </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.Compte.email)
-                </div>
-            </div>
-            <div class="user-data">
-                @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
-                <div class="user-nom">
-                    <span class="input-group-text ">
-                        <img src="~/Image/user-mdp.png" width="23" height="23" />
-                    </span>
-                    @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
-                </div>
-                <div>
-                    @Html.ValidationMessageFor(model => model.Compte.motDePasse)
-                </div>
-            </div>
-        </div>
-        <div class="user-role">
-            <div class="user-info-role">
-                <h8>Role de l'utilisateur</h8>
-                <div class="user-info-type">
-                    @Html.DropDownListFor(model => model.Compte.Role, Html.GetEnumSelectList<Role>(), "Type d'utilisateur")
-                </div>
-                <h8>Propriétaire ?</h8>
-                <div class="user-info-type">
-                    @Html.CheckBoxFor(model => model.Compte.estProprietaire)
-                </div>
-            </div>
+                        <!-- Email et Mot de passe -1 -->
+                        <div class="row user-info-perso">
+                            <div class="user-data">
+                                @Html.LabelFor(model => model.Compte.email, new { @class = "user-label-form" })
+                                <div class="user-nom">
+                                    <span class="input-group-text ">
+                                        <img src="~/Image/enveloppe-user.png" width="23" height="23" />
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Compte.email, new { @class = "user-input", placeholder = "email" })
+                                </div>
+                                <div>
+                                    @Html.ValidationMessageFor(model => model.Compte.email)
+                                </div>
+                            </div>
+                            <div class="user-data">
+                                @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
+                                <div class="user-nom">
+                                    <span class="input-group-text ">
+                                        <img src="~/Image/user-mdp.png" width="23" height="23" />
+                                    </span>
+                                    @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
+                                </div>
+                                <div>
+                                    @Html.ValidationMessageFor(model => model.Compte.motDePasse)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-role">
+                            <div class="user-info-role">
+                                <h8>Role de l'utilisateur</h8>
+                                <div class="user-info-type">
+                                    @Html.DropDownListFor(model => model.Compte.Role, Html.GetEnumSelectList<Role>(), "Type d'utilisateur")
+                                </div>
+                            </div>
+                            <div class="user-info-role">
+                                <h8>Propriétaire ?</h8>
+                                <div class="user-info-type">
+                                    @Html.CheckBoxFor(model => model.Compte.estProprietaire)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-create-btn">
+                        <div class="user-btn">
+                            <button class="btn btnCard-user" type="submit">Valider</button>
+                        </div>
+                        <div class="user-btn">
+                            <a class="btn btnCard-user" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
+                        </div>
+                    </div>
+                }
+
+                @* teste Valery pour récupérer image profil de l'utilisateur
+                       <div class="row mb-3">
+                        @Html.HiddenFor(model=>model.ImagePath)
+                        @Html.LabelFor(model => model.Image, new { id = "imageLabel", @style = "text-align:center;" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })
+                        </div>
+                    </div>*@
+
+            </form>
         </div>
     </div>
-    <div class="user-create-btn">
-            <div class="user-btn">
-                <button class="btn btnCard-user" type="submit">Valider</button>
-            </div>
-            <div class="user-btn">
-                <a class="btn btnCard-user" asp-page="/utilisateur/ListeUtilisateur">Liste des utilisateurs</a>
-            </div>
-        </div>
-        }
-
-   @* teste Valery pour récupérer image profil de l'utilisateur
-       <div class="row mb-3">
-        @Html.HiddenFor(model=>model.ImagePath)
-        @Html.LabelFor(model => model.Image, new { id = "imageLabel", @style = "text-align:center;" })
-        <div class="col-sm-6">
-            @Html.TextBoxFor(model => model.Image, new { placeholder = "Description", @type = "file" })
-        </div>
-    </div>*@
-
-</form>
-
-
+</div>
 
 
              
