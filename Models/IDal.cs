@@ -33,6 +33,7 @@ namespace coproBox.Models
         public int CombienDeCagnottesApres(int page);
         public int CreerCagnotte(Cagnotte cagnotte);
         public void ModifierCagnotte(Cagnotte cagnotte);
+        public int CreerParticipationCagnotte(ParticipationCagnotte participationCagnotte);
 
         // Gestion Quittances
         public List<Quittance> ObtientTouteslesQuittances();
@@ -47,15 +48,15 @@ namespace coproBox.Models
         public List<Annonce> ObtientToutesSesAnnonces(int UserId);
         public List<Annonce> ObtientLesAnnoncesAVerifier();
         /* //Anthentification
-         int AjouterUtilisateur(string nom, string password);
-         Utilisateur Authentifier(string nom, string password);
-         Utilisateur ObtenirUtilisateur(int id);
-         Utilisateur ObtenirUtilisateur(string idStr); */
+int AjouterUtilisateur(string nom, string password);
+Utilisateur Authentifier(string nom, string password);
+Utilisateur ObtenirUtilisateur(int id);
+Utilisateur ObtenirUtilisateur(string idStr); */
 
 
         // Paiement
 
-        
+
     }
 
 }

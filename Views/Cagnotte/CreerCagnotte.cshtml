@@ -10,38 +10,32 @@
             <form class="row g-3 mx-auto user-create-form" method="post">
                 @using (Html.BeginForm())
                 {
-                    <div class="user-formulaire">
-                        <div class="user-data">
-                            <div>
-                                @Html.LabelFor(model => model.Titre, new { @class = "form-label" })
-                                <div class="user-nom">
-                                    @Html.TextBoxFor(model => model.Titre, new { @class = "form-control", placeholder = "Titre"})
-                                </div>
-                                @Html.ValidationMessageFor(model => model.Titre)
-                            </div>
-                        </div>
-                        <div class="user-data">
-                            <div>
-                                @Html.LabelFor(model => model.Description, new { @class = "user-label-form" })
-                                <div class="user-nom">
-                                    @Html.TextAreaFor(model => model.Description, new { @class = "user-input", htmlAttributes = new { rows = 7, cols = 200 } })
-                                </div>
-                                @Html.ValidationMessageFor(model => model.Description)
-                            </div>
-                        </div>
+                    <div>
+                        @Html.LabelFor(model => model.Titre, new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.Titre, new { @class = "form-control", placeholder = "Titre"})
+                        @Html.ValidationMessageFor(model => model.Titre)
+                    </div>
+                    <div>
+                        @Html.LabelFor(model => model.Description, new { @class = "form-label" })
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Description"})
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                    <div>
                         <div>
-                            @Html.LabelFor(model => model.SommeObjectif, new { @class = "user-label-form" })
-                            @Html.EditorFor(model => model.SommeObjectif, new { @class = "user-input", htmlAttributes = new { type = "number", min = 0 } })
-                            @Html.ValidationMessageFor(model => model.SommeObjectif)
+                            @Html.LabelFor(model => model.SommeObjectif, new { @class = "form-label" })
                         </div>
+                        @Html.EditorFor(model => model.SommeObjectif, new { @class = "form-control", htmlAttributes = new { type = "number", min = 0 } })
+                        @Html.ValidationMessageFor(model => model.SommeObjectif)
+                    </div>
+                    <div>
                         <div>
-                            @Html.LabelFor(model => model.EcheanceCagnotte, new { @class = "user-label-form" })
-                            @Html.EditorFor(model => model.EcheanceCagnotte, new { @class = "user-input", htmlAttributes = new { type = "date" } })
-                            @Html.ValidationMessageFor(model => model.EcheanceCagnotte)
+                            @Html.LabelFor(model => model.EcheanceCagnotte, new { @class = "form-label" })
                         </div>
-                        <div class="button">
-                            <input type="submit" value="Créer" />
-                        </div>
+                        @Html.EditorFor(model => model.EcheanceCagnotte, new { @class = "form-control", htmlAttributes = new { type = "date" } })
+                        @Html.ValidationMessageFor(model => model.EcheanceCagnotte)
+                    </div>
+                    <div class="user-btn">
+                        <input type="submit" class="btn btnCard-user" value="Créer" />
                     </div>
                 }
             </form>

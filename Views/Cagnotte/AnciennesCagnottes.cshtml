@@ -3,7 +3,9 @@
     Layout = "_Layout";
     ViewBag.Title = "Anciennes Cagnottes";
 }
-<a href="/cagnotte">Retour</a>
+<div class="user-btn">
+    <a href="/Cagnotte" class="btn btnCard-user">&lt;- Retour</a>
+</div>
 <h1 class ="header-cagnotte">Anciennes Cagnottes Solidaires</h1>
 @Html.Partial("ListeCagnottes", Model)
 @if ((int)@ViewData["page"] > 0){
@@ -12,4 +14,3 @@
 @if((int)ViewData["reste"] > 0){
     <a href="/cagnotte/AnciennesCagnottes/@((int)ViewData["page"]+1)">Next</a>
 }
-    
