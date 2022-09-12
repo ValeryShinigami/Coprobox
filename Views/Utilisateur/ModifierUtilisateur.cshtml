@@ -2,11 +2,13 @@
 @{
     Layout = "_Layout";
 }
+
+<div class="animate__animated animate__backInDown titreAnnonce">Modifier un utilisateur</div>
+
 <div class="body-info-create">
     <div class="body-create">
         <div class="info-body">
             <form class="row g-3 mx-auto  user-edit-form" style="width:900px" method="post">
-                <div class="user-section">Modifier un utilisateur</div>
                 <div class="user-formulaire">
                     <div class="row user-info-perso">
                         <div class="user-data">
@@ -152,6 +154,14 @@
                             </div>
                             <div>
                                 @Html.ValidationMessageFor(model => model.InfosContact.telephone)
+                            </div>
+                        </div>
+                        <div class="user-data">
+                            <div class="user-info-role">
+                                <h8>Propriétaire ?</h8>
+                                <div class="user-info-type">
+                                    @Html.CheckBoxFor(model => model.Compte.estProprietaire)
+                                </div>
                             </div>
                         </div>
                     </div>
