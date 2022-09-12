@@ -5,8 +5,8 @@
 }
 <div class="dashboard">
     <h1 style="text-align:center;">Tableau de Bord</h1>
-    <div class="dash-notifications">
-    </div>
+   @* <div class="dash-notifications">
+    </div>*@
     @if (Context.User.IsInRole("Administrateur"))
     {
         @Html.Partial("DashboardAdmin")

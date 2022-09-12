@@ -220,8 +220,8 @@ namespace coproBox.Models
 
                 new Cagnotte
                 {
-                    Titre = "Cagnotte 2",
-                    Description = "Seconde cagnotte!",
+                    Titre = "Aide rentrée",
+                    Description = "Cette cagnotte doit permettre à la famille XXXXXXX de faire sa rentrée scolaire en toute sérénité après un été difficile.",
                     SommeObjectif = 350,
                     SommeActuelle = 100,
                     EcheanceCagnotte = DateTime.MaxValue

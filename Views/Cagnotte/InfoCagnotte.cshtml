@@ -2,15 +2,63 @@
 @{
     Layout = "_Layout";
     ViewBag.Title = "Infos Cagnotte";
+    var joursRestants = (@Model.EcheanceCagnotte - DateTime.Now).Days;
 }
-
-@using (Html.BeginForm())
-{
-    <fieldset>
-        <legend>How much? </legend>
-        <input type="number" name="Montant" min="0">
-        <div class="button">
-            <input type="submit" value="Aider <3" />
+<div class="user-btn">
+    <a href="/Cagnotte" class="btn btnCard-user">&lt;- Retour</a>
+</div>
+<div class="animate__animated animate__backInDown"><h2 class="header-cagnotte">Cagnotte</h2></div>
+<div class="cagnotte mt-4">
+    <div>
+        <div class="heart-container">
+            @if (@Model.SommeActuelle < @Model.SommeObjectif && @Model.EcheanceCagnotte > DateTime.Now)
+            {
+                <div class="filling-heart">
+                    <img src="~/image/heartempty2.png" width="300" height="300" />
+                </div>
+            }
+            else
+            {
+                <div class="filling-heart">
+                    <img src="~/image/heartempty2.png" width="300" height="300" />
+                </div>
+            }
+            <div class="img-container">
+                <div class="filling-heart h3art" style="height:@((int)(300*@Model.SommeActuelle/@Model.SommeObjectif))px; top:@((int)((-300.0)*@Model.SommeActuelle/@Model.SommeObjectif))px;">
+                    <img src="~/image/heartfull2.png" />
+                </div>
+            </div>
         </div>
-    </fieldset>
-}
+    </div>
+    <h2>@Model.Titre</h2>
+    <div>@Model.Description</div>
+    <div>@Model.SommeActuelle€ / @Model.SommeObjectif€</div>
+    <div>
+        @if (@joursRestants < 0)
+        {
+            <p>Cagnotte terminée</p>
+        }
+        else
+        {
+            <p>@joursRestants jours restants</p>
+        }
+    </div>
+</div>
+<div class="body-info-create">
+    <div class="body-create">
+        <div class="info-body">
+            <form class="row g-3 mx-auto user-create-form" method="post">
+                @using (Html.BeginForm())
+                {
+                    <div>
+                        <label for="Montant" class="form-label">Combien voulez-vous donner ?</label>
+                        <input type="number" name="Montant" id="Montant" min="0" class="form-control">
+                    </div>
+                    <div class="user-btn">
+                        <input type="submit" class="btn btnCard-user" value="Donner <3" />
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

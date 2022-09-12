@@ -1,20 +1,26 @@
 ﻿using coproBox.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 
 namespace coproBox.Controllers
 {
     [Authorize]
     public class CagnotteController : Controller
     {
+        private IWebHostEnvironment _webEnv;
+
         private IDal dal;
 
-        public CagnotteController()
+        public CagnotteController(IWebHostEnvironment environment)
         {
+            _webEnv = environment;
             this.dal = new Dal();
         }
 
@@ -95,7 +101,17 @@ namespace coproBox.Controllers
                 return View("Error");
             }
             cagnotte.SommeActuelle += Montant;
+
+            ClaimsPrincipal currentUser = this.User;
+            int currentUserID = Int32.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            ParticipationCagnotte participationCagnotte = new ParticipationCagnotte()
+            {
+                CagnotteId = cagnotte.Id,
+                Montant = Montant,
+                UtilisateurId = currentUserID
+            };
             dal.ModifierCagnotte(cagnotte);
+            dal.CreerParticipationCagnotte(participationCagnotte);
             return RedirectToAction("Index");
         }
     }

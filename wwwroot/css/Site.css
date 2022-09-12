@@ -9,6 +9,9 @@ header {
     margin : 0;
     padding:0;
 }
+textarea { /* for all text* area elements */
+    resize: none;
+}
 #center {
     display: flex;
     justify-content: flex-end;
@@ -918,37 +921,32 @@ justify-content:space-around;
     min-height: 300px;
     max-height: 500px;
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
 .dash-cagnottes {
-    border: dashed 5px yellow;
+    background-color: #323A7C;
+    color: white;
 }
 
 .dash-annonces {
-    background-color: brown;
+    background-color: #4DC7E4;
     color: white;
 }
 
 .dash-cagnottes-usr {
-    background-color: darkgoldenrod;
+    background-color: #4DC7E4;
     color: white;
 }
 
 .dash-annonces-usr {
-    background-color: maroon;
+    background-color: #323A7C;
     color: white;
 }
 
-.dash-reservations {
-    background-color: darkolivegreen;
+.dash-annonces-usr a:link {
     color: white;
-}
-
-.dash-heart {
-    display: flex;
-    justify-content: center;
 }
 
 .prev-next {

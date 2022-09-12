@@ -214,6 +214,19 @@ namespace coproBox.Models
             }
         }
 
+        public int CreerParticipationCagnotte(ParticipationCagnotte participationCagnotte)
+        {
+            ParticipationCagnotte ParticipationCagnotte = new ParticipationCagnotte()
+            {
+                UtilisateurId = participationCagnotte.UtilisateurId,
+                Montant = participationCagnotte.Montant,
+                CagnotteId = participationCagnotte.CagnotteId
+            };
+            _bddContext.ParticipationCagnottes.Add(ParticipationCagnotte);
+            _bddContext.SaveChanges();
+            return ParticipationCagnotte.Id;
+        }
+
         // QUITTANCE
 
         public List<Quittance> ObtientTouteslesQuittances()
