@@ -51,11 +51,8 @@ namespace coproBox.Models
     }
     public enum StatutAnnonce
     {
-        Creee,
-        Validée,
+        Attente,
         Non_Validée,
-        Supprimée,
-        Payee,
         EnLigne
     }
 }

@@ -205,8 +205,7 @@ namespace coproBox.Models
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
                    CompteId = 1,
-                   StatutAnnonce = StatutAnnonce.Non_Validée
-
+                   StatutAnnonce = StatutAnnonce.Attente        
                }
            ); 
             this.Cagnottes.AddRange(

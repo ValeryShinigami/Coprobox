@@ -298,7 +298,7 @@ namespace coproBox.Models
 
         public List<Annonce> ObtientLesAnnoncesAVerifier()
         {
-            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Non_Validée).ToList();
+            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Attente).ToList();
         }
 
 

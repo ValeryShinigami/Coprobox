@@ -1,0 +1,27 @@
+﻿@model coproBox.Models.Annonce
+@using coproBox.Models
+
+@{
+	Layout = "_Layout";
+	ViewBag.Title = "Index";
+}
+<div class="mb-3 m-3">
+	<div class="row g-0">						
+		<div class="col-md-5">
+			<img src="@Model.ImagePath" class="img-thumbnail" alt="...">
+		</div>
+		<div class="col-md-7">
+			<div class="card-body">
+				<h5 class="card-title">@Model.Titre </h5>
+				<p class="card-text">@Model.TypeService</p>
+				<p class="card-text">@Model.DateDebut</p>
+				<p class="card-text">@Model.DateFin</p>
+				<p class="card-text">@Model.TauxHoraire €/h</p>
+				<p class="card-text">@Model.Description</p>
+				<p class="card-text"><small class="text-muted">@Model.Tarif €</small></p>
+				<a href="/annonce/Valider/@Model.Id" class="btnCard btn">Valider</a>
+				<a href="/annonce/Refuser/@Model.Id" class="btnCard btn">Refuser</a>
+			</div>
+		</div>
+	</div>
+</div>
