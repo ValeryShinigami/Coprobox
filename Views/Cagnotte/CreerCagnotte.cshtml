@@ -3,33 +3,41 @@
     Layout = "_Layout";
     ViewBag.Title = "Création Cagnotte";
 }
-
-@using (Html.BeginForm())
-{
-    <fieldset>
-        <legend>Créer une Cagnotte : </legend>
-        <div>
-            @Html.LabelFor(model => model.Titre)
-            @Html.TextBoxFor(model => model.Titre)
-            @Html.ValidationMessageFor(model => model.Titre)
+<div class="animate__animated animate__backInDown"><h2 class="header-cagnotte">Créer une cagnotte</h2></div>
+<div class="body-info-create">
+    <div class="body-create">
+        <div class="info-body">
+            <form class="row g-3 mx-auto user-create-form" method="post">
+                @using (Html.BeginForm())
+                {
+                    <fieldset>
+                        <legend>Créer une Cagnotte : </legend>
+                        <div>
+                            @Html.LabelFor(model => model.Titre, new { @class = "user-label-form" })
+                            @Html.TextBoxFor(model => model.Titre, new { @class = "user-input", placeholder = "Titre"})
+                            @Html.ValidationMessageFor(model => model.Titre)
+                        </div>
+                        <div>
+                            @Html.LabelFor(model => model.Description, new { @class = "user-label-form" })
+                            @Html.TextAreaFor(model => model.Description, new { @class = "user-input", htmlAttributes = new { rows = 7, cols = 20 } })
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                        <div>
+                            @Html.LabelFor(model => model.SommeObjectif, new { @class = "user-label-form" })
+                            @Html.EditorFor(model => model.SommeObjectif, new { @class = "user-input", htmlAttributes = new { type = "number", min = 0 } })
+                            @Html.ValidationMessageFor(model => model.SommeObjectif)
+                        </div>
+                        <div>
+                            @Html.LabelFor(model => model.EcheanceCagnotte, new { @class = "user-label-form" })
+                            @Html.EditorFor(model => model.EcheanceCagnotte, new { @class = "user-input", htmlAttributes = new { type = "date" } })
+                            @Html.ValidationMessageFor(model => model.EcheanceCagnotte)
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Créer" />
+                        </div>
+                    </fieldset>
+                }
+            </form>
         </div>
-        <div>
-            @Html.LabelFor(model => model.Description)
-            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { rows = 7, cols = 20 } })
-            @Html.ValidationMessageFor(model => model.Description)
-        </div>
-        <div>
-            @Html.LabelFor(model => model.SommeObjectif)
-            @Html.EditorFor(model => model.SommeObjectif, new { htmlAttributes = new { type = "number", min = 0 } })
-            @Html.ValidationMessageFor(model => model.SommeObjectif)
-        </div>
-        <div>
-            @Html.LabelFor(model => model.EcheanceCagnotte)
-            @Html.EditorFor(model => model.EcheanceCagnotte, new { htmlAttributes = new { type = "date" } })
-            @Html.ValidationMessageFor(model => model.EcheanceCagnotte)
-        </div>
-        <div class="button">
-            <input type="submit" value="Créer" />
-        </div>
-    </fieldset>
-}
+    </div>
+</div>

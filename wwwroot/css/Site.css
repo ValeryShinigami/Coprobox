@@ -768,11 +768,11 @@ justify-content:space-around;
 .conteneur .box1, .conteneur .box2, .conteneur .box3, .conteneur .box4 {
     height: 50vh;
 }
-h5 {
-display:flex;
-justify-content:center;
-margin-bottom:30px;
-color: #323A7C;
+.conteneur h5 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: #323A7C;
 }
 .conteneur .box1 {
     display:flex;
@@ -886,7 +886,8 @@ color: #323A7C;
     position: relative;
     width: 50%;
     min-width: 300px;
-    min-height: 200px;
+    min-height: 300px;
+    max-height: 500px;
     flex-grow: 1;
     overflow-y: scroll;
     overflow-x: hidden;
