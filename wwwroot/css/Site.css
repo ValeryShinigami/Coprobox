@@ -27,10 +27,10 @@ header {
 .nav-link {
     margin-right: 1em !important;
     font-size: 1.4em;
-    border-bottom: 1px solid #ddd;
 }
 .navbar-nav {
-    margin-top: 25px;
+    display : flex;
+    align-items: center;
     border-radius: 10px;
     background: #F4F4F4;
     isolation: isolate;
@@ -39,16 +39,10 @@ header {
 .navbar-nav::after{
     content:"";
     position:absolute;
-    width:15px;
-    height:15px;
     border-top:inherit;
     border-left:inherit;
     background-color:inherit;
-    top:0;
-    right:30px;
-    z-index:-1;
-    transform:translateY(-50%) rotate(45deg);
-}
+ }
 .nav-link:hover {
     color: #4DC7E4;
     background-color: #e7e7e7;

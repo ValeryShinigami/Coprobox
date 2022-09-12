@@ -10,6 +10,7 @@ namespace coproBox.Models
         public string username { get; set; }
         [MaxLength(200)]
         public string description { get; set; }
+        public string ImageProfil { get; set; }
     }
 }
 

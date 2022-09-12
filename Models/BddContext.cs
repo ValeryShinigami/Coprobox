@@ -58,7 +58,7 @@ namespace coproBox.Models
                     montant = 0,
                     Role = Role.Moderateur
                 }
-            ); ;
+            ); 
             this.InfosPersonnelles.AddRange(
                 new InfosPersonnelle
                 {
@@ -73,8 +73,19 @@ namespace coproBox.Models
                     Prenom = "Valery"
                 }
             );
-
-           this.Adresses.AddRange(
+            this.Profils.AddRange(
+               new Profil
+               {
+                   Id = 1,
+                   ImageProfil = "/Image/vis1.jpeg"
+               },
+               new Profil
+               {
+                   Id = 2,
+                   ImageProfil = "/Image/vis3.jpeg"
+               }
+           );
+            this.Adresses.AddRange(
                  new Adresse
                  {
                      Id = 1,
