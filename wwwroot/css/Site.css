@@ -606,6 +606,7 @@ justify-content:space-around;
     width: 200px;
 }
 
+
 .user-create-form, .user-edit-form {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -663,7 +664,7 @@ justify-content:space-around;
     .info-body {
         background: transparent;
     }
-    .user-create-btn, .user-edit-btn, .btnCard-index {
+    .user-create-btn, .user-edit-btn {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;

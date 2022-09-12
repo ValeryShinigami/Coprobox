@@ -26,6 +26,7 @@ namespace coproBox.Models
 
         void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath);
         public void SupprimerAnnonce(int id);
+        public Annonce ObtenirUneAnnonce(int id);
 
         // Gestion Cagnotte Solidaire
         public List<Cagnotte> ObtientToutesLesCagnottes();
@@ -60,7 +61,8 @@ namespace coproBox.Models
 
 
         // Paiement
-
+        public void CreerPaiement(Paiement paiement);
+        public Paiement ObtenirPaiement(int Id);
 
     }
 
