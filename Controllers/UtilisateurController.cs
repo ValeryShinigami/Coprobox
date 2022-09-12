@@ -64,12 +64,12 @@ namespace coproBox.Controllers
             if (!ModelState.IsValid)
                 return View(utilisateur);
 
-            //string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
-            //string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
-            //using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-            //{
+           // string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
+           // string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
+           // using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+          //  {
             //    utilisateur.Image.CopyTo(fileStream);
-            //}
+           // }
             
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
@@ -78,7 +78,7 @@ namespace coproBox.Controllers
                 }
           
                 dal.CreerUtilisateur(
-                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.email, utilisateur.Compte.motDePasse, utilisateur.Compte.Role, utilisateur.Compte.estProprietaire );
+                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.email, utilisateur.Compte.motDePasse, utilisateur.Compte.Role, utilisateur.Compte.estProprietaire);
                 return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
 
         }

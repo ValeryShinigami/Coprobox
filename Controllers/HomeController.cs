@@ -40,7 +40,7 @@ namespace coproBox.Controllers
                 {
                     var userClaims = new List<Claim>()
                     {
-                        new Claim(ClaimTypes.Name, infosPerso.Prenom),
+                        new Claim(ClaimTypes.Name, infosPerso.Prenom +" "+ infosPerso.Nom),                    
                         new Claim(ClaimTypes.NameIdentifier, utilisateur.Id.ToString()),
                         new Claim(ClaimTypes.Role, utilisateur.Compte.Role.ToString()),
                         new Claim(type: "estProprietaire", value: utilisateur.Compte.estProprietaire.ToString().ToLower()

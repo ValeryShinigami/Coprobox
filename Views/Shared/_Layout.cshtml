@@ -11,7 +11,7 @@
 <body class="d-flex flex-column min-vh-100">
     <header class="container-fluid">
         <nav class="navbar navbar-expand-md">
-            <a href="/"><img id="logo" src="~/Image/logo1.png" width="60" height="60" /></a>
+            <a href="/"><img id="logo" src="~/Image/logo1.png" width="60" height="60" /></a>           
             <button
                 class="navbar-toggler"
                 style="background-color:#e3f2fd"
@@ -22,7 +22,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div style="margin-left: 5px">Bonjour @User.Identity.Name</div> @*Est-ce que ce code fonctionne parfaitement ?*@
+            <div style="margin-left: 5px">Bonjour @User.Identity.Name.Split(" ")[0]</div> @*Est-ce que ce code fonctionne parfaitement ?*@
             
             <div class="collapse navbar-collapse" id="main-navigation">
                 <ul class="navbar-nav">
