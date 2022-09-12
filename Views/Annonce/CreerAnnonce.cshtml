@@ -7,7 +7,6 @@
 }
 
 <div class="animate__animated animate__backInDown titreAnnonce">Déposer une annonce</div>
-
 <div class="container-fluid">
     <div class="row justify-content-center">
         <form class="formAnnonce " method="post" enctype="multipart/form-data">
@@ -94,10 +93,21 @@
                 </div>
 
                 <button type="submit" class="btnAnnonce btn">Valider</button>
+                <div class="fill-my-form" onclick="remplirForm()"></div>
             }
 
         </form>
     </div>
 </div>
 
-
+<script>
+    function remplirForm(){
+        document.getElementById('TypeService').value = 2;
+        document.getElementById('Titre').value = "Aide courses";
+        document.getElementById('Description').value = "J'ai besoin d'aide pour remplire mon frigo.";
+        document.getElementById('DateDebut').value = new Date().toISOString().substring(0, 10);
+        document.getElementById('DateFin').value = new Date().toISOString().substring(0, 10);
+        document.getElementById('TauxHoraire').value = 0;
+        document.getElementById('Tarif').value = 20;
+    }
+</script>

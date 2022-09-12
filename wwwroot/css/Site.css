@@ -841,25 +841,16 @@ justify-content:space-around;
     flex-grow: 1;
     overflow-y: hidden;
     overflow-x: hidden;
+    border: 1px white solid;
 }
 
-.dash-cagnottes {
+.dash-cagnottes, .dash-annonces-usr, .dash-reservations {
     background-color: #323A7C;
     color: white;
 }
 
-.dash-annonces {
+.dash-annonces, .dash-cagnottes-usr, .dash-paiements {
     background-color: #4DC7E4;
-    color: white;
-}
-
-.dash-cagnottes-usr {
-    background-color: #4DC7E4;
-    color: white;
-}
-
-.dash-annonces-usr {
-    background-color: #323A7C;
     color: white;
 }
 
@@ -909,3 +900,10 @@ justify-content:space-around;
 
 /* User */
 
+/* Pres */
+.fill-my-form {
+    margin-top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: dimgrey;
+}
