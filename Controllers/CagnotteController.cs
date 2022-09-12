@@ -1,11 +1,14 @@
 ﻿using coproBox.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace coproBox.Controllers
 {
+    [Authorize]
     public class CagnotteController : Controller
     {
         private IDal dal;
@@ -21,12 +24,14 @@ namespace coproBox.Controllers
             return View(listeDesCagnottes);
         }
 
+        [Authorize(Roles = "Administrateur,Moderateur")]
         public IActionResult CreerCagnotte()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrateur,Moderateur")]
         public IActionResult CreerCagnotte(Cagnotte cagnotte)
         {
             if(!ModelState.IsValid)
@@ -41,6 +46,7 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Administrateur,Moderateur")]
         public IActionResult ModifierCagnotte(int Id)
         {
             Cagnotte Cagnotte = dal.ObtientToutesLesCagnottes().Find(c => c.Id == Id);
@@ -52,6 +58,7 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrateur,Moderateur")]
         public IActionResult ModifierCagnotte(Cagnotte cagnotte)
         {
             if(!ModelState.IsValid)
