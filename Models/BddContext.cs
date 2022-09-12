@@ -40,7 +40,7 @@ namespace coproBox.Models
                     Id = 1,
                     numeroIdentifiant = "1",
                     email = "fouzi_coprobox@gmail.com",
-                    motDePasse = "FFFFF",
+                    motDePasse = "76-FD-F5-9F-3C-59-2B-13-E0-9E-3C-03-1E-E0-99-4D",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
                     montant = 0,
@@ -52,7 +52,7 @@ namespace coproBox.Models
                     Id = 2,
                     numeroIdentifiant = "2",
                     email = "valery_coprobox@gmail.com",
-                    motDePasse = "VVVVV",
+                    motDePasse = "EC-CD-68-FC-81-FE-0D-50-4C-54-18-4B-AF-11-2C-D3",
                     nombreAnnonce = 0,
                     codeIban = "FR76000 0000 000 0000",
                     montant = 0,
@@ -220,8 +220,8 @@ namespace coproBox.Models
 
                 new Cagnotte
                 {
-                    Titre = "Cagnotte 2",
-                    Description = "Seconde cagnotte!",
+                    Titre = "Aide rentrée",
+                    Description = "Cette cagnotte doit permettre à la famille XXXXXXX de faire sa rentrée scolaire en toute sérénité après un été difficile.",
                     SommeObjectif = 350,
                     SommeActuelle = 100,
                     EcheanceCagnotte = DateTime.MaxValue
