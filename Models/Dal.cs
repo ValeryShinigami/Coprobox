@@ -46,7 +46,7 @@ namespace coproBox.Models
             Profil profil = new Profil();
             Notification notification = new Notification();
 
-            Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse = adresse, InfosContact = infosContact, Profil = profil, Notification = notification};
+            Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse = adresse, InfosContact = infosContact, Profil = profil, Notification = notification };
             // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
             _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
@@ -56,6 +56,7 @@ namespace coproBox.Models
         /*************************** MODIFIER utilisateur*******************/
         public void ModifierUtilisateur(Utilisateur utilisateur)
         {
+            
             Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle)
             .Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
            
@@ -143,6 +144,11 @@ namespace coproBox.Models
         public List<Annonce> ObtientToutesLesAnnonces()
         {
             return _bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).ToList();
+        }
+
+        public Annonce ObtenirUneAnnonce(int id)
+        {
+            return this._bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).FirstOrDefault(u => u.Id == id);
         }
 
         public void SupprimerAnnonce(int id)
@@ -318,10 +324,23 @@ namespace coproBox.Models
             _bddContext.Dispose();
         }
 
-      
-
-
         //PAIEMENT
+        //retrouver le paiement correspondant à l'id de l'annonce
+        // donc besoin de l'id de l'utilisateur et de l'id de l'annonce
+        public Paiement ObtenirPaiement(int Id)
+        {
+            return _bddContext.Paiements.Find(Id);
+        }
+        public void CreerPaiement(Paiement paiement)
+        {    
+               
+               _bddContext.Paiements.Add(paiement);
+            
+            _bddContext.SaveChanges();
+        }
+        
+       
+
 
     }
 }

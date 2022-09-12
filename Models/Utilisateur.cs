@@ -28,10 +28,10 @@ namespace coproBox.Models
         public int? ProfilId { get; set; }
         public virtual Profil Profil { get; set; }
 
-        public string ImagePath { get; set; }
-        //[NotMapped]
+       // public string ImagePath { get; set; }
+       // [NotMapped]
 
-        //public IFormFile Image { get; set; }
+       // public IFormFile Image { get; set; }
     }  
 }
 
