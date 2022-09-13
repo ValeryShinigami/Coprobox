@@ -21,7 +21,7 @@
       
         <nav class="navbar navbar-expand-md">
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                     Profil
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
@@ -86,6 +86,7 @@
                                 <div class="inputBox">
                                     <span>Email</span>
                                     @Html.TextBoxFor(model => model.De, new { @class = "input", placeholder = "pierredupont@mail.com" })
+                                    @Html.ValidationMessageFor(model => model.email)
                                 </div>
                                 <div class="inputBox">
                                     <span>Sujet</span>
@@ -154,7 +155,7 @@
                         <div class="text">
                             <ul class="list-style">
                                 <li>Notre histoire</li>
-                                <li><a href="/contact/contact">Notre Equipe</a></li>
+                                <li><a href="/contact/equipe">Notre équipe</a></li>
                             </ul>
                         </div>
                     </div>
@@ -178,7 +179,7 @@
                         </div>
                         <div class="text">
                             <ul class="list-style">
-                                <li><a href="" class="d-block">Politique de confidentialité</a></li>
+                                <li><a href="/Fichier/PolitiqueConfidentialite.pdf" class="d-block">Politique de confidentialité</a></li>
                             </ul>
                         </div>
                     </div>

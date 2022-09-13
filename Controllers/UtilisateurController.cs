@@ -48,13 +48,7 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
-        //public IActionResult ListeRole()
-        //{
-        //    List<Role> listeDesRoles = dal.ObtientTousLesRoles();
-        //    return View(listeDesRoles);
-        //}
-
-        //**********************************$CREER UTILISATEUR **************************
+        /**********************************$CREER UTILISATEUR **************************/
         [Authorize(Roles = "Administrateur")]
         public IActionResult CreerUtilisateur()
         {
@@ -68,13 +62,6 @@ namespace coproBox.Controllers
             if (!ModelState.IsValid)
                 return View(utilisateur);
 
-           // string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
-           // string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
-           // using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-          //  {
-            //    utilisateur.Image.CopyTo(fileStream);
-           // }
-            
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
                     ModelState.AddModelError("email", "Cet email est déjà enregistré");
@@ -144,6 +131,8 @@ namespace coproBox.Controllers
             dal.SupprimerUtilisateur(id);
             return RedirectToAction("Index");
         }
-
     }
 }
+
+
+
