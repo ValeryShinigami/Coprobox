@@ -46,7 +46,7 @@ namespace coproBox.Models
             Profil profil = new Profil();
             Notification notification = new Notification();
 
-            Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse = adresse, InfosContact = infosContact, Profil = profil, Notification = notification};
+            Utilisateur Utilisateur = new Utilisateur { InfosPersonnelle = infosPersonnelle, Compte = compte, Adresse = adresse, InfosContact = infosContact, Profil = profil, Notification = notification };
             // j'instancie Compte et je lui transmet ce que l'utilisateur écrira. J'instancie mais je dois également le rajouter dans la BDD de la liste de séjour via bddContext
             _bddContext.Utilisateurs.Add(Utilisateur);
               _bddContext.SaveChanges();
@@ -56,6 +56,7 @@ namespace coproBox.Models
         /*************************** MODIFIER utilisateur*******************/
         public void ModifierUtilisateur(Utilisateur utilisateur)
         {
+            
             Utilisateur Utilisateur = _bddContext.Utilisateurs.Include(u => u.Compte).Include(u => u.Adresse).Include(u => u.InfosPersonnelle)
             .Include(u => u.InfosContact).Include(u => u.Profil).Include(u => u.Notification).FirstOrDefault(u => u.Id==utilisateur.Id);
            
@@ -102,9 +103,9 @@ namespace coproBox.Models
         /*************************** SUPPRIMER utilisateur**************************/
         public void SupprimerUtilisateur(int id)
         {
-            Utilisateur userDeleted = this._bddContext.Utilisateurs.Find(id);
-            this._bddContext.Utilisateurs.Remove(userDeleted);
-            this._bddContext.SaveChanges();
+            Utilisateur utilisateur = this._bddContext.Utilisateurs.Find(id);
+            this._bddContext.Utilisateurs.Remove(utilisateur);
+            _bddContext.SaveChanges();
         }
 
         /*************************** AUTHENTIFICATION utilisateur*******************/
@@ -135,7 +136,7 @@ namespace coproBox.Models
         {
             Utilisateur utilisateur = ObtenirUtilisateur(id);
 
-            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle, Compte = utilisateur.Compte};
+            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle, Compte = utilisateur.Compte, StatutAnnonce = StatutAnnonce.Attente };
 
            
             this._bddContext.Annonces.Add(annonceToAdd);
@@ -147,6 +148,14 @@ namespace coproBox.Models
             return _bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).ToList();
         }
 
+        public Annonce ObtenirUneAnnonce(int id)
+        {
+            return this._bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).FirstOrDefault(u => u.Id == id);
+        }
+        public List<Annonce> ObtientLesAnnoncesValidees() 
+        {
+            return this._bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).Where(a=>a.StatutAnnonce == StatutAnnonce.EnLigne).ToList();
+        }
         public void SupprimerAnnonce(int id)
         {
             Annonce annonceToDelete = this._bddContext.Annonces.Find(id);
@@ -157,7 +166,7 @@ namespace coproBox.Models
         //supprimer annonce suite
 
         //modifier annonce
-        public void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath)
+        public void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, StatutAnnonce statutAnnonce)
         {
             Annonce annonceToUpdate = this._bddContext.Annonces.Find(id);
             if (annonceToUpdate != null)
@@ -170,6 +179,7 @@ namespace coproBox.Models
                 annonceToUpdate.DateFin = dateFin;
                 annonceToUpdate.TypeService=typeService;
                 annonceToUpdate.ImagePath = imagePath;
+                annonceToUpdate.StatutAnnonce = statutAnnonce;
                 this._bddContext.SaveChanges();
             }
         }
@@ -192,7 +202,7 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page)
         {
-            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now).Skip(page * 4).Take(4).ToList();
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now || c.SommeActuelle > c.SommeObjectif).Skip(page * 4).Take(4).ToList();
         }
 
         public int CombienDeCagnottesApres(int page)
@@ -310,7 +320,7 @@ namespace coproBox.Models
 
         public List<Annonce> ObtientLesAnnoncesAVerifier()
         {
-            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Non_Validée).ToList();
+            return _bddContext.Annonces.Where(a => a.StatutAnnonce == StatutAnnonce.Attente).ToList();
         }
 
 
@@ -320,10 +330,23 @@ namespace coproBox.Models
             _bddContext.Dispose();
         }
 
-      
-
-
         //PAIEMENT
+        //retrouver le paiement correspondant à l'id de l'annonce
+        // donc besoin de l'id de l'utilisateur et de l'id de l'annonce
+        public Paiement ObtenirPaiement(int Id)
+        {
+            return _bddContext.Paiements.Find(Id);
+        }
+        public void CreerPaiement(Paiement paiement)
+        {    
+               
+               _bddContext.Paiements.Add(paiement);
+            
+            _bddContext.SaveChanges();
+        }
+        
+       
+
 
     }
 }

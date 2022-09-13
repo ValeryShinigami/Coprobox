@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace coproBox.Models
 {
@@ -25,8 +26,22 @@ namespace coproBox.Models
   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("server=localhost;user id=root;password=RRRRR;database=coproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
-        }
+        
+			if (System.Diagnostics.Debugger.IsAttached)
+            {
+               optionsBuilder.UseMySql("server=localhost;user id=root;password=RRRRR;database=coproBox");  // connexion string. Attention au password. avec comme nom de BDD : ChoixSejourTest
+            }
+            else
+            {
+                IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+                optionsBuilder.UseMySql(configuration.GetConnectionString("DefaultConnection"));
+            }
+		
+		
+		}
     public void InitializeDb()
 
         {
@@ -46,6 +61,18 @@ namespace coproBox.Models
                     montant = 0,
                     Role = Role.Administrateur
                 },
+
+                 new Compte
+                 {
+                     Id = 3,
+                     numeroIdentifiant = "3",
+                     email = "amelie.durant@wanadoo.fr",
+                     motDePasse = "76-FD-F5-9F-3C-59-",
+                     nombreAnnonce = 0,
+                     codeIban = "FR76000 0000 000 0000",
+                     montant = 0,
+                     Role = Role.Utilisateur
+                 },
 
                 new Compte
                 {
@@ -71,20 +98,15 @@ namespace coproBox.Models
                     Id = 2,
                     Nom = "KALOMBO",
                     Prenom = "Valery"
+                },
+                new InfosPersonnelle
+                {
+                    Id = 3,
+                    Nom = "DURANT",
+                    Prenom = "Amélie"
                 }
             );
-            this.Profils.AddRange(
-               new Profil
-               {
-                   Id = 1,
-                   ImageProfil = "/Image/vis1.jpeg"
-               },
-               new Profil
-               {
-                   Id = 2,
-                   ImageProfil = "/Image/vis3.jpeg"
-               }
-           );
+           
             this.Adresses.AddRange(
                  new Adresse
                  {
@@ -98,11 +120,20 @@ namespace coproBox.Models
                  new Adresse
                  {
                      Id = 2,
-                     NumeroPorte = "A105",
+                     NumeroPorte = "A601",
                      AdressePrincipale = "2 avenue du général Leclerc",
                      CodePostal = 92240,
                      Ville = "MALAKOFF"
-                 }
+                 },
+
+                  new Adresse
+                  {
+                      Id = 3,
+                      NumeroPorte = "A405",
+                      AdressePrincipale = "2 avenue du général Leclerc",
+                      CodePostal = 92240,
+                      Ville = "MALAKOFF"
+                  }
              );
 
             this.Utilisateurs.AddRange(
@@ -121,7 +152,15 @@ namespace coproBox.Models
                     CompteId = 2,
                     AdresseId = 2,
                     InfosPersonnelleId = 2,
-                    
+                },
+
+                new Utilisateur
+                {
+                    Id = 3,
+                    CompteId = 3,
+                    AdresseId = 3,
+                    InfosPersonnelleId = 3,
+
                 }
             );
             this.Annonces.AddRange(
@@ -154,7 +193,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/party.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne 
                },
                new Annonce
                {
@@ -184,7 +224,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/chien.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne
                },
                new Annonce
                {
@@ -199,7 +240,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/enfant.png",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne
                },
 
                new Annonce
@@ -216,8 +258,7 @@ namespace coproBox.Models
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
                    CompteId = 1,
-                   StatutAnnonce = StatutAnnonce.Non_Validée
-
+                   StatutAnnonce = StatutAnnonce.EnLigne        
                }
            ); 
             this.Cagnottes.AddRange(
@@ -235,7 +276,7 @@ namespace coproBox.Models
                     Description = "Cette cagnotte doit permettre à la famille XXXXXXX de faire sa rentrée scolaire en toute sérénité après un été difficile.",
                     SommeObjectif = 350,
                     SommeActuelle = 100,
-                    EcheanceCagnotte = DateTime.MaxValue
+                    EcheanceCagnotte = DateTime.Now.AddDays(10)
                 },
 
                 new Cagnotte

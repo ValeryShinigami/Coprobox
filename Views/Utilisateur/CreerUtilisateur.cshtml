@@ -11,7 +11,7 @@
 <div class="body-info-create">
     <div class="body-create">
         <div class="info-body">
-            <form class="row g-3 mx-auto user-create-form" style="width:900px" method="post" enctype="multipart/form-data">
+            <form class="row g-3 mx-auto user-create-form" style="width:700px" method="post" enctype="multipart/form-data">
                 @using (Html.BeginForm())
                 {
                 <div class="user-formulaire">
@@ -19,7 +19,7 @@
                         <div class="user-data">
                             <div class="user-nom">
                                 <span class="input-group-text ">
-                                    <img src="~/Image/user-profil.png" width="23" height="23" />
+                                    <img src="/Image/user-profil.png" width="23" height="23" />
                                 </span>
                                 @Html.TextBoxFor(model => model.InfosPersonnelle.Nom, new { @class = "user-input", placeholder = "Nom" })
                             </div>
@@ -30,7 +30,7 @@
                         <div class="user-data">
                             <div class="user-nom">
                                 <span class="input-group-text ">
-                                    <img src="~/Image/user-profil.png" width="23" height="23" />
+                                    <img src="/Image/user-profil.png" width="23" height="23" />
                                 </span>
                                 @Html.TextBoxFor(model => model.InfosPersonnelle.Prenom, new { @class = "user-input", placeholder = "Prenom" })
                             </div>
@@ -48,7 +48,7 @@
                             @Html.LabelFor(model => model.Compte.email, new { @class = "user-label-form" })
                             <div class="user-nom">
                                 <span class="input-group-text ">
-                                    <img src="~/Image/enveloppe-user.png" width="23" height="23" />
+                                    <img src="/Image/enveloppe-user.png" width="23" height="23" />
                                 </span>
                                 @Html.TextBoxFor(model => model.Compte.email, new { @class = "user-input", placeholder = "email" })
                             </div>
@@ -60,7 +60,7 @@
                             @Html.LabelFor(model => model.Compte.motDePasse, new { @class = "user-label-form" })
                             <div class="user-nom">
                                 <span class="input-group-text ">
-                                    <img src="~/Image/user-mdp.png" width="23" height="23" />
+                                    <img src="/Image/user-mdp.png" width="23" height="23" />
                                 </span>
                                 @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
                             </div>

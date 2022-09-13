@@ -1,4 +1,5 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+body {
     margin:0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height:100%
@@ -38,6 +39,7 @@ textarea { /* for all text* area elements */
     background: #F4F4F4;
     isolation: isolate;
     transition: opacity 0.5s ease;
+    z-index: 10;
 }
 .navbar-nav::after{
     content:"";
@@ -45,10 +47,12 @@ textarea { /* for all text* area elements */
     border-top:inherit;
     border-left:inherit;
     background-color:inherit;
- }
+}
+
 .nav-link:hover {
     color: #4DC7E4;
     background-color: #e7e7e7;
+    z-index: 10;
 }
 
 .navbar-collapse {
@@ -446,6 +450,10 @@ a {
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    width: 500px;
+}
+.cagnotte-info {
+    width: 100%;
 }
 
 .header-cagnotte {
@@ -600,6 +608,7 @@ justify-content:space-around;
     width: 200px;
 }
 
+
 .user-create-form, .user-edit-form {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -657,17 +666,17 @@ justify-content:space-around;
     .info-body {
         background: transparent;
     }
-    .user-create-btn, .user-edit-btn, .btnCard-index {
+.user-create-btn, .user-edit-btn {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         height: 150px;
-    }
-    .user-role {
+}
+.user-role {
         display:inline-flex;
         justify-content: space-around;
-    }
+}
     .user-info-role {
         margin-left:9vh;
         display: flex;
@@ -811,6 +820,7 @@ justify-content:space-around;
 /*********************************************  Dashboard  ************************************************/
 .dashboard {
     text-align: center;
+    margin-bottom: 5px;
 }
 /* Admin */
 .dash-usrlist{
@@ -835,25 +845,16 @@ justify-content:space-around;
     flex-grow: 1;
     overflow-y: hidden;
     overflow-x: hidden;
+    border: 1px white solid;
 }
 
-.dash-cagnottes {
+.dash-cagnottes, .dash-annonces-usr, .dash-reservations {
     background-color: #323A7C;
     color: white;
 }
 
-.dash-annonces {
+.dash-annonces, .dash-cagnottes-usr, .dash-paiements {
     background-color: #4DC7E4;
-    color: white;
-}
-
-.dash-cagnottes-usr {
-    background-color: #4DC7E4;
-    color: white;
-}
-
-.dash-annonces-usr {
-    background-color: #323A7C;
     color: white;
 }
 
@@ -903,3 +904,10 @@ justify-content:space-around;
 
 /* User */
 
+/* Pres */
+.fill-my-form {
+    margin-top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: dimgrey;
+}

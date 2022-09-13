@@ -6,11 +6,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using coproBox.Models;
 using coproBox.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coproBox.Controllers
 {
+    [Authorize]
     public class UtilisateurController : Controller
     {
      
@@ -46,31 +48,20 @@ namespace coproBox.Controllers
             return View(listeDesUtilisateurs);
         }
 
-        //public IActionResult ListeRole()
-        //{
-        //    List<Role> listeDesRoles = dal.ObtientTousLesRoles();
-        //    return View(listeDesRoles);
-        //}
-
-        //**********************************$CREER UTILISATEUR **************************
+        /**********************************$CREER UTILISATEUR **************************/
+        [Authorize(Roles = "Administrateur")]
         public IActionResult CreerUtilisateur()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrateur")]
         public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
                 return View(utilisateur);
 
-            //string uploads = Path.Combine(_webEnv.WebRootPath, "Image");
-            //string filePath = Path.Combine(uploads, utilisateur.Image.FileName);
-            //using (Stream fileStream = new FileStream(filePath, FileMode.Create))
-            //{
-            //    utilisateur.Image.CopyTo(fileStream);
-            //}
-            
             if (dal.ObtientTousLesUtilisateurs().FirstOrDefault (u => u.Compte.email == utilisateur.Compte.email) !=null)
                 {
                     ModelState.AddModelError("email", "Cet email est déjà enregistré");
@@ -78,7 +69,7 @@ namespace coproBox.Controllers
                 }
           
                 dal.CreerUtilisateur(
-                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.email, utilisateur.Compte.motDePasse, utilisateur.Compte.Role, utilisateur.Compte.estProprietaire );
+                utilisateur.InfosPersonnelle.Nom, utilisateur.InfosPersonnelle.Prenom, utilisateur.Compte.email, utilisateur.Compte.motDePasse, utilisateur.Compte.Role, utilisateur.Compte.estProprietaire);
                 return RedirectToAction("CreerUtilisateur"); // en attente de voir vers où le user sera redirigé
 
         }
@@ -111,6 +102,7 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
+        //MODIFIER UN MOT DE PASSE
         //GET
         public IActionResult ModifierMotDePasse(int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
         {
@@ -128,7 +120,16 @@ namespace coproBox.Controllers
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
+
+        //SUPPRIMER UN UTILISATEUR
+        [Authorize(Roles = "Administrateur")]
+        public IActionResult SupprimerUtilisateur (int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
+        {
+            dal.SupprimerUtilisateur(id);
+            return RedirectToAction("Index");
+        }
     }
 }
+
 
 

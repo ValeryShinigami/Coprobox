@@ -41,7 +41,7 @@
 					   {								   
 						   string editlink = "/Annonce/Modifier/" + annonce.Id;
 						   string deletelink = "/Annonce/Supprimer/" + annonce.Id;
-							string editlink2 = "/Paiement/Index/" + annonce.Id;
+							string editlink2 = "/Paiement/PaiementAnnonce/" + annonce.Id;
 
 					<div class="card mb-3 m-3" style="max-width: 540px;">
 						<div class="row g-0">						
@@ -98,7 +98,7 @@
 												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-												Êtes vous certain de vouloir supprimer vôtre annonce
+												Êtes-vous sûr de vouloir supprimer cette annonce?
 											</div>
 											<div class="modal-footer">
 												
@@ -124,6 +124,4 @@
 			</div>
 
 </div>
-
-
-						
+		

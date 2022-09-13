@@ -12,50 +12,59 @@
     <meta name="viewport" content="witdh=device-width,  initial-scale=1.0">
     <title>PageContact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="~/css/Contact.css" rel="stylesheet">
-
+    <link href="/css/Contact.css" rel="stylesheet">
+    
 </head>
 <body>
+    
     <header class="container-fluid">
+      
         <nav class="navbar navbar-expand-md">
-            <a href="/"><img id="logo" src="~/Image/logo1.png" width="60" height="60" /></a>
-            <button class="navbar-toggler" style="background-color:#e3f2fd;" type="button" data-toggle="collapse" data-target="#main-navigation">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                    Profil
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                    <li><a class="dropdown-item" href="/Utilisateur/ModifierMotDePasse">Mon mot de Passe</a></li>
+                    <li><a class="dropdown-item" href="/Utilisateur/ModifierUtilisateur">Mes Informations</a></li>
+                    <li><a class="dropdown-item" href="/Home/Deconnexion">Déconnexion</a></li>
+                </ul>
+            </div>
+            <div style="margin-left: 5px">Bonjour @User.Identity.Name.Split(" ")[0]</div>
+            <button class="navbar-toggler"
+                    style="background-color:#e3f2fd"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#main-navigation"
+                    aria-controls="main-navigation"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div style="margin-left: 5px">Bonjour @User.Identity.Name</div>
-
             <div class="collapse navbar-collapse" id="main-navigation">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Accueil</a>
+                    <li class="nav-item active">
+                        <a href="/" class="nav-link">Accueil</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/annonce/">Annonces</a>
+                    <li class="nav-item active">
+                        <a href="/annonce/" class="nav-link">Annonces</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cagnotte/">Cagnottes</a>
+                    <li class="nav-item active">
+                        <a href="/cagnotte/" class="nav-link">Cagnottes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact/PageContact">Contact</a>
+                    <li class="nav-item active">
+                        <a href="/contact/PageContact" class="nav-link">Contact</a>
                     </li>
                 </ul>
             </div>
-            <div class="header-pic">
-                <div class="profil-image">
-                </div>
-                <div>
-                    <svg viewBox="0 0 16 16"><path d="M8 12L2 6h12z"></path></svg>
-                </div>
-            </div>
+            <a href="/"><img id="logo" src="/Image/logo1.png" width="60" height="60" /></a>
         </nav>
-
     </header>
     <div class="contact-body">
 
         @using (Html.BeginForm("PageContact", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" })) //1. nom du titre de la page, 2, nom du controller,
         {
             <div class="contact-title">
-                <h5>Pour rester en contact</h5>
+                <div class="animate__animated animate__backInDown titreAnnonce">Pour rester en contact</div>
             </div>
             <div class="box">
                 <!--Form-->
@@ -77,6 +86,7 @@
                                 <div class="inputBox">
                                     <span>Email</span>
                                     @Html.TextBoxFor(model => model.De, new { @class = "input", placeholder = "pierredupont@mail.com" })
+                                    @Html.ValidationMessageFor(model => model.email)
                                 </div>
                                 <div class="inputBox">
                                     <span>Sujet</span>
@@ -103,15 +113,15 @@
                     <h6>CoproBox</h6>
                     <div class="infoBox">
                         <div>
-                            <span><img src="~/Image/contact/contact-map.png" width="23" height="23" /></span>
+                            <span><img src="/Image/contact/contact-map.png" width="23" height="23" /></span>
                             <p>2, avenue du Maréchal LECLERC,<br> MALAKOFF FRANCE</p>
                         </div>
                         <div>
-                            <span><img src="~/Image/enveloppe-user.png" width="23" height="23" /></span>
+                            <span><img src="/Image/enveloppe-user.png" width="23" height="23" /></span>
                             <a href="mailto:contact.coprobox@gmail.com">contact.coprobox@gmail.com</a>
                         </div>
                         <div>
-                            <span><img src="~/Image/user-phone.png" width="23" height="23" /></span>
+                            <span><img src="/Image/user-phone.png" width="23" height="23" /></span>
                             <a href="mailto:coprobox@gmail.com">+33 01 42 01 00 00</a>
                         </div>
                         <!--Réseaux sociaux-->
@@ -145,7 +155,7 @@
                         <div class="text">
                             <ul class="list-style">
                                 <li>Notre histoire</li>
-                                <li>Notre équipe</li>
+                                <li><a href="/contact/equipe">Notre équipe</a></li>
                             </ul>
                         </div>
                     </div>
@@ -157,7 +167,7 @@
                         </div>
                         <div class="text">
                             <ul class="list-style">
-                                <li>Contacts</li>
+                                <li><a href="/contact/PageContact">Contacts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -169,7 +179,7 @@
                         </div>
                         <div class="text">
                             <ul class="list-style">
-                                <li><a href="" class="d-block">Politique de confidentialité</a></li>
+                                <li><a href="/Fichier/PolitiqueConfidentialite.pdf" class="d-block">Politique de confidentialité</a></li>
                             </ul>
                         </div>
                     </div>

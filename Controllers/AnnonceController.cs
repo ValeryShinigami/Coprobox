@@ -30,7 +30,7 @@ namespace coproBox.Controllers
 
         {
           
-            List<Annonce> listeDesAnnonces = dal.ObtientToutesLesAnnonces();
+            List<Annonce> listeDesAnnonces = dal.ObtientLesAnnoncesValidees();
             return View(listeDesAnnonces);
         }
 
@@ -82,7 +82,7 @@ namespace coproBox.Controllers
              {
                  annonce.Image.CopyTo(fileStream);
              }
-            
+            annonce.StatutAnnonce = StatutAnnonce.Attente;
             dal.CreerAnnonce(annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, "/Image/" + annonce.Image.FileName, Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value));
 
 
@@ -111,7 +111,7 @@ namespace coproBox.Controllers
         {
             if (!ModelState.IsValid)
                 return View(annonce);
-
+          
             if (annonce.Image != null)
             {
                 if (annonce.Image.Length != 0)
@@ -122,12 +122,12 @@ namespace coproBox.Controllers
                     {
                         annonce.Image.CopyTo(fileStream);
                     }
-                    dal.ModifierAnnonce(annonce.Id, annonce.Titre,annonce.Description, annonce.TauxHoraire,annonce.Tarif, annonce.DateDebut, annonce.DateFin,annonce.TypeService, "/Image/" + annonce.Image.FileName);
+                    dal.ModifierAnnonce(annonce.Id, annonce.Titre,annonce.Description, annonce.TauxHoraire,annonce.Tarif, annonce.DateDebut, annonce.DateFin,annonce.TypeService, "/Image/" + annonce.Image.FileName, StatutAnnonce.Attente);
                 }
             }
             else
             {
-                dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath);
+                dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath, StatutAnnonce.Attente);
             }
             return RedirectToAction("Index");
         }
@@ -143,6 +143,39 @@ namespace coproBox.Controllers
         {
             dal.SupprimerAnnonce(id);
             return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult VerifierAnnonce(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+            return View(annonce);
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult Valider(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+            dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath, StatutAnnonce.EnLigne);
+            return RedirectToAction("Index", "Utilisateur");
+        }
+
+        [Authorize(Roles = "Administrateur,Moderateur")]
+        public ActionResult Refuser(int id)
+        {
+            Annonce annonce = dal.ObtientToutesLesAnnonces().FirstOrDefault(a => a.Id == id);
+            if (annonce == null)
+                return View("Error");
+
+          
+            dal.ModifierAnnonce(annonce.Id, annonce.Titre, annonce.Description, annonce.TauxHoraire, annonce.Tarif, annonce.DateDebut, annonce.DateFin, annonce.TypeService, annonce.ImagePath, StatutAnnonce.Non_Validée);
+            return RedirectToAction("Index", "Utilisateur");
         }
     }
 }
