@@ -61,6 +61,7 @@ namespace coproBox.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrateur,Moderateur")]
         public IActionResult CreerUtilisateur(Utilisateur utilisateur)
         {
             if (!ModelState.IsValid)
@@ -113,6 +114,7 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
+        //MODIFIER UN MOT DE PASSE
         //GET
         public IActionResult ModifierMotDePasse(int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
         {
@@ -131,8 +133,24 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
-    }
+        //SUPPRIMER UN UTILISATEUR
+        //GET
+        public IActionResult SupprimerUtilisateur (int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
+        {
+           return View();
+        }
 
+        [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Administrateur")]
+        public IActionResult SupprimerConfirmer(int id)
+        {
+            dal.SupprimerUtilisateur(id);
+            return RedirectToAction("Index");
+        }
+
+        
+       
+    }
 }
 
 /*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK

@@ -50,5 +50,16 @@ namespace coproBox.Controllers
            // ViewBag.Message = "Mail envoyé avec succès!";
             return View();
         }
+
+        //CONTACTS
+        public IActionResult Equipe()
+        {
+            var p = new Profil
+            {
+                username = "Fouzi",
+                description = "Le sensei du Back, l'amoureux des bugs et casses-tetes"
+            };
+            return View();
+        }
     }
 }
