@@ -734,7 +734,7 @@ justify-content:space-around;
     display:flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../image/propriete.jpeg');
+    background-image: url('../Image/propriete.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -760,7 +760,7 @@ justify-content:space-around;
 .conteneur .Logo {
     height: 260px;
     width: 260px;
-    background-image: url('../image/logo2.png');
+    background-image: url('../Image/logo2.png');
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -811,7 +811,7 @@ justify-content:space-around;
 }
 
 .conteneur .box4 {
-    background-image: url('../image/home-activites.png');
+    background-image: url('../Image/home-activites.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
