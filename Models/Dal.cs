@@ -110,8 +110,8 @@ namespace coproBox.Models
         /*************************** AUTHENTIFICATION utilisateur*******************/
         public Utilisateur Authentifier(string email, string motdepasse)
         {
-            string motDePasse = /*EncodeMD5(*/motdepasse/*)*/;
-            Utilisateur user = this._bddContext.Utilisateurs.FirstOrDefault(u => u.Compte.email == email && u.Compte.motDePasse == motDePasse);
+            string motDePasse = EncodeMD5(motdepasse);
+            Utilisateur user = ObtientTousLesUtilisateurs().FirstOrDefault(u => u.Compte.email == email && u.Compte.motDePasse == motDePasse);
             return user;
         }
 
@@ -224,6 +224,19 @@ namespace coproBox.Models
                 cagnotteARemplacer.EcheanceCagnotte = cagnotte.EcheanceCagnotte;
                 _bddContext.SaveChanges();
             }
+        }
+
+        public int CreerParticipationCagnotte(ParticipationCagnotte participationCagnotte)
+        {
+            ParticipationCagnotte ParticipationCagnotte = new ParticipationCagnotte()
+            {
+                UtilisateurId = participationCagnotte.UtilisateurId,
+                Montant = participationCagnotte.Montant,
+                CagnotteId = participationCagnotte.CagnotteId
+            };
+            _bddContext.ParticipationCagnottes.Add(ParticipationCagnotte);
+            _bddContext.SaveChanges();
+            return ParticipationCagnotte.Id;
         }
 
         // QUITTANCE

@@ -5,9 +5,16 @@
 }
 <div class="dashboard">
     <h1 style="text-align:center;">Tableau de Bord</h1>
-    <div class="dash-notifications">
-    </div>
-    @Html.Partial("DashboardAdmin")
-    @Html.Partial("DashboardModerateur")
+   @* <div class="dash-notifications">
+    </div>*@
+    @if (Context.User.IsInRole("Administrateur"))
+    {
+        @Html.Partial("DashboardAdmin")
+    }
+
+    @if (Context.User.IsInRole("Moderateur") || Context.User.IsInRole("Administrateur"))
+    {
+        @Html.Partial("DashboardModerateur")
+    }
     @Html.Partial("DashboardUtilisateur")
 </div>
