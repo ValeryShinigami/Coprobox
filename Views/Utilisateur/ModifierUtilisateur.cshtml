@@ -4,6 +4,9 @@
     ViewBag.Title = "Modifier un utilisateur";
 }
 
+
+   
+
 <div class="animate__animated animate__backInDown titreAnnonce">Modifier un utilisateur</div>
 
 <div class="body-info-create">
@@ -175,8 +178,6 @@
                     <button class="btn btnCard-user" type="submit">Valider</button>
                     @if (Context.User.IsInRole("Administrateur"))
                     {
-                        <button class="btn btnCard-user-delete" type="submit">Supprimer</button>
-
                         <a href=# class="btnSupprimer card-link" data-bs-toggle="modal" data-bs-target="#exampleModal2">Supprimer</a>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -186,7 +187,7 @@
                                         <h5 class="modal-title" id="exampleModalLabel2">
                                             <img src="/Image/attention.jpg" style="width: 80px; height:80px" alt="">
                                         </h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        
                                     </div>
                                     <div class="modal-body">
                                         Êtes-vous sûr de vouloir supprimer cet utilisateur?

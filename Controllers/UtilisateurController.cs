@@ -142,13 +142,13 @@ namespace coproBox.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost, ActionName("Delete")]
-        [Authorize(Roles = "Administrateur")]
-        public IActionResult SupprimerConfirmer(int id)
-        {
-            dal.SupprimerUtilisateur(id);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[Authorize(Roles = "Administrateur")]
+        //public IActionResult SupprimerConfirmer(int id)
+        //{
+        //    dal.SupprimerUtilisateur(id);
+        //    return RedirectToAction("Index");
+        //}
 
         
        
