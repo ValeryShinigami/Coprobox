@@ -128,22 +128,7 @@ namespace coproBox.Controllers
             dal.ModifierUtilisateur(utilisateur);
             return RedirectToAction("Index");
         }
-
     }
-
 }
 
-/*Utilisateur.InfosPersonnelle.Nom = utilisateur.InfosPersonnelle.Nom; OK
-Utilisateur.InfosPersonnelle.Prenom = utilisateur.InfosPersonnelle.Prenom; OK
-Utilisateur.InfosPersonnelle.dateNaissance = utilisateur.InfosPersonnelle.dateNaissance; OK
-Utilisateur.Adresse.numeroPorte = Utilisateur.Adresse.numeroPorte; OK
-Utilisateur.Adresse.numeroRue = Utilisateur.Adresse.numeroRue; OK
-Utilisateur.Adresse.nomRue = Utilisateur.Adresse.nomRue; OK
-Utilisateur.Adresse.codePostal = Utilisateur.Adresse.codePostal; OK
-Utilisateur.Adresse.nomVille = Utilisateur.Adresse.nomVille;
-Utilisateur.Compte.numeroIdentifiant = Utilisateur.Compte.numeroIdentifiant;
-Utilisateur.Compte.role = Utilisateur.Compte.role;
-Utilisateur.Compte.motDePasse = Utilisateur.Compte.motDePasse; OK
-Utilisateur.Compte.email = Utilisateur.Compte.email; OK
-Utilisateur.InfosContact.telephone = Utilisateur.InfosContact.telephone;  OK */
 
