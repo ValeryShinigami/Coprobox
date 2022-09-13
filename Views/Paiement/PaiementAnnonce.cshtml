@@ -67,13 +67,21 @@
 
                 </div>
             </div>
-             <button type="submit" class="btn btn-primary" style="margin-left:30%" onclick="alert('Félicitation!! paiement réussi!')" >Payer</button>
+             <button type="submit" class="btn btn-primary" style="margin-left:30%" onclick="alert('Félicitations, paiement réussi !')" >Payer</button>
+            <div class="fill-my-form" onclick="remplirForm()"></div>
         </div>
     </form>
   
 </bodyCb>
 
-
-
-
-
+<script>
+    function remplirForm() {
+        document.getElementById('creditCard1').value = 1234;
+        document.getElementById('creditCard2').value = 4567;
+        document.getElementById('creditCard3').value = 8910;
+        document.getElementById('creditCard4').value = 1112;
+        document.getElementById('expireMM').value = "10";
+        document.getElementById('expireYY').value = "11";
+        document.getElementById('ccv1').value = 777;
+    }
+</script>
