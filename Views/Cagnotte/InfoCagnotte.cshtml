@@ -11,21 +11,12 @@
 <div class="cagnotte cagnotte-info mt-4">
     <div>
         <div class="heart-container">
-            @if (@Model.SommeActuelle < @Model.SommeObjectif && @Model.EcheanceCagnotte > DateTime.Now)
-            {
-                <div class="filling-heart">
-                    <img src="/Image/heartempty2.png" width="300" height="300" />
-                </div>
-            }
-            else
-            {
-                <div class="filling-heart">
-                    <img src="/Image/heartempty2.png" width="300" height="300" />
-                </div>
-            }
+            <div class="filling-heart">
+                <img src="/Image/Heartempty2.png" width="300" height="300" />
+            </div>
             <div class="img-container">
                 <div class="filling-heart h3art" style="height:@((int)(300*@Model.SommeActuelle/@Model.SommeObjectif))px; top:@((int)((-300.0)*@Model.SommeActuelle/@Model.SommeObjectif))px;">
-                    <img src="/Image/heartfull2.png" />
+                    <img src="/Image/Heartfull2.png" />
                 </div>
             </div>
         </div>
