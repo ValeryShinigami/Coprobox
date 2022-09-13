@@ -25,7 +25,7 @@
                         <div>
                             @Html.LabelFor(model => model.SommeObjectif, new { @class = "form-label" })
                         </div>
-                        @Html.EditorFor(model => model.SommeObjectif, new { @class = "form-control", htmlAttributes = new { type = "number", min = 0 } })
+                        @Html.EditorFor(model => model.SommeObjectif, new { @class = "form-control", htmlAttributes = new { type = "number", min = Model.SommeActuelle } })
                         @Html.ValidationMessageFor(model => model.SommeObjectif)
                     </div>
                     <div>
