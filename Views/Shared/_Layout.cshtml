@@ -16,8 +16,8 @@
                     Profil
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-                    <li><a class="dropdown-item" href="/Utilisateur/ModifierMotDePasse">Mon mot de Passe</a></li>
-                    <li><a class="dropdown-item" href="/Utilisateur/ModifierUtilisateur">Mes Informations</a></li>
+                    <li><a class="dropdown-item" href="/Utilisateur/ModifierMotDePasse/@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value">Mon mot de Passe</a></li>
+                    <li><a class="dropdown-item" href="/Utilisateur/ModifierUtilisateur/@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value">Mes Informations</a></li>
                     <li><a class="dropdown-item" href="/Home/Deconnexion">Déconnexion</a></li>
                 </ul>
             </div>
