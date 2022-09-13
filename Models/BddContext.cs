@@ -143,7 +143,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/party.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne 
                },
                new Annonce
                {
@@ -173,7 +174,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/chien.jpg",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne
                },
                new Annonce
                {
@@ -188,7 +190,8 @@ namespace coproBox.Models
                    ImagePath = "/Image/enfant.png",
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
-                   CompteId = 1
+                   CompteId = 1,
+                   StatutAnnonce = StatutAnnonce.EnLigne
                },
 
                new Annonce
@@ -205,7 +208,7 @@ namespace coproBox.Models
                    UtilisateurId = 1,
                    InfosPersonnelleId = 1,
                    CompteId = 1,
-                   StatutAnnonce = StatutAnnonce.Attente        
+                   StatutAnnonce = StatutAnnonce.EnLigne        
                }
            ); 
             this.Cagnottes.AddRange(

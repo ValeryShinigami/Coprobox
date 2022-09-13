@@ -134,7 +134,7 @@ namespace coproBox.Models
         {
             Utilisateur utilisateur = ObtenirUtilisateur(id);
 
-            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle, Compte = utilisateur.Compte};
+            Annonce annonceToAdd = new Annonce { Titre = titre, Description = description, TauxHoraire = tauxHoraire, Tarif = tarif, DateDebut = dateDebut, DateFin = dateFin, TypeService = typeService,ImagePath = imagePath, Utilisateur=utilisateur, InfosPersonnelle =  utilisateur.InfosPersonnelle, Compte = utilisateur.Compte, StatutAnnonce = StatutAnnonce.Attente };
 
            
             this._bddContext.Annonces.Add(annonceToAdd);
@@ -150,7 +150,10 @@ namespace coproBox.Models
         {
             return this._bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).FirstOrDefault(u => u.Id == id);
         }
-
+        public List<Annonce> ObtientLesAnnoncesValidees() 
+        {
+            return this._bddContext.Annonces.Include(a => a.Utilisateur).Include(a => a.InfosPersonnelle).Include(a => a.Compte).Where(a=>a.StatutAnnonce == StatutAnnonce.EnLigne).ToList();
+        }
         public void SupprimerAnnonce(int id)
         {
             Annonce annonceToDelete = this._bddContext.Annonces.Find(id);
@@ -161,7 +164,7 @@ namespace coproBox.Models
         //supprimer annonce suite
 
         //modifier annonce
-        public void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath)
+        public void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, StatutAnnonce statutAnnonce)
         {
             Annonce annonceToUpdate = this._bddContext.Annonces.Find(id);
             if (annonceToUpdate != null)
@@ -174,6 +177,7 @@ namespace coproBox.Models
                 annonceToUpdate.DateFin = dateFin;
                 annonceToUpdate.TypeService=typeService;
                 annonceToUpdate.ImagePath = imagePath;
+                annonceToUpdate.StatutAnnonce = statutAnnonce;
                 this._bddContext.SaveChanges();
             }
         }
@@ -196,7 +200,7 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page)
         {
-            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now).Skip(page * 4).Take(4).ToList();
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now || c.SommeActuelle > c.SommeObjectif).Skip(page * 4).Take(4).ToList();
         }
 
         public int CombienDeCagnottesApres(int page)

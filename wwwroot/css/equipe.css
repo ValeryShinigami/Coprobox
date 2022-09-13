@@ -8,10 +8,10 @@
 
 body {
     background: #4DC7E4; 
-    font-family: "Josefin Sans", cursive;
     }
 .wrapper {
-    margin-top:10%;
+    margin-top: 10%;
+    font-family: "Josefin Sans", cursive;
 }
 
 .wrapper h1 {

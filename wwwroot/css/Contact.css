@@ -28,6 +28,7 @@ header {
 .nav-link {
     margin-right: 1em !important;
     font-size: 1.4em;
+    background:#F4F4F4;
 }
 
     .nav-link:hover {
