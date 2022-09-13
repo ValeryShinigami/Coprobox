@@ -31,10 +31,8 @@ textarea { /* for all text* area elements */
 .nav-link {
     margin-right: 1em !important;
     font-size: 1.4em;
-    border-bottom: 1px solid #ddd;
 }
 .navbar-nav {
-    margin-top: 25px;
     border-radius: 10px;
     background: #F4F4F4;
     isolation: isolate;
