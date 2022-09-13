@@ -196,7 +196,7 @@ namespace coproBox.Models
 
         public List<Cagnotte> ObtientCertainesAnciennesCagnottes(int page)
         {
-            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now).Skip(page * 4).Take(4).ToList();
+            return _bddContext.Cagnottes.Where(c => c.EcheanceCagnotte < DateTime.Now || c.SommeActuelle > c.SommeObjectif).Skip(page * 4).Take(4).ToList();
         }
 
         public int CombienDeCagnottesApres(int page)
