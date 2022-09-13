@@ -12,6 +12,7 @@
                 <th>Propriétaire</th>
                 <th>Role</th>
                 <th>Modifer</th>
+                <th>Supprimer</th>
             </tr>
             @foreach (var utilisateur in Model.Utilisateurs)
             {
@@ -22,6 +23,7 @@
             <td>@utilisateur.Compte.estProprietaire</td>
             <td>@utilisateur.Compte.Role</td>
             <td class="table-info"><a href="utilisateur/modifierutilisateur/@utilisateur.Id">Edit</a></td>
+            <td class="table-info"><a href="utilisateur/supprimerutilisateur/@utilisateur.Id">X</a></td>
         </tr>
             }
         </table>
