@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btnAnnonce btn" onclick="alert('Merci annonce créee')">Valider</button>
+                <button type="submit" class="btnAnnonce btn" onclick="alert('Merci, annonce créée.')">Valider</button>
                 <div class="fill-my-form" onclick="remplirForm()"></div>
             }
 
@@ -104,7 +104,7 @@
     function remplirForm(){
         document.getElementById('TypeService').value = 2;
         document.getElementById('Titre').value = "Aide courses";
-        document.getElementById('Description').value = "J'ai besoin d'aide pour remplir mon frigo.";
+        document.getElementById('Description').value = "Je vous propose d'aller faire vos courses pour vous.";
         document.getElementById('DateDebut').value = new Date().toISOString().substring(0, 10);
         document.getElementById('DateFin').value = new Date().toISOString().substring(0, 10);
         document.getElementById('TauxHoraire').value = 0;
