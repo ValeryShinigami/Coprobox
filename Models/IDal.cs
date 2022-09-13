@@ -22,11 +22,13 @@ namespace coproBox.Models
         // Gestion Annonces
 
         List<Annonce> ObtientToutesLesAnnonces();
-        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, int id = 0);
+        public void CreerAnnonce(string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, int id =0);
 
-        void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath);
+        void ModifierAnnonce(int id, string titre, string description, string tauxHoraire, int tarif, DateTime dateDebut, DateTime dateFin, TypeService typeService, string imagePath, StatutAnnonce statutAnnonce);
         public void SupprimerAnnonce(int id);
         public Annonce ObtenirUneAnnonce(int id);
+
+        public List<Annonce> ObtientLesAnnoncesValidees();
 
         // Gestion Cagnotte Solidaire
         public List<Cagnotte> ObtientToutesLesCagnottes();
