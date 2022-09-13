@@ -8,7 +8,7 @@
     <a href="/Cagnotte" class="btn btnCard-user">&lt;- Retour</a>
 </div>
 <div class="animate__animated animate__backInDown"><h2 class="header-cagnotte">Cagnotte</h2></div>
-<div class="cagnotte mt-4">
+<div class="cagnotte cagnotte-info mt-4">
     <div>
         <div class="heart-container">
             @if (@Model.SommeActuelle < @Model.SommeObjectif && @Model.EcheanceCagnotte > DateTime.Now)
@@ -44,7 +44,7 @@
         }
     </div>
 </div>
-<div class="body-info-create">
+<div class="body-info-create m-5">
     <div class="body-create">
         <div class="info-body">
             <form class="row g-3 mx-auto user-create-form" method="post">
@@ -55,7 +55,7 @@
                         <input type="number" name="Montant" id="Montant" min="0" class="form-control">
                     </div>
                     <div class="user-btn">
-                        <input type="submit" class="btn btnCard-user" value="Donner <3" />
+                        <input type="submit" class="btn btnCard-user" value="Donner !" />
                     </div>
                 }
             </form>
