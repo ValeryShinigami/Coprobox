@@ -135,7 +135,6 @@ namespace coproBox.Controllers
         }
 
         //SUPPRIMER UN UTILISATEUR
-        //GET
         [Authorize(Roles = "Administrateur")]
         public IActionResult SupprimerUtilisateur (int id) // sans annotation, par défaut, il s'agit d'un méthode http GET
         {

@@ -30,9 +30,17 @@ header {
     font-size: 1.4em;
 }
 
-    .nav-link:hover {
-        color: #4DC7E4;
-    }
+.nav-link:hover {
+    color: #4DC7E4;
+    background-color: #e7e7e7;
+}
+.
+
+.navbar-nav::after {
+    border-top: inherit;
+    border-left: inherit;
+    background-color: inherit;
+}
 
 .navbar-collapse {
     justify-content: flex-end;
