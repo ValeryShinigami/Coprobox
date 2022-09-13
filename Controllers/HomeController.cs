@@ -35,9 +35,9 @@ namespace coproBox.Controllers
             if (ModelState.IsValid)
             {
                 Utilisateur utilisateur = dal.Authentifier(viewModel.Utilisateur.Compte.email, viewModel.Utilisateur.Compte.motDePasse);
-                InfosPersonnelle infosPerso = dal.ObtenirUtilisateur(utilisateur.Id).InfosPersonnelle;
                 if (utilisateur != null)
                 {
+                    InfosPersonnelle infosPerso = dal.ObtenirUtilisateur(utilisateur.Id).InfosPersonnelle;
                     var userClaims = new List<Claim>()
                     {
                         new Claim(ClaimTypes.Name, infosPerso.Prenom +" "+ infosPerso.Nom),                    
@@ -55,6 +55,10 @@ namespace coproBox.Controllers
                     if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
                     return Redirect("/utilisateur");
+                }
+                else
+                {
+                    return View();
                 }
                 //ModelState.AddModelError("Utilisateur.Prenom", "Prénom et/ou mot de passe incorrect(s)");
             }

@@ -128,9 +128,12 @@ namespace coproBox.Controllers
             Utilisateur utilisateur = dal.ObtenirUtilisateur(id);
             if (dal.EncodeMD5(Oldpwd) == utilisateur.Compte.motDePasse)
             {
-                utilisateur.Compte.motDePasse = dal.EncodeMD5(Newpwd);
+                dal.ModifierMotDePasse(id, Newpwd);
             }
-            dal.ModifierUtilisateur(utilisateur);
+            else
+            {
+                return View();
+            }
             return RedirectToAction("Index");
         }
 
