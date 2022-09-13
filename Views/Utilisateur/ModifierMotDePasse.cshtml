@@ -1,14 +1,15 @@
 ﻿@model coproBox.Models.Utilisateur
 @{
     Layout = "_Layout";
+    ViewBag.Title = "Modifier son mot de passe";
 }
 
 
 
 <div class="body-info-create">
     <div class="body-create">
-        <div class="info-body">
-            <form class="row g-3 mx-auto user-edit-password" style="width:700px" method="post" enctype="multipart/form-data">
+        <div class="info-body" style="width:450px">
+            <form class="row g-3 mx-auto user-edit-password" style="width:400px" method="post" enctype="multipart/form-data">
                 @using (Html.BeginForm())
                 {
                     <div class="user-section">Mot de passe actuel</div>

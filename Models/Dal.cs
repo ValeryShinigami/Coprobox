@@ -101,9 +101,9 @@ namespace coproBox.Models
         /*************************** SUPPRIMER utilisateur**************************/
         public void SupprimerUtilisateur(int id)
         {
-            Utilisateur userDeleted = this._bddContext.Utilisateurs.Find(id);
-            this._bddContext.Utilisateurs.Remove(userDeleted);
-            this._bddContext.SaveChanges();
+            Utilisateur utilisateur = this._bddContext.Utilisateurs.Find(id);
+            this._bddContext.Utilisateurs.Remove(utilisateur);
+            _bddContext.SaveChanges();
         }
 
         /*************************** AUTHENTIFICATION utilisateur*******************/

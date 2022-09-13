@@ -9,6 +9,8 @@
     <Content Remove="Views\Compte\**" />
     <EmbeddedResource Remove="Views\Compte\**" />
     <None Remove="Views\Compte\**" />
+    <Content Remove="wwwroot\Fichier\" />
+    <Content Remove="wwwroot\Image\equipe\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +44,8 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="Views\Contact\" />
+    <Folder Include="wwwroot\Fichier\" />
+    <Folder Include="wwwroot\Image\equipe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

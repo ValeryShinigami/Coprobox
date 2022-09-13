@@ -22,7 +22,7 @@
                         <img id="layout-profil" src="~/Image/profil.png" width="60" height="60" />
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/Utilisateur/ModifierMotDePasse">Mode de Passe</a></li>
+                        <li><a class="dropdown-item" href="/Utilisateur/ModifierMotDePasse">Mot de Passe</a></li>
                         <li><a class="dropdown-item" href="/Utilisateur/ModifierUtilisateur">Profil</a></li>
                         <li><a class="dropdown-item" href="/Home/Deconnexion">Déconnexion</a></li>
                     </ul>
@@ -30,9 +30,7 @@
             </div>
 
                 <div class="col-8">
-                    <div style="margin-left: 5px">Bonjour @User.Identity.Name.Split(" ")[0]</div> @*Est-ce que ce code fonctionne parfaitement ?*@
-
-                    <nav class="navbar navbar-expand-md">
+                     <nav class="navbar navbar-expand-md">
                         <button class="navbar-toggler"
                                 style="background-color:#e3f2fd"
                                 type="button"
@@ -42,7 +40,7 @@
                                 aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div style="margin-left: 5px">Bonjour @User.Identity.Name</div> @*Est-ce que ce code fonctionne parfaitement ?*@
+                        <div style="margin-left: 5px">Bonjour @User.Identity.Name.Split(" ")[0]</div>
 
                         <div class="collapse navbar-collapse" id="main-navigation">
                             <ul class="navbar-nav">
@@ -106,7 +104,7 @@
                             <img class="icone" src="/Image/icone-mail.png" />
                         </div>
                         <div class="text">
-                            <p>info@coprobox.com</p>
+                            <p>contact.coprobox@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -117,7 +115,7 @@
                             <img class="icone" src="/Image/icone-adresse.png" />
                         </div>
                         <div class="text">
-                            <p>2 avenue du Général LECLERC <br /> 92240 MALAKOFF</p>
+                            <p>2 avenue du Maréchal LECLERC <br /> 92240 MALAKOFF</p>
                         </div>
                     </div>
                 </div>
@@ -136,7 +134,7 @@
                         <div class="text">
                             <ul class="list-style">
                                 <li>Notre histoire</li>
-                                <li>Notre équipe</li>
+                                <li><a href="/contact/equipe">Notre équipe</a></li>
                             </ul>
                         </div>
                     </div>
@@ -148,7 +146,7 @@
                         </div>
                         <div class="text">
                             <ul class="list-style">
-                                <li>Contacts</li>
+                                <li><a href="/contact/PageContact">Contacts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -160,7 +158,7 @@
                         </div>
                         <div class="text">
                             <ul class="list-style">
-                                <li><a href="" class="d-block">Politique de confidentialité</a></li>
+                                <li><a href="/Fichier/PolitiqueConfidentialite.pdf" class="d-block">Politique de confidentialité</a></li>
                             </ul>
                         </div>
                     </div>
