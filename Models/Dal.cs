@@ -76,8 +76,8 @@ namespace coproBox.Models
                     Utilisateur.Adresse.Ville = utilisateur.Adresse.Ville;
                 if(utilisateur.Compte.numeroIdentifiant != null)
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
-                if (utilisateur.Profil.ImageProfil != null)
-                    Utilisateur.Profil.ImageProfil = utilisateur.Profil.ImageProfil;
+                //if (utilisateur.Profil.ImageProfil != null)
+                //    Utilisateur.Profil.ImageProfil = utilisateur.Profil.ImageProfil;
                 //if(utilisateur.Role!= null)
                 //    Utilisateur.Role  = utilisateur.Role ;
                 Utilisateur.Compte.motDePasse = EncodeMD5(utilisateur.Compte.motDePasse);
