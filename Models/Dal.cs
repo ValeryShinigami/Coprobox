@@ -299,7 +299,7 @@ namespace coproBox.Models
         // DASHBOARD
         public List<Paiement> ObtientTousSesPaiements(int UserId)
         {
-            return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
+            return _bddContext.Paiements.Include(p => p.Annonce).Where(p => p.UtilisateurId == UserId).ToList();
         }
 
         public List<Reservation> ObtientToutesSesReservations(int UserId)
