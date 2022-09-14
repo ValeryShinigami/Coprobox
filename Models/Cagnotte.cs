@@ -16,12 +16,14 @@ namespace coproBox.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "La somme à atteindre doit être renseignée !")]
+        [Display(Name = "Somme objectif")]
         public double SommeObjectif { get; set; }
 
         public double SommeActuelle { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Il faut une date de fin pour la cagnotte !")]
+        [Display(Name = "Echeance cagnotte")]
         public DateTime EcheanceCagnotte { get; set; }
 
     }
