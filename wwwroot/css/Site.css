@@ -370,7 +370,7 @@ a {
 }
 
 .card__number {
-    font-size: 30px;
+    /*font-size: 30px;*/
     padding: 90px 0 15px;
     text-align: center;
 }
