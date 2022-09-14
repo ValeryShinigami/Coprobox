@@ -121,7 +121,7 @@ namespace coproBox.Controllers
             {
                 return View();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Deconnexion", "Home");
         }
 
         //SUPPRIMER UN UTILISATEUR
