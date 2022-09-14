@@ -19,7 +19,7 @@ namespace coproBox.Models
         [MaxLength(50)]
         [DataType(DataType.Password)]
         [Display(Name = "mot de passe")]
-        [Required (ErrorMessage ="Le mot de passe doit être rempli.")]
+        //[Required (ErrorMessage ="Le mot de passe doit être rempli.")]
         public string motDePasse { get; set; }
 
         [Display(Name = "nombre d'annonce ")]
