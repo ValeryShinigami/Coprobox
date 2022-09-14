@@ -36,7 +36,7 @@ namespace coproBox.Models
         }
 
         /*************************** Créer utilisateur*******************/
-        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role, bool estProprietaire)
+        public int CreerUtilisateur(string Nom, string Prenom, string email, string motDePasse, Role role, bool estProprietaire)
         {
             InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
             string password = EncodeMD5(motDePasse);
