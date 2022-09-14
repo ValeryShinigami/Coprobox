@@ -62,6 +62,18 @@ namespace coproBox.Models
                     Role = Role.Administrateur
                 },
 
+                 new Compte
+                 {
+                     Id = 3,
+                     numeroIdentifiant = "3",
+                     email = "amelie.durant@wanadoo.fr",
+                     motDePasse = "76-FD-F5-9F-3C-59-",
+                     nombreAnnonce = 0,
+                     codeIban = "FR76000 0000 000 0000",
+                     montant = 0,
+                     Role = Role.Utilisateur
+                 },
+
                 new Compte
                 {
                     Id = 2,
@@ -73,7 +85,7 @@ namespace coproBox.Models
                     montant = 0,
                     Role = Role.Moderateur
                 }
-            ); ;
+            ); 
             this.InfosPersonnelles.AddRange(
                 new InfosPersonnelle
                 {
@@ -86,10 +98,16 @@ namespace coproBox.Models
                     Id = 2,
                     Nom = "KALOMBO",
                     Prenom = "Valery"
+                },
+                new InfosPersonnelle
+                {
+                    Id = 3,
+                    Nom = "DURANT",
+                    Prenom = "Amélie"
                 }
             );
-
-           this.Adresses.AddRange(
+           
+            this.Adresses.AddRange(
                  new Adresse
                  {
                      Id = 1,
@@ -102,11 +120,20 @@ namespace coproBox.Models
                  new Adresse
                  {
                      Id = 2,
-                     NumeroPorte = "A105",
+                     NumeroPorte = "A601",
                      AdressePrincipale = "2 avenue du général Leclerc",
                      CodePostal = 92240,
                      Ville = "MALAKOFF"
-                 }
+                 },
+
+                  new Adresse
+                  {
+                      Id = 3,
+                      NumeroPorte = "A405",
+                      AdressePrincipale = "2 avenue du général Leclerc",
+                      CodePostal = 92240,
+                      Ville = "MALAKOFF"
+                  }
              );
 
             this.Utilisateurs.AddRange(
@@ -125,7 +152,15 @@ namespace coproBox.Models
                     CompteId = 2,
                     AdresseId = 2,
                     InfosPersonnelleId = 2,
-                    
+                },
+
+                new Utilisateur
+                {
+                    Id = 3,
+                    CompteId = 3,
+                    AdresseId = 3,
+                    InfosPersonnelleId = 3,
+
                 }
             );
             this.Annonces.AddRange(

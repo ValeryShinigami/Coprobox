@@ -74,9 +74,9 @@
             slides[i].style.display = "none";
         }
 
-        if (classe == "dash-cagnotte")
+        if (classe == "dash-cagnotte" && slides.length > 0)
             slides[slideIndexCagnotte - 1].style.display = "block";
-        if (classe == "dash-annonce") 
+        if (classe == "dash-annonce" && slides.length > 0)
             slides[slideIndexAnnonce - 1].style.display = "block"; 
     }
 </script>

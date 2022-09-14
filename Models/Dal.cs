@@ -36,7 +36,7 @@ namespace coproBox.Models
         }
 
         /*************************** Créer utilisateur*******************/
-        public int CreerUtilisateur(string Prenom, string Nom, string email, string motDePasse, Role role, bool estProprietaire)
+        public int CreerUtilisateur(string Nom, string Prenom, string email, string motDePasse, Role role, bool estProprietaire)
         {
             InfosPersonnelle infosPersonnelle = new InfosPersonnelle { Nom = Nom, Prenom = Prenom };
             string password = EncodeMD5(motDePasse);
@@ -76,6 +76,8 @@ namespace coproBox.Models
                     Utilisateur.Adresse.Ville = utilisateur.Adresse.Ville;
                 if(utilisateur.Compte.numeroIdentifiant != null)
                     Utilisateur.Compte.numeroIdentifiant = utilisateur.Compte.numeroIdentifiant;
+                //if (utilisateur.Profil.ImageProfil != null)
+                //    Utilisateur.Profil.ImageProfil = utilisateur.Profil.ImageProfil;
                 //if(utilisateur.Role!= null)
                 //    Utilisateur.Role  = utilisateur.Role ;
                 Utilisateur.Compte.motDePasse = EncodeMD5(utilisateur.Compte.motDePasse);
@@ -297,7 +299,7 @@ namespace coproBox.Models
         // DASHBOARD
         public List<Paiement> ObtientTousSesPaiements(int UserId)
         {
-            return _bddContext.Paiements.Where(p => p.UtilisateurId == UserId).ToList();
+            return _bddContext.Paiements.Include(p => p.Annonce).Where(p => p.UtilisateurId == UserId).ToList();
         }
 
         public List<Reservation> ObtientToutesSesReservations(int UserId)

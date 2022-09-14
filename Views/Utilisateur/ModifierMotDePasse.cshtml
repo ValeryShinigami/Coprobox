@@ -16,9 +16,9 @@
                     <div class="user-data">
                         <div class="user-nom">
                             <span class="input-group-text ">
-                                <img src="~/Image/user-mdp.png" width="23" height="23" />
+                                <img src="/Image/user-mdp.png" width="23" height="23" />
                             </span>
-                            @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password", name = "Oldpwd" } })
+                            <input type="password" class="user-input" placeholder="Mot de passe" name="Oldpwd" />
                         </div>
                         <div>
                             @Html.ValidationMessageFor(model => model.Compte.motDePasse)
@@ -28,9 +28,9 @@
                     <div class="user-data">
                         <div class="user-nom">
                             <span class="input-group-text ">
-                                <img src="~/Image/user-mdp.png" width="23" height="23" />
+                                <img src="/Image/user-mdp.png" width="23" height="23" />
                             </span>
-                            @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password", name = "Newpwd" } })
+                            <input type="password" class="user-input" placeholder="Mot de passe"  name="Newpwd"/>
                         </div>
                         <div>
                             @Html.ValidationMessageFor(model => model.Compte.motDePasse)
@@ -39,7 +39,7 @@
                     @*<div class="user-data">
                         <div class="user-nom">
                             <span class="input-group-text ">
-                                <img src="~/Image/user-mdp.png" width="23" height="23" />
+                                <img src="/Image/user-mdp.png" width="23" height="23" />
                             </span>
                             @Html.EditorFor(model => model.Compte.motDePasse, new { @class = "user-input", placeholder = "Mot de passe", htmlAttributes = new { type = "password" } })
                         </div>
@@ -50,7 +50,7 @@
                     <div class="user-formulaire">
                         <div class="user-create-btn">
                             <div class="user-btn">
-                                <a href="Index" class="btn btnCard-user">Valider</a>
+                                <input type="submit" class="btn btnCard-user" value="Valider" />
                             </div>
                         </div>
                     </div>
